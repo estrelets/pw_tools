@@ -11,5 +11,5 @@ solution: Pw.sln
 script:
   - sudo snap alias dotnet-sdk.dotnet dotnet
   - dotnet restore
-  - dotnet build ./src/Pw.sln -c Release 
-  - dotnet test ./src/Pw.sln -c Release
+  - dotnet build
+  - dotnet test
