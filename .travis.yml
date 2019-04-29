@@ -7,9 +7,12 @@ addons:
 sudo: required
 mono: none
 language: csharp
-solution: ./src/Pw.sln
-script:
+solution: Pw.sln
+install:
   - sudo snap alias dotnet-sdk.dotnet dotnet
+before_script:
+  - cd src
+script:
   - dotnet restore
   - dotnet build
   - dotnet test
