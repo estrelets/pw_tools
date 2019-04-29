@@ -1,6 +1,18 @@
+dist: xenial
+addons:
+  snaps:
+  - name: dotnet-sdk
+    classic: true
+    channel: latest/beta
+sudo: required
+mono: none
 language: csharp
+solution: Pw.sln
+install:
+  - sudo snap alias dotnet-sdk.dotnet dotnet
 before_script:
+  - cd src
+script:
   - dotnet restore
-script
-  - dotnet build ./src/Pw.sln -c Release 
-  - dotnet test ./src/Pw.sln -c Release
+  - dotnet build
+  - dotnet test
