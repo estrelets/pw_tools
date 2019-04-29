@@ -1,0 +1,6 @@
+language: csharp
+before_script:
+  - dotnet restore
+script
+  - dotnet build ./src/Pw.sln -c Release 
+  - dotnet test ./src/Pw.sln -c Release
