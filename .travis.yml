@@ -7,7 +7,7 @@ addons:
 sudo: required
 mono: none
 language: csharp
-solution: Pw.sln
+solution: ./src/Pw.sln
 script:
   - sudo snap alias dotnet-sdk.dotnet dotnet
   - dotnet restore
