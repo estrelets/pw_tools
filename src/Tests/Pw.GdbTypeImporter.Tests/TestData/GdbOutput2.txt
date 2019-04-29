@@ -1,0 +1,13 @@
+﻿struct NPC_SELL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        namechar page_title[8];
+        int require_contrib;
+        struct {
+            unsigned int id;
+            int contrib_cost;
+        } goods[32];
+    } pages[8];
+    unsigned int id_dialog;
+}

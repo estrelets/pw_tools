@@ -1,0 +1,29 @@
+﻿struct extend_prop {
+     unsigned int has_guid;
+     int energy;
+     int strength;
+     int agility;
+     int max_hp;
+     int max_mp;
+     int hp_gen;
+     int mp_gen;
+     float walk_speed;
+     float run_speed;
+     float swim_speed;
+     float flight_speed;
+     int attack;
+     int damage_low;
+     int damage_high;
+     int attack_speed;
+     float attack_range;
+     struct {
+         int damage_low;
+         int damage_high;
+     } addon_damage[5];
+     int damage_magic_low;
+     int damage_magic_high;
+     int resistance[5];
+     int defense;
+     int armor;
+     int max_ap;
+ };

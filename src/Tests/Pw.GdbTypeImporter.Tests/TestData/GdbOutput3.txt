@@ -1,0 +1,2045 @@
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct EQUIPMENT_ADDON {
+    unsigned int id;
+    namechar name[32];
+    int num_params;
+    int param1;
+    int param2;
+    int param3;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WEAPON_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WEAPON_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+    char file_hitgfx[128];
+    char file_hitsfx[128];
+    float probability_fastest;
+    float probability_fast;
+    float probability_normal;
+    float probability_slow;
+    float probability_slowest;
+    float attack_speed;
+    float attack_short_range;
+    unsigned int action_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WEAPON_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    unsigned int require_projectile;
+    char file_model_right[128];
+    char file_model_left[128];
+    char file_matter[128];
+    char file_icon[128];
+    int require_strength;
+    int require_agility;
+    int require_energy;
+    int require_tili;
+    unsigned int character_combo_id;
+    int require_level;
+    int require_reputation;
+    int level;
+    int fixed_props;
+    int damage_low;
+    int damage_high_min;
+    int damage_high_max;
+    int magic_damage_low;
+    int magic_damage_high_min;
+    int magic_damage_high_max;
+    float attack_range;
+    unsigned int short_range_mode;
+    int durability_min;
+    int durability_max;
+    int levelup_addon;
+    int material_need;
+    int price;
+    int shop_price;
+    int repairfee;
+    float drop_probability_socket0;
+    float drop_probability_socket1;
+    float drop_probability_socket2;
+    float make_probability_socket0;
+    float make_probability_socket1;
+    float make_probability_socket2;
+    float probability_addon_num0;
+    float probability_addon_num1;
+    float probability_addon_num2;
+    float probability_addon_num3;
+    float probability_addon_num4;
+    float probability_unique;
+    struct {
+        unsigned int id_addon;
+        float probability_addon;
+    } addons[32];
+    struct {
+        unsigned int id_rand;
+        float probability_rand;
+    } rands[32];
+    struct {
+        unsigned int id_unique;
+        float probability_unique;
+    } uniques[16];
+    int durability_drop_min;
+    int durability_drop_max;
+    int decompose_price;
+    int decompose_time;
+    unsigned int element_id;
+    int element_num;
+    unsigned int id_drop_after_damaged;
+    int num_drop_after_damaged;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ARMOR_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ARMOR_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int equip_mask;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ARMOR_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char realname[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int equip_location;
+    int level;
+    int require_strength;
+    int require_agility;
+    int require_energy;
+    int require_tili;
+    unsigned int character_combo_id;
+    int require_level;
+    int require_reputation;
+    int fixed_props;
+    int defence_low;
+    int defence_high;
+    struct {
+        int low;
+        int high;
+    } magic_defences[5];
+    int mp_enhance_low;
+    int mp_enhance_high;
+    int hp_enhance_low;
+    int hp_enhance_high;
+    int armor_enhance_low;
+    int armor_enhance_high;
+    int durability_min;
+    int durability_max;
+    int levelup_addon;
+    int material_need;
+    int price;
+    int shop_price;
+    int repairfee;
+    float drop_probability_socket0;
+    float drop_probability_socket1;
+    float drop_probability_socket2;
+    float drop_probability_socket3;
+    float drop_probability_socket4;
+    float make_probability_socket0;
+    float make_probability_socket1;
+    float make_probability_socket2;
+    float make_probability_socket3;
+    float make_probability_socket4;
+    float probability_addon_num0;
+    float probability_addon_num1;
+    float probability_addon_num2;
+    float probability_addon_num3;
+    struct {
+        unsigned int id_addon;
+        float probability_addon;
+    } addons[32];
+    struct {
+        unsigned int id_rand;
+        float probability_rand;
+    } rands[32];
+    int durability_drop_min;
+    int durability_drop_max;
+    int decompose_price;
+    int decompose_time;
+    unsigned int element_id;
+    int element_num;
+    unsigned int id_drop_after_damaged;
+    int num_drop_after_damaged;
+    unsigned int id_hair;
+    unsigned int id_hair_texture;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+    unsigned int force_all_magic_defences;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DECORATION_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DECORATION_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int equip_mask;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DECORATION_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_model[128];
+    char file_matter[128];
+    char file_icon[128];
+    int level;
+    int require_strength;
+    int require_agility;
+    int require_energy;
+    int require_tili;
+    unsigned int character_combo_id;
+    int require_level;
+    int require_reputation;
+    int fixed_props;
+    int damage_low;
+    int damage_high;
+    int magic_damage_low;
+    int magic_damage_high;
+    int defence_low;
+    int defence_high;
+    struct {
+        int low;
+        int high;
+    } magic_defences[5];
+    int armor_enhance_low;
+    int armor_enhance_high;
+    int durability_min;
+    int durability_max;
+    int levelup_addon;
+    int material_need;
+    int price;
+    int shop_price;
+    int repairfee;
+    float probability_addon_num0;
+    float probability_addon_num1;
+    float probability_addon_num2;
+    float probability_addon_num3;
+    struct {
+        unsigned int id_addon;
+        float probability_addon;
+    } addons[32];
+    struct {
+        unsigned int id_rand;
+        float probability_rand;
+    } rands[32];
+    int durability_drop_min;
+    int durability_drop_max;
+    int decompose_price;
+    int decompose_time;
+    unsigned int element_id;
+    int element_num;
+    unsigned int id_drop_after_damaged;
+    int num_drop_after_damaged;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MEDICINE_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MEDICINE_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MEDICINE_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int require_level;
+    int cool_time;
+    int hp_add_total;
+    int hp_add_time;
+    int mp_add_total;
+    int mp_add_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MATERIAL_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MATERIAL_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MATERIAL_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int decompose_price;
+    int decompose_time;
+    unsigned int element_id;
+    int element_num;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DAMAGERUNE_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DAMAGERUNE_ESSENCE {
+    unsigned int id;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int damage_type;
+    int price;
+    int shop_price;
+    int require_weapon_level_min;
+    int require_weapon_level_max;
+    int damage_increased;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ARMORRUNE_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ARMORRUNE_ESSENCE {
+    unsigned int id;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    char file_gfx[128];
+    char file_sfx[128];
+    unsigned int damage_type;
+    int price;
+    int shop_price;
+    int require_player_level_min;
+    int require_player_level_max;
+    float damage_reduce_percent;
+    int damage_reduce_time;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SKILLTOME_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SKILLTOME_ESSENCE {
+    unsigned int id;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FLYSWORD_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_model[128];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int level;
+    int require_player_level_min;
+    float speed_increase_min;
+    float speed_increase_max;
+    float speed_rush_increase_min;
+    float speed_rush_increase_max;
+    float time_max_min;
+    float time_max_max;
+    float time_increase_per_element;
+    unsigned int fly_mode;
+    unsigned int character_combo_id;
+    unsigned int id_drop_after_damaged;
+    int num_drop_after_damaged;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WINGMANWING_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_model[128];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int require_player_level_min;
+    float speed_increase;
+    int mp_launch;
+    int mp_per_second;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TOWNSCROLL_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    float use_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct UNIONSCROLL_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    float use_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct REVIVESCROLL_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    float use_time;
+    int cool_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ELEMENT_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int level;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TASKMATTER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_icon[128];
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TOSSMATTER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_model[128];
+    char file_matter[128];
+    char file_icon[128];
+    char file_firegfx[128];
+    char file_hitgfx[128];
+    char file_hitsfx[128];
+    int require_strength;
+    int require_agility;
+    int require_level;
+    int damage_low;
+    int damage_high_min;
+    int damage_high_max;
+    float use_time;
+    float attack_range;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PROJECTILE_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PROJECTILE_ESSENCE {
+    unsigned int id;
+    unsigned int type;
+    namechar name[32];
+    char file_model[128];
+    char file_matter[128];
+    char file_icon[128];
+    char file_firegfx[128];
+    char file_hitgfx[128];
+    char file_hitsfx[128];
+    int require_weapon_level_min;
+    int require_weapon_level_max;
+    int damage_enhance;
+    int damage_scale_enhance;
+    int price;
+    int shop_price;
+    unsigned int id_addon0;
+    unsigned int id_addon1;
+    unsigned int id_addon2;
+    unsigned int id_addon3;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct QUIVER_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct QUIVER_ESSENCE {
+    unsigned int id;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int id_projectile;
+    int num_min;
+    int num_max;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct STONE_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct STONE_ESSENCE {
+    unsigned int id;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int level;
+    int color;
+    int price;
+    int shop_price;
+    int install_price;
+    int uninstall_price;
+    unsigned int id_addon_damage;
+    unsigned int id_addon_defence;
+    namechar weapon_desc[16];
+    namechar armor_desc[16];
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MONSTER_ADDON {
+    unsigned int id;
+    namechar name[32];
+    int num_params;
+    int param1;
+    int param2;
+    int param3;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MONSTER_TYPE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        unsigned int id_addon;
+        float probability_addon;
+    } addons[16];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MONSTER_ESSENCE {
+    unsigned int id;
+    unsigned int id_type;
+    namechar name[32];
+    namechar prop[16];
+    namechar desc[16];
+    unsigned int faction;
+    unsigned int monster_faction;
+    char file_model[128];
+    char file_gfx_short[128];
+    char file_gfx_short_hit[128];
+    float size;
+    float damage_delay;
+    unsigned int id_strategy;
+    unsigned int role_in_war;
+    int level;
+    int show_level;
+    unsigned int id_pet_egg_captured;
+    int life;
+    int defence;
+    int magic_defences[5];
+    unsigned int immune_type;
+    int exp;
+    int skillpoint;
+    int money_average;
+    int money_var;
+    unsigned int short_range_mode;
+    int sight_range;
+    int attack;
+    int armor;
+    int damage_min;
+    int damage_max;
+    struct {
+        int damage_min;
+        int damage_max;
+    } magic_damages_ext[5];
+    float attack_range;
+    float attack_speed;
+    int magic_damage_min;
+    int magic_damage_max;
+    unsigned int id_skill;
+    int skill_level;
+    int hp_regenerate;
+    unsigned int aggressive_mode;
+    unsigned int monster_faction_ask_help;
+    unsigned int monster_faction_can_help;
+    float aggro_range;
+    float aggro_time;
+    unsigned int inhabit_type;
+    unsigned int patroll_mode;
+    unsigned int stand_mode;
+    float walk_speed;
+    float run_speed;
+    float fly_speed;
+    float swim_speed;
+    int attack_degree;
+    int defend_degree;
+    unsigned int common_strategy;
+    struct {
+        unsigned int id;
+        float probability;
+    } aggro_strategy[4];
+    struct {
+        unsigned int id_skill;
+        int level;
+        float probability;
+    } skill_hp75[5];
+    struct {
+        unsigned int id_skill;
+        int level;
+        float probability;
+    } skill_hp50[5];
+    struct {
+        unsigned int id_skill;
+        int level;
+        float probability;
+    } skill_hp25[5];
+    unsigned int after_death;
+    struct {
+        unsigned int id_skill;
+        int level;
+    } skills[32];
+    float probability_drop_num0;
+    float probability_drop_num1;
+    float probability_drop_num2;
+    float probability_drop_num3;
+    int drop_times;
+    int drop_protected;
+    struct {
+        unsigned int id;
+        float probability;
+    } drop_matters[32];
+    unsigned int highest_frequency;
+    int no_accept_player_buff;
+    int invisible_lvl;
+    int uninvisible_lvl;
+    int no_auto_fight;
+    int fixed_direction;
+    unsigned int id_building;
+    unsigned int combined_switch;
+    int hp_adjust_common_value;
+    int defence_adjust_common_value;
+    int attack_adjust_common_value;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TALK_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_SELL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        namechar page_title[8];
+        int require_contrib;
+        struct {
+            unsigned int id;
+            int contrib_cost;
+        } goods[32];
+    } pages[8];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_BUY_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_REPAIR_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_INSTALL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_goods[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_UNINSTALL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_goods[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TASK_IN_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_tasks[256];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TASK_OUT_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int storage_id;
+    unsigned int storage_open_item;
+    unsigned int storage_refresh_item;
+    int storage_refresh_per_day;
+    int storage_refresh_count_min;
+    int storage_refresh_count_max;
+    unsigned int id_tasks[256];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TASK_MATTER_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        unsigned int id_task;
+        struct {
+            unsigned int id_matter;
+            int num_matter;
+        } taks_matters[4];
+    } tasks[16];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_SKILL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_skills[128];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_HEAL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TRANSMIT_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int num_targets;
+    struct {
+        int idTarget;
+        int fee;
+        int required_level;
+    } targets[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TRANSPORT_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        unsigned int id;
+        unsigned int fee;
+    } routes[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_PROXY_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_STORAGE_SERVICE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_MAKE_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_make_skill;
+    int produce_type;
+    struct {
+        namechar page_title[8];
+        unsigned int id_goods[32];
+    } pages[8];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_DECOMPOSE_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_decompose_skill;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_type;
+    float refresh_time;
+    unsigned int attack_rule;
+    char file_model[128];
+    float tax_rate;
+    unsigned int id_src_monster;
+    namechar hello_msg[256];
+    unsigned int id_to_discover;
+    unsigned int domain_related;
+    unsigned int id_talk_service;
+    unsigned int id_sell_service;
+    unsigned int id_buy_service;
+    unsigned int id_repair_service;
+    unsigned int id_install_service;
+    unsigned int id_uninstall_service;
+    unsigned int id_task_out_service;
+    unsigned int id_task_in_service;
+    unsigned int id_task_matter_service;
+    unsigned int id_skill_service;
+    unsigned int id_heal_service;
+    unsigned int id_transmit_service;
+    unsigned int id_transport_service;
+    unsigned int id_proxy_service;
+    unsigned int id_storage_service;
+    unsigned int id_make_service;
+    unsigned int id_decompose_service;
+    unsigned int id_identify_service;
+    unsigned int id_war_towerbuild_service;
+    unsigned int id_resetprop_service;
+    unsigned int id_petname_service;
+    unsigned int id_petlearnskill_service;
+    unsigned int id_petforgetskill_service;
+    unsigned int id_equipbind_service;
+    unsigned int id_equipdestroy_service;
+    unsigned int id_equipundestroy_service;
+    unsigned int id_goblin_skill_service;
+    unsigned int combined_services;
+    unsigned int id_mine;
+    unsigned int no_collision;
+    unsigned int id_engrave_service;
+    unsigned int id_randprop_service;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_TEXTURE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_base_tex[128];
+    char file_high_tex[128];
+    char file_icon[128];
+    unsigned int tex_part_id;
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int visualize_id;
+    unsigned int user_data;
+    unsigned int facepill_only;
+    unsigned int fashion_head_only;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_SHAPE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_shape[128];
+    char file_icon[128];
+    unsigned int shape_part_id;
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int visualize_id;
+    unsigned int user_data;
+    unsigned int facepill_only;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_EMOTION_TYPE {
+    unsigned int id;
+    namechar name[32];
+    char file_icon[128];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_EXPRESSION_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_expression[128];
+    char file_icon[128];
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int emotion_id;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_HAIR_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_hair_skin[128];
+    char file_hair_model[128];
+    char file_icon[128];
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int visualize_id;
+    unsigned int facepill_only;
+    unsigned int fashion_head_only;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_MOUSTACHE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_moustache_skin[128];
+    char file_icon[128];
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int visualize_id;
+    unsigned int facepill_only;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct COLORPICKER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_colorpicker[128];
+    unsigned int color_part_id;
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct CUSTOMIZEDATA_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_data[128];
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct RECIPE_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct RECIPE_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct RECIPE_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    int recipe_level;
+    unsigned int id_skill;
+    int skill_level;
+    int bind_type;
+    struct {
+        unsigned int id_to_make;
+        float probability;
+    } targets[4];
+    float fail_probability;
+    int num_to_make;
+    int price;
+    float duration;
+    int exp;
+    int skillpoint;
+    struct {
+        unsigned int id;
+        int num;
+    } materials[32];
+    unsigned int id_upgrade_equip;
+    float upgrade_rate;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ENEMY_FACTION_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    unsigned int enemy_factions[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct CHARRACTER_CLASS_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    unsigned int character_class_id;
+    unsigned int faction;
+    unsigned int enemy_faction;
+    float attack_speed;
+    float attack_range;
+    int hp_gen;
+    int mp_gen;
+    float walk_speed;
+    float run_speed;
+    float swim_speed;
+    float fly_speed;
+    int crit_rate;
+    int vit_hp;
+    int eng_mp;
+    int agi_attack;
+    int agi_armor;
+    int lvlup_hp;
+    int lvlup_mp;
+    float lvlup_dmg;
+    float lvlup_magic;
+    float lvlup_defense;
+    float lvlup_magicdefence;
+    int angro_increase;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PARAM_ADJUST_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        int level_diff;
+        float adjust_exp;
+        float adjust_sp;
+        float adjust_money;
+        float adjust_matter;
+        float adjust_attack;
+    } level_diff_adjust[16];
+    struct {
+        float adjust_exp;
+        float adjust_sp;
+    } team_adjust[11];
+    struct {
+        float adjust_exp;
+        float adjust_sp;
+    } team_profession_adjust[11];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PLAYER_ACTION_INFO_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    char action_name[32];
+    char action_prefix[32];
+    struct {
+        char suffix[32];
+    } action_weapon_suffix[13];
+    unsigned int hide_weapon;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TASKDICE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    struct {
+        unsigned int id;
+        float probability;
+    } task_lists[8];
+    unsigned int use_on_pick;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TASKNORMALMATTER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_FALING_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_faling_skin[128];
+    char file_icon[128];
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int visualize_id;
+    unsigned int facepill_only;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PLAYER_LEVELEXP_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    int exp[150];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MINE_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MINE_ESSENCE {
+    unsigned int id;
+    unsigned int id_type;
+    namechar name[32];
+    unsigned int level;
+    unsigned int level_required;
+    unsigned int id_equipment_required;
+    unsigned int eliminate_tool;
+    unsigned int time_min;
+    unsigned int time_max;
+    int exp;
+    int skillpoint;
+    char file_model[128];
+    struct {
+        unsigned int id;
+        float probability;
+    } materials[16];
+    int num1;
+    float probability1;
+    int num2;
+    float probability2;
+    unsigned int task_in;
+    unsigned int task_out;
+    unsigned int uninterruptable;
+    struct {
+        unsigned int id_monster;
+        int num;
+        float radius;
+    } npcgen[4];
+    struct {
+        unsigned int monster_faction;
+        float radius;
+        int num;
+    } aggros[1];
+    unsigned int permenent;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_IDENTIFY_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int fee;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FASHION_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FASHION_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int equip_fashion_mask;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FASHION_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char realname[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int equip_location;
+    int level;
+    int require_level;
+    int require_dye_count;
+    int price;
+    int shop_price;
+    int gender;
+    unsigned int id_hair;
+    unsigned int id_hair_texture;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+    char wear_action[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACETICKET_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACETICKET_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACETICKET_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int require_level;
+    char bound_file[128];
+    unsigned int unsymmetrical;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACEPILL_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACEPILL_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACEPILL_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int duration;
+    float camera_scale;
+    unsigned int character_combo_id;
+    struct {
+        char file[128];
+    } pllfiles[20];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SUITE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    int max_equips;
+    struct {
+        unsigned int id;
+    } equipments[12];
+    struct {
+        unsigned int id;
+    } addons[11];
+    char file_gfx[128];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GM_GENERATOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GM_GENERATOR_ESSENCE {
+    unsigned int id;
+    unsigned int id_type;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int id_object;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PET_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PET_ESSENCE {
+    unsigned int id;
+    unsigned int id_type;
+    namechar name[32];
+    char file_model[128];
+    char file_icon[128];
+    unsigned int character_combo_id;
+    int level_max;
+    int level_require;
+    unsigned int pet_snd_type;
+    float hp_a;
+    float hp_b;
+    float hp_c;
+    float hp_gen_a;
+    float hp_gen_b;
+    float hp_gen_c;
+    float damage_a;
+    float damage_b;
+    float damage_c;
+    float damage_d;
+    float speed_a;
+    float speed_b;
+    float attack_a;
+    float attack_b;
+    float attack_c;
+    float armor_a;
+    float armor_b;
+    float armor_c;
+    float physic_defence_a;
+    float physic_defence_b;
+    float physic_defence_c;
+    float physic_defence_d;
+    float magic_defence_a;
+    float magic_defence_b;
+    float magic_defence_c;
+    float magic_defence_d;
+    float mp_a;
+    float mp_gen_a;
+    float attack_degree_a;
+    float defence_degree_a;
+    float size;
+    float damage_delay;
+    float attack_range;
+    float attack_speed;
+    int sight_range;
+    unsigned int food_mask;
+    unsigned int inhabit_type;
+    unsigned int stand_mode;
+    unsigned int plant_group;
+    int group_limit;
+    unsigned int immune_type;
+    int player_gain_skill;
+    int require_dye_count;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PET_EGG_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int id_pet;
+    int money_hatched;
+    int money_restored;
+    int honor_point;
+    int level;
+    int exp;
+    int skill_point;
+    struct {
+        int id_skill;
+        int level;
+    } skills[32];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PET_FOOD_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int level;
+    int hornor;
+    int exp;
+    int food_type;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PET_FACETICKET_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FIREWORKS_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    char file_fw[128];
+    int level;
+    int time_to_fire;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WAR_TANKCALLIN_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_WAR_TOWERBUILD_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        int id_in_build;
+        int id_buildup;
+        int id_object_need;
+        int time_use;
+        int fee;
+    } build_info[4];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct PLAYER_SECONDLEVEL_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    float exp_lost[256];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_RESETPROP_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        int id_object_need;
+        int strength_delta;
+        int agility_delta;
+        int vital_delta;
+        int energy_delta;
+    } prop_entry[15];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_PETNAME_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int id_object_need;
+    int price;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_PETLEARNSKILL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_skills[128];
+    unsigned int id_dialog;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_PETFORGETSKILL_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int id_object_need;
+    int price;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SKILLMATTER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int level_required;
+    int id_skill;
+    int level_skill;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct REFINE_TICKET_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    namechar desc[16];
+    float ext_reserved_prob;
+    float ext_succeed_prob;
+    unsigned int fail_reserve_level;
+    float fail_ext_succeed_prob[12];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DESTROYING_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_EQUIPBIND_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int id_object_need;
+    int price;
+    unsigned int bind_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_EQUIPDESTROY_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int id_object_need;
+    int price;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_EQUIPUNDESTROY_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    int id_object_need;
+    int price;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct BIBLE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int id_addons[10];
+    int price;
+    int shop_price;
+    unsigned int id_drop_after_damaged;
+    int num_drop_after_damaged;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SPEAKER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int id_icon_set;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct AUTOHP_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int total_hp;
+    float trigger_amount;
+    int cool_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct AUTOMP_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int total_mp;
+    float trigger_amount;
+    int cool_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DOUBLE_EXP_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int double_exp_time;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TRANSMITSCROLL_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct DYE_TICKET_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    float h_min;
+    float h_max;
+    float s_min;
+    float s_max;
+    float v_min;
+    float v_max;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GOBLIN_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_model1[128];
+    char file_model2[128];
+    char file_model3[128];
+    char file_model4[128];
+    char file_matter[128];
+    char file_icon1[128];
+    char file_icon2[128];
+    char file_icon3[128];
+    char file_icon4[128];
+    float exp_factor;
+    int init_strength;
+    int init_agility;
+    int init_energy;
+    int init_tili;
+    int max_refine_lvl;
+    int price;
+    int shop_price;
+    int default_skill1;
+    int default_skill2;
+    int default_skill3;
+    struct {
+        int rand_num;
+        float rand_rate;
+    } rand_prop[10];
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GOBLIN_EQUIP_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GOBLIN_EQUIP_ESSENCE {
+    unsigned int id;
+    unsigned int id_type;
+    namechar name[32];
+    char file_model[128];
+    char file_icon[128];
+    int equip_type;
+    int req_goblin_level;
+    int strength;
+    int agility;
+    int energy;
+    int tili;
+    int magic[5];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GOBLIN_EXPPILL_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int exp;
+    int level;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SELL_CERTIFICATE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char show_model[128];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int num_sell_item;
+    unsigned int num_buy_item;
+    unsigned int max_name_length;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct TARGET_ITEM_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int num_use_pertime;
+    int num_area;
+    int area_id[10];
+    unsigned int id_skill;
+    int skill_level;
+    int use_in_combat;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct LOOK_INFO_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct UPGRADE_PRODUCTION_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    int num_refine[12];
+    int num_weapon[2][20];
+    int num_armor[4][20];
+    int num_stone[20];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ACC_STORAGE_BLACKLIST_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    unsigned int blacklist[512];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_HAIR_TEXTURE_MAP {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        int model_id;
+        int texture_id;
+    } hair_texture_map[128];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct MULTI_EXP_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        int multi_time;
+        float rate;
+        int item_count;
+        int demulti_wait_time;
+        int demulti_time;
+    } choice[20];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct INC_SKILL_ABILITY_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int id_skill;
+    int level_required;
+    float inc_ratio;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct GOD_EVIL_CONVERT_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    int skill_map[128][2];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WEDDING_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        int start_hour;
+        int start_min;
+        int end_hour;
+        int end_min;
+    } wedding_session[10];
+    struct {
+        int year;
+        int month;
+        int day;
+    } reserved_day[20];
+    struct {
+        namechar name[16];
+        float pos[3];
+    } wedding_scene[10];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WEDDING_BOOKCARD_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int year;
+    int month;
+    int day;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WEDDING_INVITECARD_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct SHARPENER_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int level;
+    unsigned int equip_mask;
+    int addon[3];
+    int addon_time;
+    int gfx_index;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACE_THIRDEYE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_gfx[128];
+    char file_icon[128];
+    unsigned int character_combo_id;
+    unsigned int gender_id;
+    unsigned int facepill_only;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACTION_FORTRESS_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    int require_level;
+    struct {
+        int id;
+        int count;
+    } require_item[8];
+    struct {
+        int exp;
+        int tech_point;
+    } level[50];
+    int tech_point_cost[5][7];
+    int init_building[20];
+    int controller_id[100];
+    struct {
+        int id;
+        int value;
+    } common_value[100];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACTION_BUILDING_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACTION_BUILDING_ESSENCE {
+    unsigned int id;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_icon[128];
+    int level;
+    int require_level;
+    int technology[5];
+    int money;
+    int material[8];
+    int base_time;
+    int delta_time;
+    int controller_id0;
+    int controller_id1;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct FACTION_MATERIAL_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    int material_count[8];
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct CONGREGATE_ESSENCE {
+    unsigned int id;
+    namechar name[32];
+    char file_matter[128];
+    char file_icon[128];
+    unsigned int congregate_type;
+    int price;
+    int shop_price;
+    int pile_num_max;
+    unsigned int has_guid;
+    unsigned int proc_type;
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ENGRAVE_MAJOR_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ENGRAVE_SUB_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct ENGRAVE_ESSENCE {
+    unsigned int id;
+    unsigned int id_major_type;
+    unsigned int id_sub_type;
+    namechar name[32];
+    char file_icon[128];
+    int level;
+    unsigned int equip_mask;
+    int require_level_min;
+    int require_level_max;
+    int duration;
+    struct {
+        unsigned int id;
+        int num;
+    } materials[8];
+    float probability_addon_num[4];
+    struct {
+        unsigned int id;
+        float probability;
+    } addons[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_ENGRAVE_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    unsigned int id_engrave[16];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct NPC_RANDPROP_SERVICE {
+    unsigned int id;
+    namechar name[32];
+    struct {
+        namechar page_title[8];
+        unsigned int id_recipe;
+    } pages[8];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct RANDPROP_TYPE {
+    unsigned int id;
+    namechar name[32];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct RANDPROP_ESSENCE {
+    unsigned int id;
+    unsigned int id_type;
+    namechar name[32];
+    unsigned int id_skill;
+    int skill_level;
+    int money;
+    int duration;
+    unsigned int equip_id[32];
+    struct {
+        unsigned int id;
+        int num;
+    } materials[8];
+}
+type = Python Exception <type 'exceptions.ImportError'> No module named gdb.types: 
+struct WIKI_TABOO_CONFIG {
+    unsigned int id;
+    namechar name[32];
+    unsigned int essence[512];
+    unsigned int recipe[128];
+    unsigned int task[512];
+    unsigned int skill[128];
+}
