@@ -6,6 +6,7 @@ addons:
     channel: latest/beta
 sudo: required
 mono: none
+dotnet: 2.2.203
 language: csharp
 solution: Pw.sln
 install:
