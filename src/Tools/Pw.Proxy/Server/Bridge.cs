@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Threading;
@@ -11,39 +11,42 @@ namespace Pw.Proxy.Server
         private readonly Socket _sourceConnection;
         private readonly Socket _targetConnection;
         private readonly IPacketHandler _packetHandler;
-        private readonly PacketReader _sourceReader;
-        private readonly PacketReader _targetReader;
+        private readonly PacketReceiver _sourceReceiver;
+        private readonly PacketReceiver _targetReceiver;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public Bridge(Socket sourceConnection, Socket targetConnection, IPacketHandler packetHandler)
+        public Bridge(Socket sourceConnection, Socket targetConnection, IPacketHandler packetHandler, PerformanceAnalyzer performanceAnalyzer)
         {
             _packetHandler = packetHandler;
 
             _sourceConnection = sourceConnection;
             _targetConnection = targetConnection;
 
-            _sourceReader = new PacketReader(sourceConnection);
-            _targetReader = new PacketReader(targetConnection);
+            _sourceReceiver = CreateReceiver(sourceConnection);
+            _targetReceiver = CreateReceiver(targetConnection);
+
+            PacketReceiver CreateReceiver(Socket s) =>
+                new PacketReceiver(new SocketRawDataProducer(s), new PacketReader(performanceAnalyzer));
         }
 
-        public async Task Send(Direction direction, IEnumerable<Packet> packets)
+        public Task Send(Direction direction, IEnumerable<Packet> packets)
         {
             var socket = direction == Direction.Source
                 ? _sourceConnection
                 : _targetConnection;
 
-            await Send(socket, packets);
+            return Send(socket, packets);
         }
 
         public void Start()
         {
             _cancellationTokenSource = new CancellationTokenSource();
 
-            Start(_sourceReader, Direction.Source);
-            Start(_targetReader, Direction.Target);
+            Start(_sourceReceiver, Direction.Source);
+            Start(_targetReceiver, Direction.Target);
 
-            Task Start(PacketReader reader, Direction direction)
+            Task Start(PacketReceiver reader, Direction direction)
                 => Task.Run(() => Receive(reader, direction, _cancellationTokenSource.Token));
         }
 
@@ -52,11 +55,11 @@ namespace Pw.Proxy.Server
             _cancellationTokenSource.Cancel();
         }
 
-        private async Task Receive(PacketReader reader, Direction direction, CancellationToken cancellationToken)
+        private async Task Receive(PacketReceiver reader, Direction direction, CancellationToken cancellationToken)
         {
-            reader.BeginReceiveData(cancellationToken);
+            reader.StartReceive(cancellationToken);
 
-            await foreach (var packet in reader.Read(cancellationToken))
+            await foreach (var packet in reader.ReadPackets(cancellationToken))
             {
                 packet.Direction = direction;
                 _packetHandler.Handle(packet, this);

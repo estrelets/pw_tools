@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace Pw.Proxy
     public class Godfather
     {
         private readonly ProxyConfiguration _configuration;
+        private readonly PerformanceAnalyzer _performanceAnalyzer;
         private readonly ILogger _logger;
         private readonly List<Bridge> _bridges;
         private readonly List<ConnectionAcceptor> _receivers;
@@ -20,10 +22,10 @@ namespace Pw.Proxy
         public IReadOnlyCollection<Bridge> Bridges => _bridges;
         public IReadOnlyCollection<ConnectionAcceptor> Receivers => _receivers;
 
-        public Godfather(ProxyConfiguration configuration, ILogger logger)
+        public Godfather(ProxyConfiguration configuration, PerformanceAnalyzer performanceAnalyzer, ILogger logger)
         {
-            logger.Debug("asd");
             _configuration = configuration;
+            _performanceAnalyzer = performanceAnalyzer;
 
             _logger = logger;
 
@@ -55,7 +57,7 @@ namespace Pw.Proxy
         public void CreateBridge(Socket source, Socket target)
         {
             var handler = CreateHandler();
-            var bridge = new Bridge(source, target, handler);
+            var bridge = new Bridge(source, target, handler, _performanceAnalyzer);
             _logger.Info($"New bridge={bridge}");
             _bridges.Add(bridge);
             bridge.Start();
@@ -63,7 +65,22 @@ namespace Pw.Proxy
 
         private IPacketHandler CreateHandler()
         {
-            return new ComplexHandler(new StatisticHandler(), new EchoHandler());
+            var handlers = new List<IPacketHandler>();
+            handlers.Add(new EchoHandler());
+            AddPerformanceAnalyzeHandlers(handlers);
+
+            return new ComplexHandler(handlers);
         }
+
+        [Conditional(ConditionalOptions.CollectStatistic)]
+        private void AddPerformanceAnalyzeHandlers(List<IPacketHandler> handlers)
+        {
+            if(_performanceAnalyzer == null)
+                return;
+
+            handlers.Insert(0, new StartHandlerMeasure(_performanceAnalyzer));
+            handlers.Add(new FinishHandlerMeasure(_performanceAnalyzer));
+        }
+
     }
 }

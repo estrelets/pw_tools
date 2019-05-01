@@ -1,12 +1,13 @@
-﻿using Pw.Proxy.Server;
+using System.Collections.Generic;
+using Pw.Proxy.Server;
 
 namespace Pw.Proxy.Handlers
 {
     public class ComplexHandler : IPacketHandler
     {
-        private readonly IPacketHandler[] _handlers;
+        private readonly IEnumerable<IPacketHandler> _handlers;
 
-        public ComplexHandler(params IPacketHandler[] handlers)
+        public ComplexHandler(IEnumerable<IPacketHandler> handlers)
         {
             _handlers = handlers;
         }

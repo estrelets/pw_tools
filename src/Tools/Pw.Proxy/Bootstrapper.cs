@@ -1,7 +1,8 @@
-﻿using Autofac;
+using Autofac;
 using Pw.Configuration;
 using Pw.Logging;
 using Pw.Proxy.Configuration;
+using Pw.Proxy.Server;
 
 namespace Pw.Proxy
 {
@@ -43,6 +44,7 @@ namespace Pw.Proxy
                 .RegisterType<ProxyConfiguration>()
                 .SingleInstance();
 
+            builder.RegisterType<PerformanceAnalyzer>().SingleInstance();
             builder.RegisterType<ConsoleLogger>().As<ILogger>();
             builder.RegisterType<Godfather>();
         }
