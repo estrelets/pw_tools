@@ -1,93 +1,38 @@
-﻿using System;
+using System;
 using System.Buffers;
-using System.Buffers.Binary;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO.Pipelines;
-using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Pw.Proxy.Server
 {
-    /// <summary>
-    /// Takes socket and produce parsed Packets 
-    /// </summary>
-    public class PacketReader
+    public class PacketReader : IPacketReader
     {
-        private const int BufferSize = 1024;
+        private readonly PerformanceAnalyzer _analyzer;
 
-        private readonly Socket _socket;
-        private readonly Pipe _pipe;
-
-        public PacketReader(Socket socket)
+        public PacketReader(PerformanceAnalyzer analyzer = default)
         {
-            _socket = socket;
-            _pipe = new Pipe();
+            _analyzer = analyzer;
         }
 
-        public void BeginReceiveData(CancellationToken cancellationToken) => Task.Run(() => Receive(cancellationToken));
-
-
-        //public void BeginReceiveData()
-        //{
-        //    //Task.Run(() => Receive());
-        //    //var memory = _pipe.Writer.GetMemory(BufferSize);
-        //    _socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, EndReceiveData, null);
-
-        //    void EndReceiveData(IAsyncResult iar)
-        //    {
-        //        var length = _socket.EndReceive(iar);
-
-        //        var span = new Span<byte>(_buffer, 0, length);
-        //        _pipe.Writer.Write(span);
-        //        _pipe.Writer.FlushAsync().GetAwaiter().OnCompleted(BeginReceiveData);
-        //    }
-        //}
-
-
-        public async Task Receive(CancellationToken cancellationToken)
+        public async Task<Packet> Read(PipeReader reader, CancellationToken cancellationToken)
         {
-            var writer = _pipe.Writer;
-
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                try
-                {
-                    var memory = writer.GetMemory(BufferSize);
-                    var length = await _socket.ReceiveAsync(memory, SocketFlags.None, cancellationToken);
-
-                    writer.Advance(length);
-                    await writer.FlushAsync(cancellationToken);
-                }
-                catch (Exception ex)
-                {
-                    writer.Complete(ex);
-                    throw;
-                }
-            }
-        }
-
-        public async IAsyncEnumerable<Packet> Read(CancellationToken cancellationToken)
-        {
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                yield return await ReadPacket(_pipe.Reader, cancellationToken);
-            }
-        }
-
-        private async Task<Packet> ReadPacket(PipeReader reader, CancellationToken cancellationToken)
-        {
-            var sw = Stopwatch.StartNew();
             var packet = new Packet();
+            StartMeasure(packet);
 
             packet.OpCode = await ReadCuint(reader, cancellationToken);
             packet.Data = await ReadPayload(reader, cancellationToken);
 
-            sw.Stop();
-            packet.Elapsed = sw.ElapsedMilliseconds;
+            EndMeasure(packet);
             return packet;
         }
+
+        [Conditional(ConditionalOptions.CollectStatistic)]
+        public void StartMeasure(Packet p) =>_analyzer?.StartRead(p);
+
+        [Conditional(ConditionalOptions.CollectStatistic)]
+        public void EndMeasure(Packet p) => _analyzer?.FinishRead(p);
 
         private async Task<byte[]> ReadPayload(PipeReader reader, CancellationToken cancellationToken)
         {
@@ -118,14 +63,13 @@ namespace Pw.Proxy.Server
             var bytesToRead = (int)Math.Min(buffer.Length, memory.Length - alreadyRed);
 
             var memorySlice = memory.Span.Slice(alreadyRed, bytesToRead);
-            var bufferSlice = memorySlice.Slice(0, bytesToRead);
+            var bufferSlice = buffer.Slice(0, bytesToRead);
 
             bufferSlice.CopyTo(memorySlice);
             return bytesToRead;
         }
 
-
-        async Task<int> ReadCuint(PipeReader reader, CancellationToken cancellationToken)
+        private async Task<int> ReadCuint(PipeReader reader, CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
             {
