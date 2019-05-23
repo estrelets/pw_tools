@@ -1,0 +1,106 @@
+!Config
+Sections:
+- !BootstrapperConfiguration
+  LogsDirectory: /home/estr/Documents/server/logs/
+  BaseDirectory: /home/estr/Documents/server/
+  BaseEnvironmentArguments:
+    LD_LIBRARY_PATH: /home/estr/Documents/server/libs/
+  Services:
+    - Name: AntiCheat
+      RunTask: !run
+        Directory: gacd
+        AppName: gacd
+        Arguments: gamesys.conf
+    - Name: Game-DB
+      RunTask: !run
+        Directory: gamedbd
+        AppName: gamedbd
+        Arguments: gamesys.conf
+    - Name: Delivery
+      RunTask: !run
+        Directory: gdeliveryd
+        AppName: gdeliveryd
+        Arguments: gamesys.conf
+    - Name: Faction
+      RunTask: !run
+        Directory: gfactiond
+        AppName: gfactiond
+        Arguments: gamesys.conf
+    - Name: Link
+      RunTask: !run
+        Directory: glinkd
+        AppName: glinkd
+        Arguments: gamesys.conf 1
+    - Name: Log-service
+      RunTask: !run
+        Directory: logservice
+        AppName: logservice
+        Arguments: gamesys.conf
+    - Name: Uniquename
+      RunTask: !run
+        Directory: uniquenamed
+        AppName: uniquenamed
+        Arguments: gamesys.conf
+    - Name: Auth
+      RunTask: !command
+        Name: java
+        Arguments: -Dcom.wanmei.au.HitEncoding=GBK -cp /home/estr/Documents/server/mauthd/lib/mysql-connector-java-5.1.10-bin.jar:.:/home/estr/Documents/server/mauthd/lib/jio.jar:/home/estr/Documents/server/mauthd/lib/application.jar:/home/estr/Documents/server/mauthd/lib/commons-collections-3.1.jar:/home/estr/Documents/server/mauthd/lib/commons-dbcp-1.2.1.jar:/home/estr/Documents/server/mauthd/lib/commons-pool-1.2.jar:/home/estr/Documents/server/mauthd/lib/commons-logging-1.0.4.jar:/home/estr/Documents/server/mauthd/lib/log4j-1.2.9.jar:.:.:/usr/lib/jvm/java-8-openjdk-amd64/lib/lib/dt.jar:/usr/lib/jvm/java-8-openjdk-amd64/lib/lib/tools.jar authd table.xml Enthrallment
+        Directory: mauthd/build/
+    - Name: World
+      RunTask: !run
+        Directory: gamed
+        AppName: gs
+        Arguments: gs01
+  Scenarios:
+    - Name: KillThemAll
+      Tasks:
+      - !kill
+        AppNamePattern: dotnet booter.dll services
+        Signal: -15
+      - !kill
+        AppNamePattern: java -Dcom.wanmei.au.HitEncoding=GBK
+        Signal: -15
+      - !kill
+        AppNamePattern: /gacd
+        Signal: -15
+      - !kill
+        AppNamePattern: /glinkd
+        Signal: -15
+      - !kill
+        AppNamePattern: /gs
+        Signal: -15
+      - !kill
+        AppNamePattern: /gamedbd
+        Signal: -15
+      - !kill
+        AppNamePattern: /gdeliveryd
+        Signal: -15
+      - !kill
+        AppNamePattern: /gfactiond
+        Signal: -15
+      - !kill
+        AppNamePattern: /logservice
+        Signal: -15
+      - !kill
+        AppNamePattern: /uniquenamed
+        Signal: -15
+    - Name: UpdateAndRestart
+      Tasks:
+        - !command
+          Name: dotnet
+          Arguments: booter.dll KillThemAll
+          Directory: tools  
+        - !command
+          Name: dotnet
+          Arguments: elConverter.dll toElements -y "/home/estr/Documents/pw_sources/src/elements/" -e "/home/estr/Documents/pw_sources/build/elements.data" 
+          Directory: tools
+        - !command
+          Name: cp
+          Arguments: '"/home/estr/Documents/pw_sources/build/elements.data" "/home/estr/Documents/server/gamed/config/elements.data"'
+        - !command
+          Name: cp
+          Arguments: '"/home/estr/Documents/pw_sources/build/elements.data" "/home/estr/.PlayOnLinux/wineprefix/asa/drive_c/Program Files/client/element/data/elements.data"'
+        - !command
+          Name: dotnet
+          Arguments: booter.dll services
+          Directory: tools

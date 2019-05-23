@@ -24,6 +24,24 @@ namespace Pw.Proxy
             }
         }
 
+        public void StartAsProxy(NetworkAddress listen, NetworkAddress target)
+        {
+            using (var scope = _container.BeginLifetimeScope())
+            {
+                var config = scope.Resolve<ProxyConfiguration>();
+                config.Proxies = new[]
+                {
+                    new ProxyConfiguration.Item
+                    {
+                        Listen = listen, Target = target
+                    }
+                };
+
+                var gf = scope.Resolve<Godfather>();
+                gf.StartAll().GetAwaiter().GetResult();
+            }
+        }
+
         private IContainer CreateContainer()
         {
             var containerBuilder = new ContainerBuilder();
@@ -51,7 +69,7 @@ namespace Pw.Proxy
 
         private YamlConfigurationReader CreateYamlConfigurationReader()
         {
-            return new YamlConfigurationReader("config.yaml");
+            return YamlConfigurationReader.FromFile("config.yaml");
         }
     }
 }
