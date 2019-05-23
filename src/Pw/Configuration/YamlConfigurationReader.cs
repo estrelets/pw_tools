@@ -11,18 +11,23 @@ namespace Pw.Configuration
     public class YamlConfigurationReader : IConfigurationReader
     {
         private readonly Dictionary<string, IConfigurationSection> _sections;
+        private readonly IDeserializer _deserializer;
 
-        public YamlConfigurationReader(Stream source)
+        public YamlConfigurationReader(Stream source, Action<DeserializerBuilder> customize = default)
         {
+            _deserializer = YamlSerialization.CreateDeserializer(builder =>
+            {
+                RegisterTags(builder);
+                customize?.Invoke(builder);
+            });
             _sections = LoadSections(source);
         }
 
-        public YamlConfigurationReader(string configFilePath)
+        public static YamlConfigurationReader FromFile(string configFilePath,
+            Action<DeserializerBuilder> customize = default)
         {
-            using (var source = File.OpenRead(configFilePath))
-            {
-                _sections = LoadSections(source);
-            }
+            using var file = File.OpenRead(configFilePath);
+            return new YamlConfigurationReader(file, customize);
         }
 
         public TSection Read<TSection>(string name) where TSection : IConfigurationSection
@@ -30,15 +35,12 @@ namespace Pw.Configuration
             return (TSection)_sections[name];
         }
 
-
-
-        private static Dictionary<string, IConfigurationSection> LoadSections(Stream stream)
+        private Dictionary<string, IConfigurationSection> LoadSections(Stream stream)
         {
             var reader = new StreamReader(stream);
-            var deserializer = YamlSerialization.CreateDeserializer(RegisterTags);
 
-            var config = deserializer.Deserialize<Config>(reader);
-            return config.Sections.ToDictionary(key => key.Name ?? key.GetType().Name, value => value);
+            var config = _deserializer.Deserialize<Config>(reader);
+            return config.Sections.ToDictionary(key => key.GetType().Name, value => value);
         }
 
         public static void Save(IConfigurationSection[] sections, Stream stream)

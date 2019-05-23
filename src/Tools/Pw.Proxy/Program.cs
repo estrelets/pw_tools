@@ -9,19 +9,68 @@ namespace Pw.Proxy
 {
     class Program
     {
-        static int Main(string[] args)
+        static void Main(string[] args)
         {
             if (args == null || args.Length == 0)
             {
+                StartProxy();
+            }
+            else
+            {
+                Parser.Default
+                    .ParseArguments<LoadTestOptions, ProxyOptions>(args)
+                    .WithParsed<LoadTestOptions>(StartLoadSimulation)
+                    .WithParsed<ProxyOptions>(StartProxy)
+                    .WithNotParsed(errors => { });
+            }
+        }
+
+        static void StartProxy()
+        {
+            var bootstrapper = new Bootstrapper();
+            bootstrapper.StartAsProxy();
+        }
+
+        static void StartProxy(ProxyOptions proxyOptions)
+        {
+            if (NetworkAddress.TryParse(proxyOptions.Listen, out var listen)
+                && NetworkAddress.TryParse(proxyOptions.Target, out var target))
+            {
                 var bootstrapper = new Bootstrapper();
-                bootstrapper.StartAsProxy();
-                return 0;
+                bootstrapper.StartAsProxy(listen, target);
+            }
+            else
+            {
+                Console.WriteLine($"Parse {nameof(NetworkAddress)} error");
+            }
+        }
+        
+        static void StartLoadSimulation(LoadTestOptions options)
+        {
+            EchoServer server = null;
+            if (!options.NoServer)
+            {
+                server = new EchoServer(CreateAddress(options.ListenPort));
             }
 
-            return Parser.Default
-                .ParseArguments<LoadTestOptions>(args)
-                .MapResult(StartLoadSimulation, errors => -1);
+            var proxyAddress = CreateAddress(options.ProxyPort);
+
+            var clients = Enumerable.Range(0, options.ClientCount)
+                .Select(i => new RandomDataClient(proxyAddress, i))
+                .ToArray();
+
+            Console.ReadLine();
+            GC.KeepAlive(server);
+            GC.KeepAlive(clients);
+
+            NetworkAddress CreateAddress(int port)
+                => new NetworkAddress
+                {
+                    Ip = options.Host,
+                    Port = port
+                };
         }
+        
 
         [Verb("simulation")]
         private class LoadTestOptions
@@ -65,33 +114,27 @@ namespace Pw.Proxy
                     }),
             };
         }
-
-        static int StartLoadSimulation(LoadTestOptions options)
+        
+        [Verb("proxy")]
+        private class ProxyOptions
         {
-            EchoServer server = null;
-            if (!options.NoServer)
+            [Option("listen", HelpText = "Network address to list (ip:port)", Required = true)]
+            public string Listen { get; set; }
+            
+            [Option("target", HelpText = "Network address to connect (ip:port)", Required = true)]
+            public string Target { get; set; }
+
+            [Usage(ApplicationAlias = "proxy.exe")]
+            public static IEnumerable<Example> Usage => new[]
             {
-                server = new EchoServer(CreateAddress(options.ListenPort));
-            }
-
-            var proxyAddress = CreateAddress(options.ProxyPort);
-
-            var clients = Enumerable.Range(0, options.ClientCount)
-                .Select(i => new RandomDataClient(proxyAddress, i))
-                .ToArray();
-
-            Console.ReadLine();
-            GC.KeepAlive(server);
-            GC.KeepAlive(clients);
-
-            return 0;
-
-            NetworkAddress CreateAddress(int port)
-                => new NetworkAddress
-                {
-                    Ip = options.Host,
-                    Port = port
-                };
+                new Example("Start load simulation with 1 client",
+                    new ProxyOptions
+                    {
+                        Listen = "127.0.0.1:12315",
+                        Target = "127.0.0.1:12314"
+                    })
+                    
+            };
         }
     }
 }
