@@ -2,7 +2,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pw.Elements;
-using Pw.ElementsSerializer;
+using Pw.Serializer;
 using Tests.Common;
 
 namespace Pw.Tests.SerializerTests
@@ -86,7 +86,7 @@ namespace Pw.Tests.SerializerTests
         {
             var originalBytes = GetChunkFromSample(offset, length);
             var item = Deserialize<T>(offset);
-            var serializer = new Serializer();
+            var serializer = new ElementsSerializer();
 
             var memoryStream = new MemoryStream();
             serializer.Serialize(item, memoryStream);
@@ -99,7 +99,7 @@ namespace Pw.Tests.SerializerTests
         {
             using (var stream = GetSampleStream(offset))
             {
-                var serializer = new Serializer();
+                var serializer = new ElementsSerializer();
 
                 return serializer.DeSerialize<T>(stream);
             }

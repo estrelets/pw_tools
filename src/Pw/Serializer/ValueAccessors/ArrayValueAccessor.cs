@@ -1,6 +1,6 @@
 using System;
 
-namespace Pw.ElementsSerializer.ValueAccessors
+namespace Pw.Serializer.ValueAccessors
 {
     public class ArrayValueAccessor : IValueAccessor, IValueAssigner
     {

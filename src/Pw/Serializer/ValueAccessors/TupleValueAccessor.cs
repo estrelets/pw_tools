@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace Pw.ElementsSerializer.ValueAccessors
+namespace Pw.Serializer.ValueAccessors
 {
     public class TupleValueAccessor : IValueAccessor
     {

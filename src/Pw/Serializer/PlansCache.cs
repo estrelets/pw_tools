@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Pw.ElementsSerializer.Plans;
+using Pw.Serializer.Plans;
 
-namespace Pw.ElementsSerializer
+namespace Pw.Serializer
 {
     internal class PlansCache
     {

@@ -1,4 +1,4 @@
-﻿namespace Pw.ElementsSerializer.ValueAccessors
+﻿namespace Pw.Serializer.ValueAccessors
 {
     public interface IValueAccessor
     {

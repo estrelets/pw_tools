@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pw.ElementsSerializer
+namespace Pw.Serializer
 {
     public class NameStringAttribute : Attribute
     {

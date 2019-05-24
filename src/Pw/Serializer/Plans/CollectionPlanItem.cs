@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Pw.ElementsSerializer.ValueAccessors;
+using Pw.Serializer.Readers;
+using Pw.Serializer.ValueAccessors;
+using Pw.Serializer.Writers;
 
-namespace Pw.ElementsSerializer.Plans
+namespace Pw.Serializer.Plans
 {
     /// <summary>
     /// As Array but unknown size
@@ -28,28 +30,28 @@ namespace Pw.ElementsSerializer.Plans
             Childs = new[] { LengthPlan, childPlan };
         }
 
-        public void Serialize(object obj, Stream stream)
+        public void Serialize(object obj, IWriter writer, Stream stream)
         {
             var array = (Array)Accessor.Get(obj);
             var length = array.Length;
 
-            LengthPlan.Serialize(length, stream);
+            LengthPlan.Serialize(length, writer, stream);
 
             for (int i = 0; i < length; i++)
             {
                 var element = array.GetValue(i);
-                ChildPlan.Serialize(element, stream);
+                ChildPlan.Serialize(element, writer, stream);
             }
         }
 
-        public object Deserialize(object obj, Stream stream)
+        public object Deserialize(object obj, IReader reader, Stream stream)
         {
-            var length = (int)LengthPlan.Deserialize(obj, stream);
+            var length = (int)LengthPlan.Deserialize(obj, reader, stream);
             var array = (Array)Activator.CreateInstance(ArrayType, length);
 
             for (int i = 0; i < length; i++)
             {
-                var element = ChildPlan.Deserialize(null, stream);
+                var element = ChildPlan.Deserialize(null, reader, stream);
                 array.SetValue(element, i);
             }
 

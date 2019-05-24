@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using Pw.ElementsSerializer.Plans;
-using Pw.ElementsSerializer.ValueAccessors;
+using Pw.Serializer.Plans;
+using Pw.Serializer.ValueAccessors;
 
-namespace Pw.ElementsSerializer
+namespace Pw.Serializer
 {
     public class PlanBuilder
     {

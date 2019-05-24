@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Pw.ElementsSerializer.Plans
+namespace Pw.Serializer.Plans
 {
     public interface ICompositePlanItem : IPlanItem
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Pw.ElementsSerializer.Plans
+namespace Pw.Serializer.Plans
 {
     internal static class ComplexPlanPrinter
     {

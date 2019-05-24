@@ -2,9 +2,11 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using Pw.ElementsSerializer.ValueAccessors;
+using Pw.Serializer.Readers;
+using Pw.Serializer.ValueAccessors;
+using Pw.Serializer.Writers;
 
-namespace Pw.ElementsSerializer.Plans
+namespace Pw.Serializer.Plans
 {
     public class TuplePlanItem : ICompositePlanItem
     {
@@ -22,19 +24,19 @@ namespace Pw.ElementsSerializer.Plans
             Childs = childs;
         }
 
-        public void Serialize(object obj, Stream stream)
+        public void Serialize(object obj, IWriter writer, Stream stream)
         {
             var tuple = Accessor.Get(obj);
 
             foreach (var child in Childs)
             {
-                child.Serialize(tuple, stream);
+                child.Serialize(tuple, writer, stream);
             }
         }
 
-        public object Deserialize(object obj, Stream stream)
+        public object Deserialize(object obj, IReader reader, Stream stream)
         {
-            var values = Childs.Select(c => c.Deserialize(obj, stream)).ToArray();
+            var values = Childs.Select(c => c.Deserialize(obj, reader, stream)).ToArray();
             var instance = Activator.CreateInstance(TupleType, values);
 
             if (Accessor is IValueAssigner setter)

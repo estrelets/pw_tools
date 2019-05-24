@@ -2,8 +2,8 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pw.Elements;
-using Pw.ElementsSerializer;
-using Pw.ElementsSerializer.Plans;
+using Pw.Serializer;
+using Pw.Serializer.Plans;
 
 namespace Pw.Tests.SerializerTests
 {

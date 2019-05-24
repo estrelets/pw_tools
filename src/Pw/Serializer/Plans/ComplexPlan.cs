@@ -2,9 +2,11 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-using Pw.ElementsSerializer.ValueAccessors;
+using Pw.Serializer.Readers;
+using Pw.Serializer.ValueAccessors;
+using Pw.Serializer.Writers;
 
-namespace Pw.ElementsSerializer.Plans
+namespace Pw.Serializer.Plans
 {
     public class ComplexPlan : ICompositePlanItem
     {
@@ -19,22 +21,22 @@ namespace Pw.ElementsSerializer.Plans
             Childs = childs.ToArray();
         }
 
-        public void Serialize(object obj, Stream stream)
+        public void Serialize(object obj, IWriter writer, Stream stream)
         {
             var value = (Accessor is RootObject) ? obj : Accessor.Get(obj);
             foreach (var child in Childs)
             {
-                child.Serialize(value, stream);
+                child.Serialize(value, writer, stream);
             }
         }
 
-        public object Deserialize(object obj, Stream stream)
+        public object Deserialize(object obj, IReader reader, Stream stream)
         {
             var instance = Activator.CreateInstance(Type);
 
             foreach (var child in Childs)
             {
-                child.Deserialize(instance, stream);
+                child.Deserialize(instance, reader, stream);
             }
 
             if (Accessor is IValueAssigner setter)

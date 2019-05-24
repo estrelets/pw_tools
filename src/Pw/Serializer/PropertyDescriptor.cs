@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Pw.ElementsSerializer
+namespace Pw.Serializer
 {
     internal class PropertyDescriptor
     {
