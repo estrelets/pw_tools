@@ -66,7 +66,14 @@ namespace Pw.Proxy
         private IPacketHandler CreateHandler()
         {
             var handlers = new List<IPacketHandler>();
+            
             handlers.Add(new EchoHandler());
+
+            if (_configuration.PrintPackets)
+            {
+                handlers.Add(new PacketsPrintHandler(_configuration.PrintPacketFilePath));
+            }
+
             AddPerformanceAnalyzeHandlers(handlers);
 
             return new ComplexHandler(handlers);

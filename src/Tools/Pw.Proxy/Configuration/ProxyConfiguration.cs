@@ -6,6 +6,8 @@ namespace Pw.Proxy.Configuration
     {
         public string Name { get; set; }
         public Item[] Proxies { get; set; }
+        public bool PrintPackets { get; set; }
+        public string PrintPacketFilePath { get; set; }
 
         public class Item
         {

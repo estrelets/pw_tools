@@ -46,6 +46,11 @@ Sections:
         Name: java
         Arguments: -Dcom.wanmei.au.HitEncoding=GBK -cp /home/estr/Documents/server/mauthd/lib/mysql-connector-java-5.1.10-bin.jar:.:/home/estr/Documents/server/mauthd/lib/jio.jar:/home/estr/Documents/server/mauthd/lib/application.jar:/home/estr/Documents/server/mauthd/lib/commons-collections-3.1.jar:/home/estr/Documents/server/mauthd/lib/commons-dbcp-1.2.1.jar:/home/estr/Documents/server/mauthd/lib/commons-pool-1.2.jar:/home/estr/Documents/server/mauthd/lib/commons-logging-1.0.4.jar:/home/estr/Documents/server/mauthd/lib/log4j-1.2.9.jar:.:.:/usr/lib/jvm/java-8-openjdk-amd64/lib/lib/dt.jar:/usr/lib/jvm/java-8-openjdk-amd64/lib/lib/tools.jar authd table.xml Enthrallment
         Directory: mauthd/build/
+    - Name: Auth proxy
+      RunTask: !command
+        Name: dotnet
+        Arguments: proxy.dll proxy --listen 127.0.0.1:29200 --target 127.0.0.1:29201
+        Directory: /home/estr/Documents/server/tools/proxy/
     - Name: World
       RunTask: !run
         Directory: gamed
@@ -56,6 +61,9 @@ Sections:
       Tasks:
       - !kill
         AppNamePattern: dotnet booter.dll services
+        Signal: -15
+      - !kill
+        AppNamePattern: dotnet proxy.dll proxy
         Signal: -15
       - !kill
         AppNamePattern: java -Dcom.wanmei.au.HitEncoding=GBK
