@@ -11,6 +11,7 @@ namespace Pw.Proxy
     {
         static void Main(string[] args)
         {
+            //test
             if (args == null || args.Length == 0)
             {
                 StartProxy();
