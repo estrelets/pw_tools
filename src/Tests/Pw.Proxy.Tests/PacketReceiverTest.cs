@@ -28,13 +28,13 @@ namespace Pw.Proxy.Tests
         {
             var opCode = 1;
             var payload = new byte[] { 1, 2 };
-
-            _receiver.StartReceive(default);
+            var cts = new CancellationTokenSource();
+            
+            _receiver.StartReceive(cts.Token);
             await _producer.Write(CompactUIntSerializer.GetBytes(opCode));
             await _producer.Write(CompactUIntSerializer.GetBytes(payload.Length));
             await _producer.Write(payload);
-
-            var cts = new CancellationTokenSource();
+            
             await foreach (var packet in _receiver.ReadPackets(cts.Token))
             {
                 packet.Should().NotBeNull();
@@ -50,11 +50,11 @@ namespace Pw.Proxy.Tests
         {
             var opCode = 1;
             var payload = new byte[] { 1, 2 };
-
-            _receiver.StartReceive(default);
-            Task.Run(() => BadConnectionSimulation());
-
             var cts = new CancellationTokenSource();
+            
+            _receiver.StartReceive(cts.Token);
+            Task.Run(() => BadConnectionSimulation());
+            
             await foreach (var packet in _receiver.ReadPackets(cts.Token))
             {
                 packet.Should().NotBeNull();

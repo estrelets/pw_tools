@@ -8,7 +8,7 @@ using Tests.Common;
 namespace Pw.Tests.SerializerTests
 {
     [TestClass]
-    public class SerializeTest
+    public class ElementsSerializeTest
     {
         private const int EquipmentAddonListOffset = 12;
         private const int EquipmentAddonLength = 84;

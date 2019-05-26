@@ -1,24 +1,16 @@
-﻿using System.IO;
-using Pw.Serializer.Readers;
+﻿using Pw.Serializer.Readers;
 using Pw.Serializer.Writers;
 
 namespace Pw.Serializer
 {
-    public class ElementsSerializer
+    public class ElementsSerializer : BaseSerializer
     {
-        private static IReader _elementsReader = new ElementsReader();
-        private static IWriter _elementsWriter = new ElementsWriter();
+        private static readonly IReader ElementsReader = new ElementsReader();
+        private static readonly IWriter ElementsWriter = new ElementsWriter();
         
-        public void Serialize<TObject>(TObject obj, Stream stream)
+        public ElementsSerializer() 
+            : base(ElementsReader, ElementsWriter)
         {
-            var plan = PlansCache.Instance.GetPlan<TObject>();
-            plan.Serialize(obj, _elementsWriter, stream);
-        }
-
-        public TObject DeSerialize<TObject>(Stream stream)
-        {
-            var plan = PlansCache.Instance.GetPlan<TObject>();
-            return (TObject)plan.Deserialize(null, _elementsReader, stream);
         }
     }
 }

@@ -34,4 +34,8 @@ namespace Pw.Serializer
     {
         public Type SerializerType { get; set; }
     }
+
+    public class BigEndianAttribute : Attribute
+    {
+    }
 }

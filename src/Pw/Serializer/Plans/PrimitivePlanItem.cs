@@ -10,9 +10,10 @@ namespace Pw.Serializer.Plans
     public class PrimitivePlanItem : IPlanItem
     {
         public TypeCode TypeCode { get; }
+        public bool BigEndian { get; }
         public IValueAccessor Accessor { get; }
 
-        public PrimitivePlanItem(IValueAccessor accessor, Type type)
+        public PrimitivePlanItem(IValueAccessor accessor, Type type, bool bigEndian)
         {
             if (!IsPrimitive(type))
             {
@@ -20,6 +21,7 @@ namespace Pw.Serializer.Plans
             }
 
             Accessor = accessor;
+            BigEndian = bigEndian;
             TypeCode = Type.GetTypeCode(type);
         }
 

@@ -8,29 +8,12 @@ namespace Pw.Serializer.Writers
     {
         public void Write(PrimitivePlanItem primitivePlanItem, object value, Stream stream)
         {
-            var buffer = GetBytes();
-            stream.Write(buffer, 0, buffer.Length);
-            
-            byte[] GetBytes()
-            {
-                switch (primitivePlanItem.TypeCode)
-                {
-                    case TypeCode.Byte: return BitConverter.GetBytes((byte)value);
-                    case TypeCode.Single: return BitConverter.GetBytes((float)value);
-                    case TypeCode.Int32: return BitConverter.GetBytes((int)value);
-                    case TypeCode.UInt32: return BitConverter.GetBytes((uint)value);
-                    default: throw new NotImplementedException();
-                }
-            }
+            Shared.Write(primitivePlanItem, value, stream);
         }
 
         public void Write(StringPlanItem plan, string value, int length, Stream stream)
         {
-            var encoding = plan.GetEncoding();
-            length = plan.CalculateBytesLength(length);
-            var textBuffer = encoding.GetBytes(value);
-            Array.Resize(ref textBuffer, length);
-            stream.Write(textBuffer, 0, textBuffer.Length);
+            Shared.Write(plan, value, length, stream);
         }
     }
 }

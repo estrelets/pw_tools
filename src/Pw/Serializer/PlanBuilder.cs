@@ -17,7 +17,7 @@ namespace Pw.Serializer
         {
             if (PrimitivePlanItem.IsPrimitive(descriptor.PropertyType))
             {
-                return new PrimitivePlanItem(accessor, descriptor.PropertyType);
+                return new PrimitivePlanItem(accessor, descriptor.PropertyType, descriptor.IsBigEndian);
             }
 
             if (StringPlanItem.IsString(descriptor.PropertyType))
@@ -88,7 +88,7 @@ namespace Pw.Serializer
 
         internal static IPlanItem CreateReadLengthPlan()
         {
-            return new PrimitivePlanItem(new RootObject("Length"), typeof(int));
+            return new PrimitivePlanItem(new RootObject("Length"), typeof(int), false); //todo check endian logic
         }
 
 
