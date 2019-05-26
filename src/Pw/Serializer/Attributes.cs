@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pw.ElementsSerializer
+namespace Pw.Serializer
 {
     public class NameStringAttribute : Attribute
     {
@@ -33,5 +33,9 @@ namespace Pw.ElementsSerializer
     public class CustomSerializerAttribute : Attribute
     {
         public Type SerializerType { get; set; }
+    }
+
+    public class BigEndianAttribute : Attribute
+    {
     }
 }

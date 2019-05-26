@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Pw.ElementsSerializer;
+using Pw.Serializer;
 
 namespace Pw.Elements
 {
@@ -175,7 +175,7 @@ namespace Pw.Elements
         private void Load(Stream stream)
         {
             var reader = new BinaryReader(stream);
-            var serializer = new Serializer();
+            var serializer = new ElementsSerializer();
             ElementsDataFileInfo = new ElementsDataFileInfo();
 
             ElementsDataFileInfo.ReadVersion(reader);
@@ -354,7 +354,7 @@ namespace Pw.Elements
 
         public void Save(Stream stream)
         {
-            var serilizer = new Serializer();
+            var serilizer = new ElementsSerializer();
             var writer = new BinaryWriter(stream);
 
             ElementsDataFileInfo.WriteVersion(writer);

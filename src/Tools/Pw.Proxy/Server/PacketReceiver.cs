@@ -40,6 +40,7 @@ namespace Pw.Proxy.Server
 
         public async IAsyncEnumerable<Packet> ReadPackets(CancellationToken cancellationToken)
         {
+            
             var combinedToken = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, _readCancellationTokenSource.Token).Token;
 
             while (!combinedToken.IsCancellationRequested)

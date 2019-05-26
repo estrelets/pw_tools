@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using Pw.ElementsSerializer.Plans;
-using Pw.ElementsSerializer.ValueAccessors;
+using Pw.Serializer.Plans;
+using Pw.Serializer.ValueAccessors;
 
-namespace Pw.ElementsSerializer
+namespace Pw.Serializer
 {
     public class PlanBuilder
     {
@@ -17,7 +17,7 @@ namespace Pw.ElementsSerializer
         {
             if (PrimitivePlanItem.IsPrimitive(descriptor.PropertyType))
             {
-                return new PrimitivePlanItem(accessor, descriptor.PropertyType);
+                return new PrimitivePlanItem(accessor, descriptor.PropertyType, descriptor.IsBigEndian);
             }
 
             if (StringPlanItem.IsString(descriptor.PropertyType))
@@ -88,7 +88,7 @@ namespace Pw.ElementsSerializer
 
         internal static IPlanItem CreateReadLengthPlan()
         {
-            return new PrimitivePlanItem(new RootObject("Length"), typeof(int));
+            return new PrimitivePlanItem(new RootObject("Length"), typeof(int), false); //todo check endian logic
         }
 
 

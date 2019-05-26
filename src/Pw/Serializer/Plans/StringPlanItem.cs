@@ -1,9 +1,11 @@
 using System;
 using System.IO;
 using System.Text;
-using Pw.ElementsSerializer.ValueAccessors;
+using Pw.Serializer.Readers;
+using Pw.Serializer.ValueAccessors;
+using Pw.Serializer.Writers;
 
-namespace Pw.ElementsSerializer.Plans
+namespace Pw.Serializer.Plans
 {
     public class StringPlanItem : IPlanItem
     {
@@ -38,45 +40,30 @@ namespace Pw.ElementsSerializer.Plans
             LengthPlan = PlanBuilder.CreateReadLengthPlan();
         }
 
-        public void Serialize(object obj, Stream stream)
+        public void Serialize(object obj, IWriter writer, Stream stream)
         {
             var value = (string)Accessor.Get(obj);
-            var encoding = GetEncoding();
             var length = Length;
 
             if (IsDynamic)
             {
                 length = value.Length;
-                LengthPlan.Serialize(length, stream);
+                LengthPlan.Serialize(length, writer, stream);
             }
 
-            length = CalculateBytesLength(length);
-
-            var textBuffer = encoding.GetBytes(value);
-            Array.Resize(ref textBuffer, length);
-
-            stream.Write(textBuffer, 0, textBuffer.Length);
+            writer.Write(this, value, length, stream);
         }
 
-        public object Deserialize(object obj, Stream stream)
+        public object Deserialize(object obj, IReader reader, Stream stream)
         {
-            var encoding = GetEncoding();
             var length = Length;
 
             if (IsDynamic)
             {
-                length = (int)LengthPlan.Deserialize(null, stream);
+                length = (int)LengthPlan.Deserialize(null, reader, stream);
             }
 
-            var bytesLength = CalculateBytesLength(length);
-
-            var textBuffer = new byte[bytesLength];
-            stream.Read(textBuffer, 0, bytesLength);
-
-            var value = encoding.GetString(textBuffer);
-
-            if (!IsDynamic)
-                value = value.TrimEnd('\0');
+            var value = reader.Read(this, length, stream);
 
             if (Accessor is IValueAssigner setter)
             {
@@ -86,8 +73,8 @@ namespace Pw.ElementsSerializer.Plans
             return value;
         }
 
-        private Encoding GetEncoding() => !IsNameChar ? ChinesEncoding : UnicodeEncoding;
-        private int CalculateBytesLength(int stringLength) => IsNameChar ? stringLength * 2 : Length;
+        public Encoding GetEncoding() => !IsNameChar ? ChinesEncoding : UnicodeEncoding;
+        public int CalculateBytesLength(int stringLength) => IsNameChar ? stringLength * 2 : stringLength;
 
         public override string ToString()
         {
