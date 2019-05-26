@@ -37,7 +37,7 @@ namespace Pw.Proxy
                 && NetworkAddress.TryParse(proxyOptions.Target, out var target))
             {
                 var bootstrapper = new Bootstrapper();
-                bootstrapper.StartAsProxy(listen, target, proxyOptions.OutputPacketsPath);
+                bootstrapper.StartAsProxy(listen, target, proxyOptions.PrintPackets);
             }
             else
             {
@@ -124,9 +124,9 @@ namespace Pw.Proxy
             [Option("target", HelpText = "Network address to connect (ip:port)", Required = true)]
             public string Target { get; set; }
             
-            [Option("outputPackets", HelpText = "File path to print packets", Required = false)]
-            public string OutputPacketsPath { get; set; }
-
+            [Option("print", HelpText = "Print packets to std", Required = false, Default = false)]
+            public bool PrintPackets { get; set; }
+            
             [Usage(ApplicationAlias = "proxy.exe")]
             public static IEnumerable<Example> Usage => new[]
             {
@@ -134,7 +134,8 @@ namespace Pw.Proxy
                     new ProxyOptions
                     {
                         Listen = "127.0.0.1:12315",
-                        Target = "127.0.0.1:12314"
+                        Target = "127.0.0.1:12314",
+                        PrintPackets = true
                     })
                     
             };

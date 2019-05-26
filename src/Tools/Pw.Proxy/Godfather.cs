@@ -71,7 +71,7 @@ namespace Pw.Proxy
 
             if (_configuration.PrintPackets)
             {
-                handlers.Add(new PacketsPrintHandler(_configuration.PrintPacketFilePath));
+                handlers.Add(new PacketsPrintHandler());
             }
 
             AddPerformanceAnalyzeHandlers(handlers);

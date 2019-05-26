@@ -24,7 +24,7 @@ namespace Pw.Proxy
             }
         }
 
-        public void StartAsProxy(NetworkAddress listen, NetworkAddress target, string outputPacketsPath)
+        public void StartAsProxy(NetworkAddress listen, NetworkAddress target, bool printPackets = false)
         {
             using (var scope = _container.BeginLifetimeScope())
             {
@@ -37,11 +37,7 @@ namespace Pw.Proxy
                     }
                 };
 
-                if (outputPacketsPath != null)
-                {
-                    config.PrintPackets = true;
-                    config.PrintPacketFilePath = outputPacketsPath;
-                }
+                config.PrintPackets = printPackets;
 
                 var gf = scope.Resolve<Godfather>();
                 gf.StartAll().GetAwaiter().GetResult();
