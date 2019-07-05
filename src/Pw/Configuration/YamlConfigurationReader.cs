@@ -72,6 +72,7 @@ namespace Pw.Configuration
             var sectionInterfaceType = typeof(IConfigurationSection);
             return
                 AppDomain.CurrentDomain.GetAssemblies()
+                    .Where(ass => ass.FullName.StartsWith("Pw"))
                     .SelectMany(s => s.GetTypes())
                     .Where(p => sectionInterfaceType.IsAssignableFrom(p))
                     .Select(t => (t.Name, t))

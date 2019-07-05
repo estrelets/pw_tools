@@ -43,6 +43,7 @@ namespace Pw.ElementsYamlConverter
             /* Workaround for replacing \r\n to \n\n */
             var elementsInterface = typeof(IElementsType);
             var types = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(ass => ass.FullName.StartsWith("Pw"))
                 .SelectMany(s => s.GetTypes())
                 .Where(p => elementsInterface.IsAssignableFrom(p));
 
