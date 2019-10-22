@@ -28,7 +28,7 @@ namespace Pw.ProtocolImporter
             }
             else
             {
-                name = name.Substring(0..^postfix.Length);
+                name = name.Substring(0, name.Length - postfix.Length);
                 name = ReplacePostfix(name);
                 return $"{name}_{postfix}";
             }
