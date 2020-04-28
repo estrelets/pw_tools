@@ -36,7 +36,7 @@ namespace Pw.GdbTypeImporter
         private void PrintUsing()
         {
             AppendLine("using System;");
-            AppendLine("using Pw.Serialization;");
+            AppendLine("using Pw.Serializer;");
             AppendLine();
         }
 

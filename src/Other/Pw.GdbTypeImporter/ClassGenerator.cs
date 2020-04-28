@@ -57,9 +57,9 @@ namespace Pw.GdbTypeImporter
         private void PrintProperties()
         {
             var properties = _gClass
-              .Properties
-              .Select((property, propOrder) => new { Property = property, Order = propOrder })
-              .ToArray();
+                .Properties
+                .Select((property, propOrder) => new {Property = property, Order = propOrder})
+                .ToArray();
 
             foreach (var property in properties)
             {
@@ -127,6 +127,9 @@ namespace Pw.GdbTypeImporter
             if (ToProbability(type, out name))
                 return name;
 
+            if (SingleFieldStructureToProperty(type, out name))
+                return name;
+
             if (ToTuple(type, out name))
                 return name;
 
@@ -138,7 +141,10 @@ namespace Pw.GdbTypeImporter
 
         private bool ToUint(IGdbType type, out string name)
         {
-            if (_typesCollector.GetOrAdd(CppTerms.UIntType) == type)
+            var uintType = _typesCollector.GetOrAdd(CppTerms.UIntType);
+            var ulongType = _typesCollector.GetOrAdd(CppTerms.ULongType);
+
+            if (type == uintType || type == ulongType)
             {
                 name = "uint";
                 return true;
@@ -200,22 +206,23 @@ namespace Pw.GdbTypeImporter
 
         private bool ToTuple(IGdbType type, out string name)
         {
-            if (IsTuple(type))
+            if (!IsTuple(type))
             {
-                var tupleArgs = type.Properties
-                  .Select(prop => $"{FixTypeName(prop.Type)} {ToCamelCase(prop.Name)}")
-                  .ToArray();
-
-                name = $"({String.Join(", ", tupleArgs)})";
-                return true;
+                name = null;
+                return false;
             }
 
-            name = null;
-            return false;
+            var tupleArgs = type.Properties
+                .Select(prop => $"{FixTypeName(prop.Type)} {ToCamelCase(prop.Name)}")
+                .ToArray();
+
+            name = $"({String.Join(", ", tupleArgs)})";
+            return true;
         }
 
         private bool IsTuple(IGdbType type)
         {
+            return false;
             if (type is PrimitiveType)
                 return false;
 
@@ -227,6 +234,29 @@ namespace Pw.GdbTypeImporter
                 return false;
 
             return true;
+        }
+
+        private bool SingleFieldStructureToProperty(IGdbType type, out string name)
+        {
+            if (!IsSingleFieldStructure(type))
+            {
+                name = null;
+                return false;
+            }
+
+            name = FixTypeName(type.Properties.First().Type);
+            return true;
+        }
+
+        private bool IsSingleFieldStructure(IGdbType type)
+        {
+            if (type is PrimitiveType)
+                return false;
+
+            if (type.Properties.Count != 1)
+                return false;
+
+            return type.Properties.First().Type is PrimitiveType;
         }
 
         private bool ToNestedType(IGdbType type, out string name)
@@ -243,16 +273,16 @@ namespace Pw.GdbTypeImporter
         private void GenerateNestedTypes(IGdbType gClass)
         {
             var propertiesWithNestedClassType = gClass.Properties
-              .Where(property => property.Type is AnonymousClass)
-              .Where(property => !IsTuple(property.Type))
-              .Where(property => !IsProbability(property.Type));
+                .Where(property => property.Type is AnonymousClass)
+                .Where(property => !IsTuple(property.Type))
+                .Where(property => !IsProbability(property.Type));
 
             foreach (var property in propertiesWithNestedClassType)
             {
                 var name = ToCamelCase(property.Name) + NestedTypePostfix;
                 var type = property.Type;
                 new ClassGenerator(type, _typesCollector, _nestedClassOutput, false, _indent + 4)
-                  .PrintType(null, name);
+                    .PrintType(null, name);
 
                 _nestedClasses[type] = name;
             }

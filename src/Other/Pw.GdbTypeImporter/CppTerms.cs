@@ -7,6 +7,7 @@
         public static readonly string NameCharType = "namechar";
         public static readonly string IntType = "int";
         public static readonly string UIntType = "unsigned int";
+        public static readonly string ULongType = "unsigned long";
 
         public static readonly string[] DefaultTypes = { CharType, FloatType, NameCharType, IntType, UIntType };
 

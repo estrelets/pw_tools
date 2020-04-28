@@ -10,7 +10,7 @@ namespace Pw.Serializer.Writers
         {
             var buffer = GetBytes();
             stream.Write(buffer, 0, buffer.Length);
-            
+
             byte[] GetBytes()
             {
                 switch (primitivePlanItem.TypeCode)
@@ -19,11 +19,12 @@ namespace Pw.Serializer.Writers
                     case TypeCode.Single: return BitConverter.GetBytes((float)value);
                     case TypeCode.Int32: return BitConverter.GetBytes((int)value);
                     case TypeCode.UInt32: return BitConverter.GetBytes((uint)value);
+                    case TypeCode.UInt64: return BitConverter.GetBytes((ulong)value);
                     default: throw new NotImplementedException();
                 }
             }
         }
-        
+
         internal static void Write(StringPlanItem plan, string value, int length, Stream stream)
         {
             var encoding = plan.GetEncoding();

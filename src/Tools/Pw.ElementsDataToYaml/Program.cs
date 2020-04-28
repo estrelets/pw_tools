@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using CommandLine;
-using Pw.Elements;
+using Pw.Elements.v155;
 
 namespace Pw.ElementsYamlConverter
 {
@@ -31,7 +31,7 @@ namespace Pw.ElementsYamlConverter
                 Console.WriteLine("Load completed.");
 
                 Console.WriteLine("Exporting to yaml..");
-                new YamlExporter(new YamlSerializer()).ExportAll(elData, option.YamlDirectory);
+                new YamlExporter().ExportAll(elData, option.YamlDirectory);
                 Console.WriteLine("ExportAll completed.");
             }
 

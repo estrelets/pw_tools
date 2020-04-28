@@ -1,9 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +18,8 @@
     <EmbeddedResource Include="TestData\GdbOutput2.txt" />
     <EmbeddedResource Include="TestData\GdbOutput1.txt" />
     <EmbeddedResource Include="TestData\GdbOutput3.txt" />
+    <None Remove="TestData\GdbOutput155.txt" />
+    <EmbeddedResource Include="TestData\GdbOutput155.txt" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1969,7 +1969,6 @@ namespace Pw.Elements
             [Size(32)]
             public (uint Id, int ContribCost)[] Goods { get; set; }
         }
-
     }
 
     [Order(41)]

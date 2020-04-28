@@ -15,6 +15,7 @@ namespace Pw.Serializer.Readers
                 case TypeCode.Single: return ToSingle(ReadBytes(4), 0);
                 case TypeCode.Int32: return ToInt32(ReadBytes(4), 0);
                 case TypeCode.UInt32: return ToUInt32(ReadBytes(4), 0);
+                case TypeCode.UInt64: return ToUInt64(ReadBytes(8), 0);
                 default: throw new NotImplementedException();
             }
 
@@ -25,7 +26,7 @@ namespace Pw.Serializer.Readers
                 return buffer;
             }
         }
-        
+
         internal static string Read(StringPlanItem plan, int length, Stream stream)
         {
             var encoding = plan.GetEncoding();

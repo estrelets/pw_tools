@@ -1,33 +1,30 @@
 ﻿using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
 using Pw.Elements;
 
 namespace Pw.ElementsYamlConverter
 {
     public class YamlExporter
     {
-        private readonly YamlSerializer _yamlSerializer;
+        private readonly ThreadLocal<YamlSerializer> _serializer =
+            new ThreadLocal<YamlSerializer>(() => new YamlSerializer());
 
-        public YamlExporter(YamlSerializer yamlSerializer)
+        public void ExportAll(Pw.Elements.v155.ElementsData data, string outputBin)
         {
-            _yamlSerializer = yamlSerializer;
-        }
-
-        public void ExportAll(ElementsData data, string outputBin)
-        {
-            foreach (var list in data.Lists)
+            Parallel.ForEach(data.Lists, list =>
             {
                 Save(list.Key, list.Value);
-            }
+            });
 
             Save(nameof(ElementsDataFileInfo), data.ElementsDataFileInfo);
 
             void Save(string name, object value)
             {
                 var path = Path.Combine(outputBin, $"{name}.yaml");
-                using (var file = File.Create(path))
-                {
-                    _yamlSerializer.Serialize(value, file);
-                }
+                using var ms = new MemoryStream();
+                _serializer.Value.Serialize(value, ms);
+                File.WriteAllBytes(path, ms.ToArray());
             }
         }
     }

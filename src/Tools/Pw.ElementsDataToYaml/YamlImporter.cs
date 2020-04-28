@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
-using Pw.Elements;
+using System.Threading.Tasks;
+using Pw.Elements.v155;
 
 namespace Pw.ElementsYamlConverter
 {
@@ -76,7 +78,7 @@ namespace Pw.ElementsYamlConverter
             elements.NpcDecomposeServices = ImportList<NpcDecomposeService>();
             elements.NpcTypes = ImportList<NpcType>();
             elements.NpcEssences = ImportList<NpcEssence>();
-            elements.TalkProcs = ImportList<TalkProc>();
+            elements.TalkProcs = ImportList<Elements.TalkProc>();
             elements.FaceTextureEssences = ImportList<FaceTextureEssence>();
             elements.FaceShapeEssences = ImportList<FaceShapeEssence>();
             elements.FaceEmotionTypes = ImportList<FaceEmotionType>();
@@ -117,6 +119,8 @@ namespace Pw.ElementsYamlConverter
             elements.PetFoodEssences = ImportList<PetFoodEssence>();
             elements.PetFaceticketEssences = ImportList<PetFaceticketEssence>();
             elements.FireworksEssences = ImportList<FireworksEssence>();
+            elements.Fireworks2Essences = ImportList<Fireworks2Essence>();
+            elements.FixPositionTransmitEssences = ImportList<FixPositionTransmitEssence>();
             elements.WarTankcallinEssences = ImportList<WarTankcallinEssence>();
             elements.NpcWarTowerbuildServices = ImportList<NpcWarTowerbuildService>();
             elements.PlayerSecondlevelConfigs = ImportList<PlayerSecondlevelConfig>();
@@ -132,8 +136,8 @@ namespace Pw.ElementsYamlConverter
             elements.NpcEquipundestroyServices = ImportList<NpcEquipundestroyService>();
             elements.BibleEssences = ImportList<BibleEssence>();
             elements.SpeakerEssences = ImportList<SpeakerEssence>();
-            elements.AutohpEssences = ImportList<AutohpEssence>();
             elements.AutompEssences = ImportList<AutompEssence>();
+            elements.AutohpEssences = ImportList<AutohpEssence>();
             elements.DoubleExpEssences = ImportList<DoubleExpEssence>();
             elements.TransmitscrollEssences = ImportList<TransmitscrollEssence>();
             elements.DyeTicketEssences = ImportList<DyeTicketEssence>();
@@ -168,29 +172,108 @@ namespace Pw.ElementsYamlConverter
             elements.RandpropTypes = ImportList<RandpropType>();
             elements.RandpropEssences = ImportList<RandpropEssence>();
             elements.WikiTabooConfigs = ImportList<WikiTabooConfig>();
+            elements.ForceConfigs = ImportList<ForceConfig>();
+            elements.ForceTokenEssences = ImportList<ForceTokenEssence>();
+            elements.NpcForceServices = ImportList<NpcForceService>();
+            elements.PlayerDeathDropConfigs = ImportList<PlayerDeathDropConfig>();
+            elements.DynskillequipEssences = ImportList<DynskillequipEssence>();
+            elements.ConsumePointsConfigs = ImportList<ConsumePointsConfig>();
+            elements.OnlineAwardsConfigs = ImportList<OnlineAwardsConfig>();
+            elements.CountryConfigs = ImportList<CountryConfig>();
+            elements.GmActivityConfigs = ImportList<GmActivityConfig>();
+            elements.FashionWeaponConfigs = ImportList<FashionWeaponConfig>();
+            elements.PetEvolveConfigs = ImportList<PetEvolveConfig>();
+            elements.PetEvolvedSkillConfigs = ImportList<PetEvolvedSkillConfig>();
+            elements.MoneyConvertibleEssences = ImportList<MoneyConvertibleEssence>();
+            elements.StoneChangeRecipeTypes = ImportList<StoneChangeRecipeType>();
+            elements.StoneChangeRecipes = ImportList<StoneChangeRecipe>();
+            elements.MeridianConfigs = ImportList<MeridianConfig>();
+            elements.PetEvolvedSkillRandConfigs = ImportList<PetEvolvedSkillRandConfig>();
+            elements.AutotaskDisplayConfigs = ImportList<AutotaskDisplayConfig>();
+            elements.TouchShopConfigs = ImportList<TouchShopConfig>();
+            elements.TitleConfigs = ImportList<TitleConfig>();
+            elements.ComplexTitleConfigs = ImportList<ComplexTitleConfig>();
+            elements.MonsterSpiritEssences = ImportList<MonsterSpiritEssence>();
+            elements.PlayerSpiritConfigs = ImportList<PlayerSpiritConfig>();
+            elements.PlayerReincarnationConfigs = ImportList<PlayerReincarnationConfig>();
+            elements.HistoryStageConfigs = ImportList<HistoryStageConfig>();
+            elements.HistoryAdvanceConfigs = ImportList<HistoryAdvanceConfig>();
+            elements.AutoteamConfigs = ImportList<AutoteamConfig>();
+            elements.PlayerRealmConfigs = ImportList<PlayerRealmConfig>();
+            elements.ChariotConfigs = ImportList<ChariotConfig>();
+            elements.ChariotWarConfigs = ImportList<ChariotWarConfig>();
+            elements.PokerLevelexpConfigs = ImportList<PokerLevelexpConfig>();
+            elements.PokerSuiteEssences = ImportList<PokerSuiteEssence>();
+            elements.PokerDiceEssences = ImportList<PokerDiceEssence>();
+            elements.PokerSubTypes = ImportList<PokerSubType>();
+            elements.PokerEssences = ImportList<PokerEssence>();
+            elements.TokenShopConfigs = ImportList<TokenShopConfig>();
+            elements.ShopTokenEssences = ImportList<ShopTokenEssence>();
+            elements.GtConfigs = ImportList<GtConfig>();
+            elements.RandShopConfigs = ImportList<RandShopConfig>();
+            elements.ProfitTimeConfigs = ImportList<ProfitTimeConfig>();
+            elements.FactionPvpConfigs = ImportList<FactionPvpConfig>();
+            elements.UniversalTokenEssences = ImportList<UniversalTokenEssence>();
+            elements.TaskListConfigs = ImportList<TaskListConfig>();
+            elements.TaskDiceByWeightConfigs = ImportList<TaskDiceByWeightConfig>();
+            elements.FashionSuiteEssences = ImportList<FashionSuiteEssence>();
+            elements.FashionBestColorConfigs = ImportList<FashionBestColorConfig>();
+            elements.SignAwardConfigs = ImportList<SignAwardConfig>();
+            elements.AstrolabeEssences = ImportList<AstrolabeEssence>();
+            elements.AstrolabeRandomAddonEssences = ImportList<AstrolabeRandomAddonEssence>();
+            elements.AstrolabeIncInnerPointValueEssences = ImportList<AstrolabeIncInnerPointValueEssence>();
+            elements.AstrolabeIncExpEssences = ImportList<AstrolabeIncExpEssence>();
+            elements.ItemPackageByProfessionEssences = ImportList<ItemPackageByProfessionEssence>();
+            elements.AstrolabeLevelexpConfigs = ImportList<AstrolabeLevelexpConfig>();
+            elements.AstrolabeAddonRandomConfigs = ImportList<AstrolabeAddonRandomConfig>();
+            elements.AstrolabeAppearanceConfigs = ImportList<AstrolabeAppearanceConfig>();
+            elements.EquipMakeHoleConfigs = ImportList<EquipMakeHoleConfig>();
+            elements.SoloTowerChallengeLevelConfigs = ImportList<SoloTowerChallengeLevelConfig>();
+            elements.SoloTowerChallengeAwardPageConfigs = ImportList<SoloTowerChallengeAwardPageConfig>();
+            elements.SoloTowerChallengeAwardListConfigs = ImportList<SoloTowerChallengeAwardListConfig>();
+            elements.SoloTowerChallengeScoreCostConfigs = ImportList<SoloTowerChallengeScoreCostConfig>();
+            elements.MnfactionWarConfigs = ImportList<MnfactionWarConfig>();
+            elements.NpcCrossServerServices = ImportList<NpcCrossServerService>();
+            elements.HomeConfigs = ImportList<HomeConfig>();
+            elements.HomeProductsConfigs = ImportList<HomeProductsConfig>();
+            elements.HomeResourceProduceConfigs = ImportList<HomeResourceProduceConfig>();
+            elements.HomeFormulasProduceRecipes = ImportList<HomeFormulasProduceRecipe>();
+            elements.HomeFormulasItemEssences = ImportList<HomeFormulasItemEssence>();
+            elements.HomeProduceServiceConfigs = ImportList<HomeProduceServiceConfig>();
+            elements.HomeFactoryConfigs = ImportList<HomeFactoryConfig>();
+            elements.HomeItemMajorTypes = ImportList<HomeItemMajorType>();
+            elements.HomeItemSubTypes = ImportList<HomeItemSubType>();
+            elements.HomeItemEntities = ImportList<HomeItemEntity>();
+            elements.HomeFormulasProduceMajorTypes = ImportList<HomeFormulasProduceMajorType>();
+            elements.HomeFormulasProduceSubTypes = ImportList<HomeFormulasProduceSubType>();
+            elements.HomeFormulasItemMajorTypes = ImportList<HomeFormulasItemMajorType>();
+            elements.HomeFormulasItemSubTypes = ImportList<HomeFormulasItemSubType>();
+            elements.HomeStorageTaskConfigs = ImportList<HomeStorageTaskConfig>();
+            elements.WishTributeEssences = ImportList<WishTributeEssence>();
+            elements.RedPacketPaperEssences = ImportList<RedPacketPaperEssence>();
+
 
             return elements;
 
-            T[] ImportList<T>() where T : IElementsType
+            T[] ImportList<T>() where T : Elements.IElementsType
             {
                 var path = TypeToPath<T>();
                 var list = Deserialize<T[]>(path);
-                elements.Lists.Add(typeof(T).Name, list.Cast<IElementsType>().ToArray());
+                elements.Lists.Add(typeof(T).Name, list.Cast<Elements.IElementsType>().ToArray());
                 return list;
             }
 
-            ElementsDataFileInfo ImportElementsDataFileInfo()
+            Elements.ElementsDataFileInfo ImportElementsDataFileInfo()
             {
-                var path = TypeToPath<ElementsDataFileInfo>();
-                return Deserialize<ElementsDataFileInfo>(path);
+                var path = TypeToPath<Elements.ElementsDataFileInfo>();
+                return Deserialize<Elements.ElementsDataFileInfo>(path);
             }
 
             T Deserialize<T>(string path)
             {
-                using (var stream = File.OpenRead(path))
-                {
-                    return _yamlSerializer.DeSerialize<T>(stream);
-                }
+                var file = File.ReadAllBytes(path);
+                using var stream = new MemoryStream(file);
+                return _yamlSerializer.DeSerialize<T>(stream);
             }
 
             string TypeToPath<T>()

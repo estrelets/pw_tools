@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Pw.Conventions;
 using Pw.Elements;
+using Pw.Elements.v155;
 using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 
@@ -55,6 +56,16 @@ namespace Pw.ElementsYamlConverter
                         new YamlMemberAttribute() { ScalarStyle = ScalarStyle.DoubleQuoted });
                 }
             }
+
+            builder.WithAttributeOverride(
+                typeof(TalkProc.Window.Option),
+                nameof(TalkProc.Window.Option.Text),
+                new YamlMemberAttribute() {ScalarStyle = ScalarStyle.DoubleQuoted});
+
+            builder.WithAttributeOverride(
+                typeof(SoloTowerChallengeScoreCostConfig.ScoreBuffListClass),
+                nameof(SoloTowerChallengeScoreCostConfig.ScoreBuffListClass.ParamComment),
+                new YamlMemberAttribute() {ScalarStyle = ScalarStyle.DoubleQuoted});
         }
     }
 }
