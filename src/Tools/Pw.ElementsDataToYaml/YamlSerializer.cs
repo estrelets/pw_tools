@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Pw.Conventions;
 using Pw.Elements;
-using Pw.Elements.v155;
+using Pw.Elements.v156;
 using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 
@@ -25,24 +25,26 @@ namespace Pw.ElementsYamlConverter
 
         public void Serialize(object value, Stream outputStream)
         {
-            using (var writer = new StreamWriter(outputStream, FileEncoding))
-            {
-                _yamlSerializer.Serialize(writer, value);
-            }
+            using var writer = new StreamWriter(outputStream, FileEncoding);
+            _yamlSerializer.Serialize(writer, value);
         }
 
         public T DeSerialize<T>(Stream inputStream)
         {
-            using (var reader = new StreamReader(inputStream))
-            {
-                return _yamlDeserializer.Deserialize<T>(reader);
-            }
+            using var reader = new StreamReader(inputStream);
+            return _yamlDeserializer.Deserialize<T>(reader);
+        }
+
+        public object DeSerialize(Stream inputStream, Type type)
+        {
+            using var reader = new StreamReader(inputStream);
+            return _yamlDeserializer.Deserialize(reader, type);
         }
 
         private static void RegisterAllOverrides(SerializerBuilder builder)
         {
             /* Workaround for replacing \r\n to \n\n */
-            var elementsInterface = typeof(IElementsType);
+            var elementsInterface = typeof(IElement);
             var types = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(ass => ass.FullName.StartsWith("Pw"))
                 .SelectMany(s => s.GetTypes())

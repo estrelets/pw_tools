@@ -5,16 +5,16 @@ using Pw.Serializer;
 // ReSharper disable UnusedType.Global
 // ReSharper disable ClassNeverInstantiated.Global
 
-namespace Pw.Elements.v155
+namespace Pw.Elements.v156
 {
     [Order(0)]
-    public class EquipmentAddon : IElementsType
+    public class EquipmentAddon : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int NumParams { get; set; }
@@ -27,24 +27,24 @@ namespace Pw.Elements.v155
     }
 
     [Order(1)]
-    public class WeaponMajorType : IElementsType
+    public class WeaponMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(2)]
-    public class WeaponSubType : IElementsType
+    public class WeaponSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileHitgfx { get; set; }
@@ -69,7 +69,7 @@ namespace Pw.Elements.v155
     }
 
     [Order(3)]
-    public class WeaponEssence : IElementsType
+    public class WeaponEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -79,7 +79,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] public uint RequireProjectile { get; set; }
@@ -200,31 +200,31 @@ namespace Pw.Elements.v155
     }
 
     [Order(4)]
-    public class ArmorMajorType : IElementsType
+    public class ArmorMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(5)]
-    public class ArmorSubType : IElementsType
+    public class ArmorSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint EquipMask { get; set; }
     }
 
     [Order(6)]
-    public class ArmorEssence : IElementsType
+    public class ArmorEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -234,7 +234,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(32)] public string Realname { get; set; }
@@ -359,31 +359,31 @@ namespace Pw.Elements.v155
     }
 
     [Order(7)]
-    public class DecorationMajorType : IElementsType
+    public class DecorationMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(8)]
-    public class DecorationSubType : IElementsType
+    public class DecorationSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint EquipMask { get; set; }
     }
 
     [Order(9)]
-    public class DecorationEssence : IElementsType
+    public class DecorationEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -393,7 +393,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileModel { get; set; }
@@ -490,29 +490,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(10)]
-    public class MedicineMajorType : IElementsType
+    public class MedicineMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(11)]
-    public class MedicineSubType : IElementsType
+    public class MedicineSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(12)]
-    public class MedicineEssence : IElementsType
+    public class MedicineEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -522,7 +522,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileMatter { get; set; }
@@ -553,29 +553,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(13)]
-    public class MaterialMajorType : IElementsType
+    public class MaterialMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(14)]
-    public class MaterialSubType : IElementsType
+    public class MaterialSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(15)]
-    public class MaterialEssence : IElementsType
+    public class MaterialEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -585,7 +585,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileMatter { get; set; }
@@ -612,18 +612,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(16)]
-    public class DamageruneSubType : IElementsType
+    public class DamageruneSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(17)]
-    public class DamageruneEssence : IElementsType
+    public class DamageruneEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -631,7 +631,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -658,18 +658,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(18)]
-    public class ArmorruneSubType : IElementsType
+    public class ArmorruneSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(19)]
-    public class ArmorruneEssence : IElementsType
+    public class ArmorruneEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -677,7 +677,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -710,18 +710,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(20)]
-    public class SkilltomeSubType : IElementsType
+    public class SkilltomeSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(21)]
-    public class SkilltomeEssence : IElementsType
+    public class SkilltomeEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -729,7 +729,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -748,13 +748,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(22)]
-    public class FlyswordEssence : IElementsType
+    public class FlyswordEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileModel { get; set; }
@@ -816,13 +816,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(23)]
-    public class WingmanwingEssence : IElementsType
+    public class WingmanwingEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileModel { get; set; }
@@ -851,13 +851,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(24)]
-    public class TownscrollEssence : IElementsType
+    public class TownscrollEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -878,13 +878,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(25)]
-    public class UnionscrollEssence : IElementsType
+    public class UnionscrollEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -905,13 +905,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(26)]
-    public class RevivescrollEssence : IElementsType
+    public class RevivescrollEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -934,13 +934,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(27)]
-    public class ElementEssence : IElementsType
+    public class ElementEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -961,13 +961,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(28)]
-    public class TaskmatterEssence : IElementsType
+    public class TaskmatterEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileIcon { get; set; }
@@ -980,13 +980,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(29)]
-    public class TossmatterEssence : IElementsType
+    public class TossmatterEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileModel { get; set; }
@@ -1029,18 +1029,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(30)]
-    public class ProjectileType : IElementsType
+    public class ProjectileType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(31)]
-    public class ProjectileEssence : IElementsType
+    public class ProjectileEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -1048,7 +1048,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileModel { get; set; }
@@ -1091,18 +1091,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(32)]
-    public class QuiverSubType : IElementsType
+    public class QuiverSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(33)]
-    public class QuiverEssence : IElementsType
+    public class QuiverEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -1110,7 +1110,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -1125,18 +1125,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(34)]
-    public class StoneSubType : IElementsType
+    public class StoneSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(35)]
-    public class StoneEssence : IElementsType
+    public class StoneEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -1144,7 +1144,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -1169,12 +1169,12 @@ namespace Pw.Elements.v155
 
         [Order(13)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string WeaponDesc { get; set; }
 
         [Order(14)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string ArmorDesc { get; set; }
 
         [Order(15)] public int PileNumMax { get; set; }
@@ -1189,18 +1189,18 @@ namespace Pw.Elements.v155
 
         [Order(20)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string DecorationDesc { get; set; }
     }
 
     [Order(36)]
-    public class MonsterAddon : IElementsType
+    public class MonsterAddon : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int NumParams { get; set; }
@@ -1213,20 +1213,20 @@ namespace Pw.Elements.v155
     }
 
     [Order(37)]
-    public class MonsterType : IElementsType
+    public class MonsterType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(16)] public Probability[] Addons { get; set; }
     }
 
     [Order(38)]
-    public class MonsterEssence : IElementsType
+    public class MonsterEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -1234,17 +1234,17 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string Prop { get; set; }
 
         [Order(4)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(5)] public uint Faction { get; set; }
@@ -1405,7 +1405,7 @@ namespace Pw.Elements.v155
 
         [Order(83)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string Label { get; set; }
 
         [Order(84)] public uint DomainRelated { get; set; }
@@ -1457,26 +1457,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(39)]
-    public class NpcTalkService : IElementsType
+    public class NpcTalkService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdDialog { get; set; }
     }
 
     [Order(40)]
-    public class NpcSellService : IElementsType
+    public class NpcSellService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(8)] public PagesClass[] Pages { get; set; }
@@ -1487,7 +1487,7 @@ namespace Pw.Elements.v155
         {
             [Order(0)]
             [Size(8)]
-            [NameStringAttribute]
+            [NameString]
             public string PageTitle { get; set; }
 
             [Order(1)] public int RequireContrib { get; set; }
@@ -1512,39 +1512,39 @@ namespace Pw.Elements.v155
     }
 
     [Order(41)]
-    public class NpcBuyService : IElementsType
+    public class NpcBuyService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdDialog { get; set; }
     }
 
     [Order(42)]
-    public class NpcRepairService : IElementsType
+    public class NpcRepairService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdDialog { get; set; }
     }
 
     [Order(43)]
-    public class NpcInstallService : IElementsType
+    public class NpcInstallService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public uint[] IdGoods { get; set; }
@@ -1553,13 +1553,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(44)]
-    public class NpcUninstallService : IElementsType
+    public class NpcUninstallService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public uint[] IdGoods { get; set; }
@@ -1568,26 +1568,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(45)]
-    public class NpcTaskInService : IElementsType
+    public class NpcTaskInService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(256)] public uint[] IdTasks { get; set; }
     }
 
     [Order(46)]
-    public class NpcTaskOutService : IElementsType
+    public class NpcTaskOutService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint StorageId { get; set; }
@@ -1610,13 +1610,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(47)]
-    public class NpcTaskMatterService : IElementsType
+    public class NpcTaskMatterService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(16)] public TasksClass[] Tasks { get; set; }
@@ -1637,13 +1637,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(48)]
-    public class NpcSkillService : IElementsType
+    public class NpcSkillService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(256)] public uint[] IdSkills { get; set; }
@@ -1652,26 +1652,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(49)]
-    public class NpcHealService : IElementsType
+    public class NpcHealService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdDialog { get; set; }
     }
 
     [Order(50)]
-    public class NpcTransmitService : IElementsType
+    public class NpcTransmitService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int NumTargets { get; set; }
@@ -1691,13 +1691,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(51)]
-    public class NpcTransportService : IElementsType
+    public class NpcTransportService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public RoutesClass[] Routes { get; set; }
@@ -1713,37 +1713,37 @@ namespace Pw.Elements.v155
     }
 
     [Order(52)]
-    public class NpcProxyService : IElementsType
+    public class NpcProxyService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdDialog { get; set; }
     }
 
     [Order(53)]
-    public class NpcStorageService : IElementsType
+    public class NpcStorageService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(54)]
-    public class NpcMakeService : IElementsType
+    public class NpcMakeService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdMakeSkill { get; set; }
@@ -1756,7 +1756,7 @@ namespace Pw.Elements.v155
         {
             [Order(0)]
             [Size(8)]
-            [NameStringAttribute]
+            [NameString]
             public string PageTitle { get; set; }
 
             [Order(1)] [Size(32)] public uint[] IdGoods { get; set; }
@@ -1764,37 +1764,37 @@ namespace Pw.Elements.v155
     }
 
     [Order(55)]
-    public class NpcDecomposeService : IElementsType
+    public class NpcDecomposeService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdDecomposeSkill { get; set; }
     }
 
     [Order(56)]
-    public class NpcType : IElementsType
+    public class NpcType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(57)]
-    public class NpcEssence : IElementsType
+    public class NpcEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint IdType { get; set; }
@@ -1811,7 +1811,7 @@ namespace Pw.Elements.v155
 
         [Order(8)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string HelloMsg { get; set; }
 
         [Order(9)] public uint IdToDiscover { get; set; }
@@ -1892,13 +1892,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(58)]
-    public class FaceTextureEssence : IElementsType
+    public class FaceTextureEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileBaseTex { get; set; }
@@ -1923,13 +1923,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(59)]
-    public class FaceShapeEssence : IElementsType
+    public class FaceShapeEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileShape { get; set; }
@@ -1950,26 +1950,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(60)]
-    public class FaceEmotionType : IElementsType
+    public class FaceEmotionType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileIcon { get; set; }
     }
 
     [Order(61)]
-    public class FaceExpressionEssence : IElementsType
+    public class FaceExpressionEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileExpression { get; set; }
@@ -1984,13 +1984,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(62)]
-    public class FaceHairEssence : IElementsType
+    public class FaceHairEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileHairSkin { get; set; }
@@ -2011,13 +2011,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(63)]
-    public class FaceMoustacheEssence : IElementsType
+    public class FaceMoustacheEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMoustacheSkin { get; set; }
@@ -2034,13 +2034,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(64)]
-    public class ColorpickerEssence : IElementsType
+    public class ColorpickerEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileColorpicker { get; set; }
@@ -2053,13 +2053,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(65)]
-    public class CustomizedataEssence : IElementsType
+    public class CustomizedataEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileData { get; set; }
@@ -2072,29 +2072,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(66)]
-    public class RecipeMajorType : IElementsType
+    public class RecipeMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(67)]
-    public class RecipeSubType : IElementsType
+    public class RecipeSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(68)]
-    public class RecipeEssence : IElementsType
+    public class RecipeEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2104,7 +2104,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] public int RecipeLevel { get; set; }
@@ -2152,26 +2152,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(69)]
-    public class EnemyFactionConfig : IElementsType
+    public class EnemyFactionConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public uint[] EnemyFactions { get; set; }
     }
 
     [Order(70)]
-    public class CharracterClassConfig : IElementsType
+    public class CharracterClassConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint CharacterClassId { get; set; }
@@ -2226,13 +2226,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(71)]
-    public class ParamAdjustConfig : IElementsType
+    public class ParamAdjustConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(16)] public LevelDiffAdjustClass[] LevelDiffAdjust { get; set; }
@@ -2278,13 +2278,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(72)]
-    public class PlayerActionInfoConfig : IElementsType
+    public class PlayerActionInfoConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public string ActionName { get; set; }
@@ -2302,13 +2302,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(73)]
-    public class TaskdiceEssence : IElementsType
+    public class TaskdiceEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -2333,13 +2333,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(74)]
-    public class TasknormalmatterEssence : IElementsType
+    public class TasknormalmatterEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -2358,13 +2358,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(75)]
-    public class FaceFalingEssence : IElementsType
+    public class FaceFalingEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileFalingSkin { get; set; }
@@ -2381,31 +2381,31 @@ namespace Pw.Elements.v155
     }
 
     [Order(76)]
-    public class PlayerLevelexpConfig : IElementsType
+    public class PlayerLevelexpConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(150)] public int[] Exp { get; set; }
     }
 
     [Order(77)]
-    public class MineType : IElementsType
+    public class MineType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(78)]
-    public class MineEssence : IElementsType
+    public class MineEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2413,7 +2413,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] public uint Level { get; set; }
@@ -2501,44 +2501,44 @@ namespace Pw.Elements.v155
     }
 
     [Order(79)]
-    public class NpcIdentifyService : IElementsType
+    public class NpcIdentifyService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int Fee { get; set; }
     }
 
     [Order(80)]
-    public class FashionMajorType : IElementsType
+    public class FashionMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(81)]
-    public class FashionSubType : IElementsType
+    public class FashionSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint EquipFashionMask { get; set; }
     }
 
     [Order(82)]
-    public class FashionEssence : IElementsType
+    public class FashionEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2548,7 +2548,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(32)] public string Realname { get; set; }
@@ -2607,29 +2607,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(83)]
-    public class FaceticketMajorType : IElementsType
+    public class FaceticketMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(84)]
-    public class FaceticketSubType : IElementsType
+    public class FaceticketSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(85)]
-    public class FaceticketEssence : IElementsType
+    public class FaceticketEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2639,7 +2639,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileMatter { get; set; }
@@ -2664,29 +2664,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(86)]
-    public class FacepillMajorType : IElementsType
+    public class FacepillMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(87)]
-    public class FacepillSubType : IElementsType
+    public class FacepillSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(88)]
-    public class FacepillEssence : IElementsType
+    public class FacepillEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2696,7 +2696,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileMatter { get; set; }
@@ -2728,13 +2728,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(89)]
-    public class SuiteEssence : IElementsType
+    public class SuiteEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int MaxEquips { get; set; }
@@ -2757,18 +2757,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(90)]
-    public class GmGeneratorType : IElementsType
+    public class GmGeneratorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(91)]
-    public class GmGeneratorEssence : IElementsType
+    public class GmGeneratorEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2776,7 +2776,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -2793,18 +2793,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(92)]
-    public class PetType : IElementsType
+    public class PetType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(93)]
-    public class PetEssence : IElementsType
+    public class PetEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -2812,7 +2812,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileModel { get; set; }
@@ -2937,13 +2937,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(94)]
-    public class PetEggEssence : IElementsType
+    public class PetEggEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -2978,13 +2978,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(95)]
-    public class PetFoodEssence : IElementsType
+    public class PetFoodEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3011,13 +3011,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(96)]
-    public class PetFaceticketEssence : IElementsType
+    public class PetFaceticketEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3036,13 +3036,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(97)]
-    public class FireworksEssence : IElementsType
+    public class FireworksEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3067,13 +3067,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(98)]
-    public class Fireworks2Essence : IElementsType
+    public class Fireworks2Essence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3096,12 +3096,12 @@ namespace Pw.Elements.v155
 
         [Order(11)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string CasterWord { get; set; }
 
         [Order(12)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string ReceiverWord { get; set; }
 
         [Order(13)] public int PileNumMax { get; set; }
@@ -3112,13 +3112,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(99)]
-    public class FixPositionTransmitEssence : IElementsType
+    public class FixPositionTransmitEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3139,13 +3139,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(100)]
-    public class WarTankcallinEssence : IElementsType
+    public class WarTankcallinEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3164,13 +3164,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(101)]
-    public class NpcWarTowerbuildService : IElementsType
+    public class NpcWarTowerbuildService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(4)] public BuildInfoClass[] BuildInfo { get; set; }
@@ -3190,26 +3190,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(102)]
-    public class PlayerSecondlevelConfig : IElementsType
+    public class PlayerSecondlevelConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(256)] public float[] ExpLost { get; set; }
     }
 
     [Order(103)]
-    public class NpcResetpropService : IElementsType
+    public class NpcResetpropService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(15)] public PropEntryClass[] PropEntry { get; set; }
@@ -3229,13 +3229,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(104)]
-    public class NpcPetnameService : IElementsType
+    public class NpcPetnameService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int IdObjectNeed { get; set; }
@@ -3244,13 +3244,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(105)]
-    public class NpcPetlearnskillService : IElementsType
+    public class NpcPetlearnskillService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public uint[] IdSkills { get; set; }
@@ -3259,13 +3259,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(106)]
-    public class NpcPetforgetskillService : IElementsType
+    public class NpcPetforgetskillService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int IdObjectNeed { get; set; }
@@ -3274,13 +3274,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(107)]
-    public class SkillmatterEssence : IElementsType
+    public class SkillmatterEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3305,13 +3305,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(108)]
-    public class RefineTicketEssence : IElementsType
+    public class RefineTicketEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3320,7 +3320,7 @@ namespace Pw.Elements.v155
 
         [Order(4)]
         [Size(16)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(5)] public float ExtReservedProb { get; set; }
@@ -3347,13 +3347,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(109)]
-    public class DestroyingEssence : IElementsType
+    public class DestroyingEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3372,13 +3372,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(110)]
-    public class NpcEquipbindService : IElementsType
+    public class NpcEquipbindService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(4)] public int[] IdObjectNeed { get; set; }
@@ -3389,13 +3389,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(111)]
-    public class NpcEquipdestroyService : IElementsType
+    public class NpcEquipdestroyService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int IdObjectNeed { get; set; }
@@ -3404,13 +3404,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(112)]
-    public class NpcEquipundestroyService : IElementsType
+    public class NpcEquipundestroyService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int IdObjectNeed { get; set; }
@@ -3419,13 +3419,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(113)]
-    public class BibleEssence : IElementsType
+    public class BibleEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3450,13 +3450,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(114)]
-    public class SpeakerEssence : IElementsType
+    public class SpeakerEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3477,13 +3477,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(115)]
-    public class AutompEssence : IElementsType
+    public class AutompEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3508,13 +3508,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(116)]
-    public class AutohpEssence : IElementsType
+    public class AutohpEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3539,13 +3539,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(117)]
-    public class DoubleExpEssence : IElementsType
+    public class DoubleExpEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3566,13 +3566,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(118)]
-    public class TransmitscrollEssence : IElementsType
+    public class TransmitscrollEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3591,13 +3591,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(119)]
-    public class DyeTicketEssence : IElementsType
+    public class DyeTicketEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3630,13 +3630,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(120)]
-    public class GoblinEssence : IElementsType
+    public class GoblinEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileModel1 { get; set; }
@@ -3696,18 +3696,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(121)]
-    public class GoblinEquipType : IElementsType
+    public class GoblinEquipType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(122)]
-    public class GoblinEquipEssence : IElementsType
+    public class GoblinEquipEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -3715,7 +3715,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileModel { get; set; }
@@ -3748,13 +3748,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(123)]
-    public class GoblinExppillEssence : IElementsType
+    public class GoblinExppillEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3777,13 +3777,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(124)]
-    public class SellCertificateEssence : IElementsType
+    public class SellCertificateEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string ShowModel { get; set; }
@@ -3812,13 +3812,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(125)]
-    public class TargetItemEssence : IElementsType
+    public class TargetItemEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3859,13 +3859,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(126)]
-    public class LookInfoEssence : IElementsType
+    public class LookInfoEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3884,13 +3884,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(127)]
-    public class UpgradeProductionConfig : IElementsType
+    public class UpgradeProductionConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(12)] public int[] NumRefine { get; set; }
@@ -3909,26 +3909,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(128)]
-    public class AccStorageBlacklistConfig : IElementsType
+    public class AccStorageBlacklistConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(512)] public uint[] Blacklist { get; set; }
     }
 
     [Order(129)]
-    public class FaceHairTextureMap : IElementsType
+    public class FaceHairTextureMap : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public HairTextureMapClass[] HairTextureMap { get; set; }
@@ -3942,13 +3942,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(130)]
-    public class MultiExpConfig : IElementsType
+    public class MultiExpConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(20)] public ChoiceClass[] Choice { get; set; }
@@ -3968,13 +3968,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(131)]
-    public class IncSkillAbilityEssence : IElementsType
+    public class IncSkillAbilityEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -3999,26 +3999,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(132)]
-    public class GodEvilConvertConfig : IElementsType
+    public class GodEvilConvertConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(256)] public int[] SkillMap { get; set; }
     }
 
     [Order(133)]
-    public class WeddingConfig : IElementsType
+    public class WeddingConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(10)] public WeddingSessionClass[] WeddingSession { get; set; }
@@ -4051,7 +4051,7 @@ namespace Pw.Elements.v155
         {
             [Order(0)]
             [Size(16)]
-            [NameStringAttribute]
+            [NameString]
             public string Name { get; set; }
 
             [Order(1)] [Size(3)] public float[] Pos { get; set; }
@@ -4059,13 +4059,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(134)]
-    public class WeddingBookcardEssence : IElementsType
+    public class WeddingBookcardEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4090,13 +4090,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(135)]
-    public class WeddingInvitecardEssence : IElementsType
+    public class WeddingInvitecardEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4115,13 +4115,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(136)]
-    public class SharpenerEssence : IElementsType
+    public class SharpenerEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4150,13 +4150,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(137)]
-    public class FaceThirdeyeEssence : IElementsType
+    public class FaceThirdeyeEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileGfx { get; set; }
@@ -4171,13 +4171,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(138)]
-    public class FactionFortressConfig : IElementsType
+    public class FactionFortressConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int RequireLevel { get; set; }
@@ -4217,18 +4217,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(139)]
-    public class FactionBuildingSubType : IElementsType
+    public class FactionBuildingSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(140)]
-    public class FactionBuildingEssence : IElementsType
+    public class FactionBuildingEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -4236,7 +4236,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileIcon { get; set; }
@@ -4261,13 +4261,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(141)]
-    public class FactionMaterialEssence : IElementsType
+    public class FactionMaterialEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4288,13 +4288,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(142)]
-    public class CongregateEssence : IElementsType
+    public class CongregateEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4330,29 +4330,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(143)]
-    public class EngraveMajorType : IElementsType
+    public class EngraveMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(144)]
-    public class EngraveSubType : IElementsType
+    public class EngraveSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(145)]
-    public class EngraveEssence : IElementsType
+    public class EngraveEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -4362,7 +4362,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileIcon { get; set; }
@@ -4392,26 +4392,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(146)]
-    public class NpcEngraveService : IElementsType
+    public class NpcEngraveService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(16)] public uint[] IdEngrave { get; set; }
     }
 
     [Order(147)]
-    public class NpcRandpropService : IElementsType
+    public class NpcRandpropService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(8)] public PagesClass[] Pages { get; set; }
@@ -4420,7 +4420,7 @@ namespace Pw.Elements.v155
         {
             [Order(0)]
             [Size(8)]
-            [NameStringAttribute]
+            [NameString]
             public string PageTitle { get; set; }
 
             [Order(1)] public uint IdRecipe { get; set; }
@@ -4428,18 +4428,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(148)]
-    public class RandpropType : IElementsType
+    public class RandpropType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(149)]
-    public class RandpropEssence : IElementsType
+    public class RandpropEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -4447,7 +4447,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] public uint IdSkill { get; set; }
@@ -4471,13 +4471,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(150)]
-    public class WikiTabooConfig : IElementsType
+    public class WikiTabooConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(512)] public uint[] Essence { get; set; }
@@ -4490,13 +4490,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(151)]
-    public class ForceConfig : IElementsType
+    public class ForceConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileIcon { get; set; }
@@ -4505,7 +4505,7 @@ namespace Pw.Elements.v155
 
         [Order(4)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(5)] public int ReputationMax { get; set; }
@@ -4522,13 +4522,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(153)]
-    public class ForceTokenEssence : IElementsType
+    public class ForceTokenEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4553,39 +4553,39 @@ namespace Pw.Elements.v155
     }
 
     [Order(154)]
-    public class NpcForceService : IElementsType
+    public class NpcForceService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint ForceId { get; set; }
     }
 
     [Order(155)]
-    public class PlayerDeathDropConfig : IElementsType
+    public class PlayerDeathDropConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(256)] public uint[] Itemlist { get; set; }
     }
 
     [Order(156)]
-    public class DynskillequipEssence : IElementsType
+    public class DynskillequipEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4606,13 +4606,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(157)]
-    public class ConsumePointsConfig : IElementsType
+    public class ConsumePointsConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(1024)] public ListClass[] List { get; set; }
@@ -4626,13 +4626,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(158)]
-    public class OnlineAwardsConfig : IElementsType
+    public class OnlineAwardsConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int MaxTime { get; set; }
@@ -4652,13 +4652,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(159)]
-    public class CountryConfig : IElementsType
+    public class CountryConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(4)] public CountryClass[] Country { get; set; }
@@ -4685,7 +4685,7 @@ namespace Pw.Elements.v155
         {
             [Order(0)]
             [Size(32)]
-            [NameStringAttribute]
+            [NameString]
             public string Name { get; set; }
 
             [Order(1)] [Size(128)] public string FileIcon { get; set; }
@@ -4731,13 +4731,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(160)]
-    public class GmActivityConfig : IElementsType
+    public class GmActivityConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(8)] public int[] Openlist { get; set; }
@@ -4748,26 +4748,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(161)]
-    public class FashionWeaponConfig : IElementsType
+    public class FashionWeaponConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(15)] public uint[] ActionMask { get; set; }
     }
 
     [Order(162)]
-    public class PetEvolveConfig : IElementsType
+    public class PetEvolveConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(5)] public CostClass[] Cost { get; set; }
@@ -4783,26 +4783,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(163)]
-    public class PetEvolvedSkillConfig : IElementsType
+    public class PetEvolvedSkillConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(2)] public Skill[] Skills { get; set; }
     }
 
     [Order(164)]
-    public class MoneyConvertibleEssence : IElementsType
+    public class MoneyConvertibleEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -4821,18 +4821,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(165)]
-    public class StoneChangeRecipeType : IElementsType
+    public class StoneChangeRecipeType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(166)]
-    public class StoneChangeRecipe : IElementsType
+    public class StoneChangeRecipe : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -4840,7 +4840,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] public uint IdOldStone { get; set; }
@@ -4860,13 +4860,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(167)]
-    public class MeridianConfig : IElementsType
+    public class MeridianConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(12)] public ProfParaClass[] ProfPara { get; set; }
@@ -4886,13 +4886,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(168)]
-    public class PetEvolvedSkillRandConfig : IElementsType
+    public class PetEvolvedSkillRandConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(3)] public RandSkillGroupClass[] RandSkillGroup { get; set; }
@@ -4906,13 +4906,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(169)]
-    public class AutotaskDisplayConfig : IElementsType
+    public class AutotaskDisplayConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(16)] public ListClass[] List { get; set; }
@@ -4930,13 +4930,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(170)]
-    public class TouchShopConfig : IElementsType
+    public class TouchShopConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(8)] public PageClass[] Page { get; set; }
@@ -4945,7 +4945,7 @@ namespace Pw.Elements.v155
         {
             [Order(0)]
             [Size(8)]
-            [NameStringAttribute]
+            [NameString]
             public string Title { get; set; }
 
             [Order(1)] [Size(16)] public ItemClass[] Item { get; set; }
@@ -4964,23 +4964,23 @@ namespace Pw.Elements.v155
     }
 
     [Order(171)]
-    public class TitleConfig : IElementsType
+    public class TitleConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(3)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Condition { get; set; }
 
         [Order(4)] public uint Color { get; set; }
@@ -5003,23 +5003,23 @@ namespace Pw.Elements.v155
     }
 
     [Order(172)]
-    public class ComplexTitleConfig : IElementsType
+    public class ComplexTitleConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(3)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Condition { get; set; }
 
         [Order(4)] public uint Color { get; set; }
@@ -5044,13 +5044,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(173)]
-    public class MonsterSpiritEssence : IElementsType
+    public class MonsterSpiritEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5075,13 +5075,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(174)]
-    public class PlayerSpiritConfig : IElementsType
+    public class PlayerSpiritConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int Type { get; set; }
@@ -5111,13 +5111,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(175)]
-    public class PlayerReincarnationConfig : IElementsType
+    public class PlayerReincarnationConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(10)] public LevelClass[] Level { get; set; }
@@ -5131,18 +5131,18 @@ namespace Pw.Elements.v155
     }
 
     [Order(176)]
-    public class HistoryStageConfig : IElementsType
+    public class HistoryStageConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(3)] public int ProgressValueId { get; set; }
@@ -5151,33 +5151,33 @@ namespace Pw.Elements.v155
     }
 
     [Order(177)]
-    public class HistoryAdvanceConfig : IElementsType
+    public class HistoryAdvanceConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public int[] HistoryStageId { get; set; }
     }
 
     [Order(178)]
-    public class AutoteamConfig : IElementsType
+    public class AutoteamConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileIcon { get; set; }
 
         [Order(3)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(4)] public uint Type { get; set; }
@@ -5222,13 +5222,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(179)]
-    public class PlayerRealmConfig : IElementsType
+    public class PlayerRealmConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(10)] public ListClass[] List { get; set; }
@@ -5247,20 +5247,20 @@ namespace Pw.Elements.v155
     }
 
     [Order(180)]
-    public class ChariotConfig : IElementsType
+    public class ChariotConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileIcon { get; set; }
 
         [Order(3)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(4)] public int Level { get; set; }
@@ -5289,13 +5289,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(181)]
-    public class ChariotWarConfig : IElementsType
+    public class ChariotWarConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(3)] public MinesClass[] Mines { get; set; }
@@ -5309,13 +5309,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(182)]
-    public class PokerLevelexpConfig : IElementsType
+    public class PokerLevelexpConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(100)] public int[] Exp { get; set; }
@@ -5324,13 +5324,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(183)]
-    public class PokerSuiteEssence : IElementsType
+    public class PokerSuiteEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public float PromoteRatio { get; set; }
@@ -5339,13 +5339,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(184)]
-    public class PokerDiceEssence : IElementsType
+    public class PokerDiceEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5368,13 +5368,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(185)]
-    public class PokerSubType : IElementsType
+    public class PokerSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int Type { get; set; }
@@ -5383,7 +5383,7 @@ namespace Pw.Elements.v155
     }
 
     [Order(187)]
-    public class PokerEssence : IElementsType
+    public class PokerEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -5391,7 +5391,7 @@ namespace Pw.Elements.v155
 
         [Order(2)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(3)] [Size(128)] public string FileMatter { get; set; }
@@ -5452,26 +5452,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(188)]
-    public class TokenShopConfig : IElementsType
+    public class TokenShopConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(64)] public uint[] Item { get; set; }
     }
 
     [Order(189)]
-    public class ShopTokenEssence : IElementsType
+    public class ShopTokenEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5492,13 +5492,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(190)]
-    public class GtConfig : IElementsType
+    public class GtConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int IncAttackDegree { get; set; }
@@ -5507,13 +5507,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(191)]
-    public class RandShopConfig : IElementsType
+    public class RandShopConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int FirstBuyPrice { get; set; }
@@ -5526,26 +5526,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(192)]
-    public class ProfitTimeConfig : IElementsType
+    public class ProfitTimeConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int UpperLimit { get; set; }
     }
 
     [Order(193)]
-    public class FactionPvpConfig : IElementsType
+    public class FactionPvpConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(8)] public ListClass[] List { get; set; }
@@ -5569,13 +5569,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(194)]
-    public class UniversalTokenEssence : IElementsType
+    public class UniversalTokenEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5598,26 +5598,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(195)]
-    public class TaskListConfig : IElementsType
+    public class TaskListConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(256)] public uint[] IdTasks { get; set; }
     }
 
     [Order(196)]
-    public class TaskDiceByWeightConfig : IElementsType
+    public class TaskDiceByWeightConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint StorageId { get; set; }
@@ -5641,13 +5641,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(197)]
-    public class FashionSuiteEssence : IElementsType
+    public class FashionSuiteEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileIcon { get; set; }
@@ -5658,13 +5658,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(198)]
-    public class FashionBestColorConfig : IElementsType
+    public class FashionBestColorConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(64)] public ListClass[] List { get; set; }
@@ -5678,13 +5678,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(199)]
-    public class SignAwardConfig : IElementsType
+    public class SignAwardConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(31)] public ListClass[] List { get; set; }
@@ -5698,13 +5698,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(200)]
-    public class AstrolabeEssence : IElementsType
+    public class AstrolabeEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5752,13 +5752,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(201)]
-    public class AstrolabeRandomAddonEssence : IElementsType
+    public class AstrolabeRandomAddonEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5779,13 +5779,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(202)]
-    public class AstrolabeIncInnerPointValueEssence : IElementsType
+    public class AstrolabeIncInnerPointValueEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5812,13 +5812,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(203)]
-    public class AstrolabeIncExpEssence : IElementsType
+    public class AstrolabeIncExpEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5839,13 +5839,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(204)]
-    public class ItemPackageByProfessionEssence : IElementsType
+    public class ItemPackageByProfessionEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -5878,26 +5878,26 @@ namespace Pw.Elements.v155
     }
 
     [Order(205)]
-    public class AstrolabeLevelexpConfig : IElementsType
+    public class AstrolabeLevelexpConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(100)] public int[] Exp { get; set; }
     }
 
     [Order(206)]
-    public class AstrolabeAddonRandomConfig : IElementsType
+    public class AstrolabeAddonRandomConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(10)] public int[] LevelupExp { get; set; }
@@ -5906,13 +5906,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(207)]
-    public class AstrolabeAppearanceConfig : IElementsType
+    public class AstrolabeAppearanceConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(10)] public ListClass[] List { get; set; }
@@ -5926,13 +5926,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(208)]
-    public class EquipMakeHoleConfig : IElementsType
+    public class EquipMakeHoleConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(20)] public LevelListClass[] LevelList { get; set; }
@@ -5953,13 +5953,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(209)]
-    public class SoloTowerChallengeLevelConfig : IElementsType
+    public class SoloTowerChallengeLevelConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(6)] public RoomClass[] Room { get; set; }
@@ -5984,13 +5984,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(210)]
-    public class SoloTowerChallengeAwardPageConfig : IElementsType
+    public class SoloTowerChallengeAwardPageConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(20)] public ListClass[] List { get; set; }
@@ -6006,13 +6006,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(211)]
-    public class SoloTowerChallengeAwardListConfig : IElementsType
+    public class SoloTowerChallengeAwardListConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(108)] public LevelClass[] Level { get; set; }
@@ -6028,13 +6028,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(212)]
-    public class SoloTowerChallengeScoreCostConfig : IElementsType
+    public class SoloTowerChallengeScoreCostConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(16)] public ScoreBuffListClass[] ScoreBuffList { get; set; }
@@ -6051,19 +6051,19 @@ namespace Pw.Elements.v155
 
             [Order(4)]
             [Size(256)]
-            [NameStringAttribute]
+            [NameString]
             public string ParamComment { get; set; }
         }
     }
 
     [Order(213)]
-    public class MnfactionWarConfig : IElementsType
+    public class MnfactionWarConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint SignUpMoneyCost { get; set; }
@@ -6179,13 +6179,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(214)]
-    public class NpcCrossServerService : IElementsType
+    public class NpcCrossServerService : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int ActivityType { get; set; }
@@ -6208,13 +6208,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(215)]
-    public class HomeConfig : IElementsType
+    public class HomeConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(32)] public UpgradeClass[] Upgrade { get; set; }
@@ -6258,13 +6258,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(216)]
-    public class HomeProductsConfig : IElementsType
+    public class HomeProductsConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int ProduceType { get; set; }
@@ -6299,13 +6299,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(217)]
-    public class HomeResourceProduceConfig : IElementsType
+    public class HomeResourceProduceConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int ProduceType { get; set; }
@@ -6339,7 +6339,7 @@ namespace Pw.Elements.v155
     }
 
     [Order(218)]
-    public class HomeFormulasProduceRecipe : IElementsType
+    public class HomeFormulasProduceRecipe : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -6349,7 +6349,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] public int ServiceType { get; set; }
@@ -6395,7 +6395,7 @@ namespace Pw.Elements.v155
     }
 
     [Order(219)]
-    public class HomeFormulasItemEssence : IElementsType
+    public class HomeFormulasItemEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -6405,7 +6405,7 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] [Size(128)] public string FileMatter { get; set; }
@@ -6428,13 +6428,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(220)]
-    public class HomeProduceServiceConfig : IElementsType
+    public class HomeProduceServiceConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public ProduceListClass[] ProduceList { get; set; }
@@ -6448,13 +6448,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(221)]
-    public class HomeFactoryConfig : IElementsType
+    public class HomeFactoryConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public int FactoryType { get; set; }
@@ -6480,29 +6480,29 @@ namespace Pw.Elements.v155
     }
 
     [Order(222)]
-    public class HomeItemMajorType : IElementsType
+    public class HomeItemMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(223)]
-    public class HomeItemSubType : IElementsType
+    public class HomeItemSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(224)]
-    public class HomeItemEntity : IElementsType
+    public class HomeItemEntity : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
@@ -6512,14 +6512,14 @@ namespace Pw.Elements.v155
 
         [Order(3)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(4)] public int Rank { get; set; }
 
         [Order(5)]
         [Size(256)]
-        [NameStringAttribute]
+        [NameString]
         public string Desc { get; set; }
 
         [Order(6)] [Size(128)] public string FileModel { get; set; }
@@ -6556,57 +6556,57 @@ namespace Pw.Elements.v155
     }
 
     [Order(225)]
-    public class HomeFormulasProduceMajorType : IElementsType
+    public class HomeFormulasProduceMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(226)]
-    public class HomeFormulasProduceSubType : IElementsType
+    public class HomeFormulasProduceSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(227)]
-    public class HomeFormulasItemMajorType : IElementsType
+    public class HomeFormulasItemMajorType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(228)]
-    public class HomeFormulasItemSubType : IElementsType
+    public class HomeFormulasItemSubType : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
     }
 
     [Order(229)]
-    public class HomeStorageTaskConfig : IElementsType
+    public class HomeStorageTaskConfig : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] public uint RefreshTaskCountMin { get; set; }
@@ -6634,13 +6634,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(230)]
-    public class WishTributeEssence : IElementsType
+    public class WishTributeEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }
@@ -6671,13 +6671,13 @@ namespace Pw.Elements.v155
     }
 
     [Order(231)]
-    public class RedPacketPaperEssence : IElementsType
+    public class RedPacketPaperEssence : IElement
     {
         [Order(0)] public uint Id { get; set; }
 
         [Order(1)]
         [Size(32)]
-        [NameStringAttribute]
+        [NameString]
         public string Name { get; set; }
 
         [Order(2)] [Size(128)] public string FileMatter { get; set; }

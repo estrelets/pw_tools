@@ -1,6 +1,6 @@
 ﻿namespace Pw.Elements
 {
-    public interface IElementsType
+    public interface IElement
     {
     }
 }

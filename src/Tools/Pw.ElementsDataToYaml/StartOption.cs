@@ -6,6 +6,13 @@ namespace Pw.ElementsYamlConverter
     {
         string ElementsPath { get; set; }
         string YamlDirectory { get; set; }
+        Version Version { get; set; }
+    }
+
+    public enum Version
+    {
+        V144,
+        V156
     }
 
     [Verb("toElements", HelpText = "Converts from elements.data to yaml files")]
@@ -16,6 +23,9 @@ namespace Pw.ElementsYamlConverter
 
         [Option('y', "yamlDir", Required = true, HelpText = "Directory to yaml files")]
         public string YamlDirectory { get; set; }
+
+        [Option('v', "version", Required = false, Default = Version.V156, HelpText = "Elements data version.")]
+        public Version Version { get; set; }
     }
 
     [Verb("toYaml", HelpText = "Converts from elements.data to yaml files")]
@@ -26,5 +36,8 @@ namespace Pw.ElementsYamlConverter
 
         [Option('y', "yamlDir", Required = true, HelpText = "Directory to yaml files")]
         public string YamlDirectory { get; set; }
+
+        [Option('v', "version", Required = false, Default = Version.V156, HelpText = "Elements data version.")]
+        public Version Version { get; set; }
     }
 }

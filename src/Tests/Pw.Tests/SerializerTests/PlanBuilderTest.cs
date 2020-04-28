@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pw.Elements;
+using Pw.Elements.v144;
 using Pw.Serializer;
 using Pw.Serializer.Plans;
 

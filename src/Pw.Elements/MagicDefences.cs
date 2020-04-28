@@ -1,6 +1,6 @@
 using Pw.Serializer;
 
-namespace Pw.Elements.v155
+namespace Pw.Elements
 {
     public class MagicDefences
     {

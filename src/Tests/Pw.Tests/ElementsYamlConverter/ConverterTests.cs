@@ -3,6 +3,7 @@ using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pw.Elements;
+using Pw.Elements.v144;
 using Pw.ElementsYamlConverter;
 using Tests.Common;
 
@@ -11,14 +12,16 @@ namespace Pw.Tests.ElementsYamlConverter
     [TestClass]
     public class ConverterTests
     {
-        private ElementsData _elementsData;
+        private ElementData _elementData;
         private Stream _elementsStream;
 
         [TestInitialize]
         public void TestInit()
         {
             _elementsStream = EmbeddedResourceGetter.GetResourceStream(Resources.SampleElementsData);
-            _elementsData = new ElementsData(_elementsStream);
+            var serializer = new ElementDataSerializer();
+
+            _elementData = (ElementData) serializer.Deserialize(_elementsStream);
         }
 
         [TestCleanup]
@@ -34,7 +37,7 @@ namespace Pw.Tests.ElementsYamlConverter
         public void BugWithNewLine()
         {
             var yamlSerializer = new YamlSerializer();
-            var npc1 = _elementsData.NpcEssences.FirstOrDefault(npc => npc.Id == 3273);
+            var npc1 = _elementData.NpcEssences.FirstOrDefault(npc => npc.Id == 3273);
 
             var outputStream = new MemoryStream();
             yamlSerializer.Serialize(npc1, outputStream);

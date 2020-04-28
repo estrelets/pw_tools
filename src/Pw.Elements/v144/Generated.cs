@@ -1,9 +1,9 @@
 using Pw.Serializer;
 
-namespace Pw.Elements
+namespace Pw.Elements.v144
 {
     [Order(0)]
-    public class EquipmentAddon : IElementsType
+    public class EquipmentAddon : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -27,7 +27,7 @@ namespace Pw.Elements
     }
 
     [Order(1)]
-    public class WeaponMajorType : IElementsType
+    public class WeaponMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -39,7 +39,7 @@ namespace Pw.Elements
     }
 
     [Order(2)]
-    public class WeaponSubType : IElementsType
+    public class WeaponSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -83,7 +83,7 @@ namespace Pw.Elements
     }
 
     [Order(3)]
-    public class WeaponEssence : IElementsType
+    public class WeaponEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -273,7 +273,7 @@ namespace Pw.Elements
     }
 
     [Order(4)]
-    public class ArmorMajorType : IElementsType
+    public class ArmorMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -285,7 +285,7 @@ namespace Pw.Elements
     }
 
     [Order(5)]
-    public class ArmorSubType : IElementsType
+    public class ArmorSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -300,7 +300,7 @@ namespace Pw.Elements
     }
 
     [Order(6)]
-    public class ArmorEssence : IElementsType
+    public class ArmorEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -501,7 +501,7 @@ namespace Pw.Elements
     }
 
     [Order(7)]
-    public class DecorationMajorType : IElementsType
+    public class DecorationMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -513,7 +513,7 @@ namespace Pw.Elements
     }
 
     [Order(8)]
-    public class DecorationSubType : IElementsType
+    public class DecorationSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -528,7 +528,7 @@ namespace Pw.Elements
     }
 
     [Order(9)]
-    public class DecorationEssence : IElementsType
+    public class DecorationEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -687,7 +687,7 @@ namespace Pw.Elements
     }
 
     [Order(10)]
-    public class MedicineMajorType : IElementsType
+    public class MedicineMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -699,7 +699,7 @@ namespace Pw.Elements
     }
 
     [Order(11)]
-    public class MedicineSubType : IElementsType
+    public class MedicineSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -711,7 +711,7 @@ namespace Pw.Elements
     }
 
     [Order(12)]
-    public class MedicineEssence : IElementsType
+    public class MedicineEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -770,7 +770,7 @@ namespace Pw.Elements
     }
 
     [Order(13)]
-    public class MaterialMajorType : IElementsType
+    public class MaterialMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -782,7 +782,7 @@ namespace Pw.Elements
     }
 
     [Order(14)]
-    public class MaterialSubType : IElementsType
+    public class MaterialSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -794,7 +794,7 @@ namespace Pw.Elements
     }
 
     [Order(15)]
-    public class MaterialEssence : IElementsType
+    public class MaterialEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -847,7 +847,7 @@ namespace Pw.Elements
     }
 
     [Order(16)]
-    public class DamageruneSubType : IElementsType
+    public class DamageruneSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -859,7 +859,7 @@ namespace Pw.Elements
     }
 
     [Order(17)]
-    public class DamageruneEssence : IElementsType
+    public class DamageruneEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -909,7 +909,7 @@ namespace Pw.Elements
     }
 
     [Order(18)]
-    public class ArmorruneSubType : IElementsType
+    public class ArmorruneSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -921,7 +921,7 @@ namespace Pw.Elements
     }
 
     [Order(19)]
-    public class ArmorruneEssence : IElementsType
+    public class ArmorruneEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -982,7 +982,7 @@ namespace Pw.Elements
     }
 
     [Order(20)]
-    public class SkilltomeSubType : IElementsType
+    public class SkilltomeSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -994,7 +994,7 @@ namespace Pw.Elements
     }
 
     [Order(21)]
-    public class SkilltomeEssence : IElementsType
+    public class SkilltomeEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1032,7 +1032,7 @@ namespace Pw.Elements
     }
 
     [Order(22)]
-    public class FlyswordEssence : IElementsType
+    public class FlyswordEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1110,7 +1110,7 @@ namespace Pw.Elements
     }
 
     [Order(23)]
-    public class WingmanwingEssence : IElementsType
+    public class WingmanwingEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1161,7 +1161,7 @@ namespace Pw.Elements
     }
 
     [Order(24)]
-    public class TownscrollEssence : IElementsType
+    public class TownscrollEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1199,7 +1199,7 @@ namespace Pw.Elements
     }
 
     [Order(25)]
-    public class UnionscrollEssence : IElementsType
+    public class UnionscrollEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1237,7 +1237,7 @@ namespace Pw.Elements
     }
 
     [Order(26)]
-    public class RevivescrollEssence : IElementsType
+    public class RevivescrollEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1278,7 +1278,7 @@ namespace Pw.Elements
     }
 
     [Order(27)]
-    public class ElementEssence : IElementsType
+    public class ElementEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1316,7 +1316,7 @@ namespace Pw.Elements
     }
 
     [Order(28)]
-    public class TaskmatterEssence : IElementsType
+    public class TaskmatterEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1341,7 +1341,7 @@ namespace Pw.Elements
     }
 
     [Order(29)]
-    public class TossmatterEssence : IElementsType
+    public class TossmatterEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1416,7 +1416,7 @@ namespace Pw.Elements
     }
 
     [Order(30)]
-    public class ProjectileType : IElementsType
+    public class ProjectileType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1428,7 +1428,7 @@ namespace Pw.Elements
     }
 
     [Order(31)]
-    public class ProjectileEssence : IElementsType
+    public class ProjectileEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1506,7 +1506,7 @@ namespace Pw.Elements
     }
 
     [Order(32)]
-    public class QuiverSubType : IElementsType
+    public class QuiverSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1518,7 +1518,7 @@ namespace Pw.Elements
     }
 
     [Order(33)]
-    public class QuiverEssence : IElementsType
+    public class QuiverEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1550,7 +1550,7 @@ namespace Pw.Elements
     }
 
     [Order(34)]
-    public class StoneSubType : IElementsType
+    public class StoneSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1562,7 +1562,7 @@ namespace Pw.Elements
     }
 
     [Order(35)]
-    public class StoneEssence : IElementsType
+    public class StoneEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1628,7 +1628,7 @@ namespace Pw.Elements
     }
 
     [Order(36)]
-    public class MonsterAddon : IElementsType
+    public class MonsterAddon : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1652,7 +1652,7 @@ namespace Pw.Elements
     }
 
     [Order(37)]
-    public class MonsterType : IElementsType
+    public class MonsterType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1668,7 +1668,7 @@ namespace Pw.Elements
     }
 
     [Order(38)]
-    public class MonsterEssence : IElementsType
+    public class MonsterEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1923,7 +1923,7 @@ namespace Pw.Elements
     }
 
     [Order(39)]
-    public class NpcTalkService : IElementsType
+    public class NpcTalkService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1938,7 +1938,7 @@ namespace Pw.Elements
     }
 
     [Order(40)]
-    public class NpcSellService : IElementsType
+    public class NpcSellService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1972,7 +1972,7 @@ namespace Pw.Elements
     }
 
     [Order(41)]
-    public class NpcBuyService : IElementsType
+    public class NpcBuyService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -1987,7 +1987,7 @@ namespace Pw.Elements
     }
 
     [Order(42)]
-    public class NpcRepairService : IElementsType
+    public class NpcRepairService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2002,7 +2002,7 @@ namespace Pw.Elements
     }
 
     [Order(43)]
-    public class NpcInstallService : IElementsType
+    public class NpcInstallService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2021,7 +2021,7 @@ namespace Pw.Elements
     }
 
     [Order(44)]
-    public class NpcUninstallService : IElementsType
+    public class NpcUninstallService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2040,7 +2040,7 @@ namespace Pw.Elements
     }
 
     [Order(45)]
-    public class NpcTaskInService : IElementsType
+    public class NpcTaskInService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2056,7 +2056,7 @@ namespace Pw.Elements
     }
 
     [Order(46)]
-    public class NpcTaskOutService : IElementsType
+    public class NpcTaskOutService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2090,7 +2090,7 @@ namespace Pw.Elements
     }
 
     [Order(47)]
-    public class NpcTaskMatterService : IElementsType
+    public class NpcTaskMatterService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2117,7 +2117,7 @@ namespace Pw.Elements
     }
 
     [Order(48)]
-    public class NpcSkillService : IElementsType
+    public class NpcSkillService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2136,7 +2136,7 @@ namespace Pw.Elements
     }
 
     [Order(49)]
-    public class NpcHealService : IElementsType
+    public class NpcHealService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2151,7 +2151,7 @@ namespace Pw.Elements
     }
 
     [Order(50)]
-    public class NpcTransmitService : IElementsType
+    public class NpcTransmitService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2173,7 +2173,7 @@ namespace Pw.Elements
     }
 
     [Order(51)]
-    public class NpcTransportService : IElementsType
+    public class NpcTransportService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2192,7 +2192,7 @@ namespace Pw.Elements
     }
 
     [Order(52)]
-    public class NpcProxyService : IElementsType
+    public class NpcProxyService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2207,7 +2207,7 @@ namespace Pw.Elements
     }
 
     [Order(53)]
-    public class NpcStorageService : IElementsType
+    public class NpcStorageService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2219,7 +2219,7 @@ namespace Pw.Elements
     }
 
     [Order(54)]
-    public class NpcMakeService : IElementsType
+    public class NpcMakeService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2254,7 +2254,7 @@ namespace Pw.Elements
     }
 
     [Order(55)]
-    public class NpcDecomposeService : IElementsType
+    public class NpcDecomposeService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2269,7 +2269,7 @@ namespace Pw.Elements
     }
 
     [Order(56)]
-    public class NpcType : IElementsType
+    public class NpcType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2281,7 +2281,7 @@ namespace Pw.Elements
     }
 
     [Order(57)]
-    public class NpcEssence : IElementsType
+    public class NpcEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2419,7 +2419,7 @@ namespace Pw.Elements
     }
 
     [Order(58)]
-    public class FaceTextureEssence : IElementsType
+    public class FaceTextureEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2464,7 +2464,7 @@ namespace Pw.Elements
     }
 
     [Order(59)]
-    public class FaceShapeEssence : IElementsType
+    public class FaceShapeEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2502,7 +2502,7 @@ namespace Pw.Elements
     }
 
     [Order(60)]
-    public class FaceEmotionType : IElementsType
+    public class FaceEmotionType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2518,7 +2518,7 @@ namespace Pw.Elements
     }
 
     [Order(61)]
-    public class FaceExpressionEssence : IElementsType
+    public class FaceExpressionEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2547,7 +2547,7 @@ namespace Pw.Elements
     }
 
     [Order(62)]
-    public class FaceHairEssence : IElementsType
+    public class FaceHairEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2586,7 +2586,7 @@ namespace Pw.Elements
     }
 
     [Order(63)]
-    public class FaceMoustacheEssence : IElementsType
+    public class FaceMoustacheEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2618,7 +2618,7 @@ namespace Pw.Elements
     }
 
     [Order(64)]
-    public class ColorpickerEssence : IElementsType
+    public class ColorpickerEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2643,7 +2643,7 @@ namespace Pw.Elements
     }
 
     [Order(65)]
-    public class CustomizedataEssence : IElementsType
+    public class CustomizedataEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2665,7 +2665,7 @@ namespace Pw.Elements
     }
 
     [Order(66)]
-    public class RecipeMajorType : IElementsType
+    public class RecipeMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2677,7 +2677,7 @@ namespace Pw.Elements
     }
 
     [Order(67)]
-    public class RecipeSubType : IElementsType
+    public class RecipeSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2689,7 +2689,7 @@ namespace Pw.Elements
     }
 
     [Order(68)]
-    public class RecipeEssence : IElementsType
+    public class RecipeEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2754,7 +2754,7 @@ namespace Pw.Elements
     }
 
     [Order(69)]
-    public class EnemyFactionConfig : IElementsType
+    public class EnemyFactionConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2770,7 +2770,7 @@ namespace Pw.Elements
     }
 
     [Order(70)]
-    public class CharracterClassConfig : IElementsType
+    public class CharracterClassConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2851,7 +2851,7 @@ namespace Pw.Elements
     }
 
     [Order(71)]
-    public class ParamAdjustConfig : IElementsType
+    public class ParamAdjustConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2897,7 +2897,7 @@ namespace Pw.Elements
     }
 
     [Order(72)]
-    public class PlayerActionInfoConfig : IElementsType
+    public class PlayerActionInfoConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2932,7 +2932,7 @@ namespace Pw.Elements
     }
 
     [Order(73)]
-    public class TaskdiceEssence : IElementsType
+    public class TaskdiceEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -2968,7 +2968,7 @@ namespace Pw.Elements
     }
 
     [Order(74)]
-    public class TasknormalmatterEssence : IElementsType
+    public class TasknormalmatterEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3003,7 +3003,7 @@ namespace Pw.Elements
     }
 
     [Order(75)]
-    public class FaceFalingEssence : IElementsType
+    public class FaceFalingEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3035,7 +3035,7 @@ namespace Pw.Elements
     }
 
     [Order(76)]
-    public class PlayerLevelexpConfig : IElementsType
+    public class PlayerLevelexpConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3051,7 +3051,7 @@ namespace Pw.Elements
     }
 
     [Order(77)]
-    public class MineType : IElementsType
+    public class MineType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3063,7 +3063,7 @@ namespace Pw.Elements
     }
 
     [Order(78)]
-    public class MineEssence : IElementsType
+    public class MineEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3142,7 +3142,7 @@ namespace Pw.Elements
     }
 
     [Order(79)]
-    public class NpcIdentifyService : IElementsType
+    public class NpcIdentifyService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3157,7 +3157,7 @@ namespace Pw.Elements
     }
 
     [Order(80)]
-    public class FashionMajorType : IElementsType
+    public class FashionMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3169,7 +3169,7 @@ namespace Pw.Elements
     }
 
     [Order(81)]
-    public class FashionSubType : IElementsType
+    public class FashionSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3184,7 +3184,7 @@ namespace Pw.Elements
     }
 
     [Order(82)]
-    public class FashionEssence : IElementsType
+    public class FashionEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3254,7 +3254,7 @@ namespace Pw.Elements
     }
 
     [Order(83)]
-    public class FaceticketMajorType : IElementsType
+    public class FaceticketMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3266,7 +3266,7 @@ namespace Pw.Elements
     }
 
     [Order(84)]
-    public class FaceticketSubType : IElementsType
+    public class FaceticketSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3278,7 +3278,7 @@ namespace Pw.Elements
     }
 
     [Order(85)]
-    public class FaceticketEssence : IElementsType
+    public class FaceticketEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3329,7 +3329,7 @@ namespace Pw.Elements
     }
 
     [Order(86)]
-    public class FacepillMajorType : IElementsType
+    public class FacepillMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3341,7 +3341,7 @@ namespace Pw.Elements
     }
 
     [Order(87)]
-    public class FacepillSubType : IElementsType
+    public class FacepillSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3353,7 +3353,7 @@ namespace Pw.Elements
     }
 
     [Order(88)]
-    public class FacepillEssence : IElementsType
+    public class FacepillEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3415,7 +3415,7 @@ namespace Pw.Elements
     }
 
     [Order(89)]
-    public class SuiteEssence : IElementsType
+    public class SuiteEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3442,7 +3442,7 @@ namespace Pw.Elements
     }
 
     [Order(90)]
-    public class GmGeneratorType : IElementsType
+    public class GmGeneratorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3454,7 +3454,7 @@ namespace Pw.Elements
     }
 
     [Order(91)]
-    public class GmGeneratorEssence : IElementsType
+    public class GmGeneratorEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3489,7 +3489,7 @@ namespace Pw.Elements
     }
 
     [Order(92)]
-    public class PetType : IElementsType
+    public class PetType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3501,7 +3501,7 @@ namespace Pw.Elements
     }
 
     [Order(93)]
-    public class PetEssence : IElementsType
+    public class PetEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3665,7 +3665,7 @@ namespace Pw.Elements
     }
 
     [Order(94)]
-    public class PetEggEssence : IElementsType
+    public class PetEggEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3725,7 +3725,7 @@ namespace Pw.Elements
     }
 
     [Order(95)]
-    public class PetFoodEssence : IElementsType
+    public class PetFoodEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3772,7 +3772,7 @@ namespace Pw.Elements
     }
 
     [Order(96)]
-    public class PetFaceticketEssence : IElementsType
+    public class PetFaceticketEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3807,7 +3807,7 @@ namespace Pw.Elements
     }
 
     [Order(97)]
-    public class FireworksEssence : IElementsType
+    public class FireworksEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3852,7 +3852,7 @@ namespace Pw.Elements
     }
 
     [Order(98)]
-    public class WarTankcallinEssence : IElementsType
+    public class WarTankcallinEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3887,7 +3887,7 @@ namespace Pw.Elements
     }
 
     [Order(99)]
-    public class NpcWarTowerbuildService : IElementsType
+    public class NpcWarTowerbuildService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3922,7 +3922,7 @@ namespace Pw.Elements
     }
 
     [Order(100)]
-    public class PlayerSecondlevelConfig : IElementsType
+    public class PlayerSecondlevelConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3938,7 +3938,7 @@ namespace Pw.Elements
     }
 
     [Order(101)]
-    public class NpcResetpropService : IElementsType
+    public class NpcResetpropService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3973,7 +3973,7 @@ namespace Pw.Elements
     }
 
     [Order(102)]
-    public class NpcPetnameService : IElementsType
+    public class NpcPetnameService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -3991,7 +3991,7 @@ namespace Pw.Elements
     }
 
     [Order(103)]
-    public class NpcPetlearnskillService : IElementsType
+    public class NpcPetlearnskillService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4010,7 +4010,7 @@ namespace Pw.Elements
     }
 
     [Order(104)]
-    public class NpcPetforgetskillService : IElementsType
+    public class NpcPetforgetskillService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4028,7 +4028,7 @@ namespace Pw.Elements
     }
 
     [Order(105)]
-    public class SkillmatterEssence : IElementsType
+    public class SkillmatterEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4072,7 +4072,7 @@ namespace Pw.Elements
     }
 
     [Order(106)]
-    public class RefineTicketEssence : IElementsType
+    public class RefineTicketEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4125,7 +4125,7 @@ namespace Pw.Elements
     }
 
     [Order(107)]
-    public class DestroyingEssence : IElementsType
+    public class DestroyingEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4160,7 +4160,7 @@ namespace Pw.Elements
     }
 
     [Order(108)]
-    public class NpcEquipbindService : IElementsType
+    public class NpcEquipbindService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4181,7 +4181,7 @@ namespace Pw.Elements
     }
 
     [Order(109)]
-    public class NpcEquipdestroyService : IElementsType
+    public class NpcEquipdestroyService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4199,7 +4199,7 @@ namespace Pw.Elements
     }
 
     [Order(110)]
-    public class NpcEquipundestroyService : IElementsType
+    public class NpcEquipundestroyService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4217,7 +4217,7 @@ namespace Pw.Elements
     }
 
     [Order(111)]
-    public class BibleEssence : IElementsType
+    public class BibleEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4262,7 +4262,7 @@ namespace Pw.Elements
     }
 
     [Order(112)]
-    public class SpeakerEssence : IElementsType
+    public class SpeakerEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4300,7 +4300,7 @@ namespace Pw.Elements
     }
 
     [Order(113)]
-    public class AutohpEssence : IElementsType
+    public class AutohpEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4344,7 +4344,7 @@ namespace Pw.Elements
     }
 
     [Order(114)]
-    public class AutompEssence : IElementsType
+    public class AutompEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4388,7 +4388,7 @@ namespace Pw.Elements
     }
 
     [Order(115)]
-    public class DoubleExpEssence : IElementsType
+    public class DoubleExpEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4426,7 +4426,7 @@ namespace Pw.Elements
     }
 
     [Order(116)]
-    public class TransmitscrollEssence : IElementsType
+    public class TransmitscrollEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4461,7 +4461,7 @@ namespace Pw.Elements
     }
 
     [Order(117)]
-    public class DyeTicketEssence : IElementsType
+    public class DyeTicketEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4514,7 +4514,7 @@ namespace Pw.Elements
     }
 
     [Order(118)]
-    public class GoblinEssence : IElementsType
+    public class GoblinEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4608,7 +4608,7 @@ namespace Pw.Elements
     }
 
     [Order(119)]
-    public class GoblinEquipType : IElementsType
+    public class GoblinEquipType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4620,7 +4620,7 @@ namespace Pw.Elements
     }
 
     [Order(120)]
-    public class GoblinEquipEssence : IElementsType
+    public class GoblinEquipEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4680,7 +4680,7 @@ namespace Pw.Elements
     }
 
     [Order(121)]
-    public class GoblinExppillEssence : IElementsType
+    public class GoblinExppillEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4721,7 +4721,7 @@ namespace Pw.Elements
     }
 
     [Order(122)]
-    public class SellCertificateEssence : IElementsType
+    public class SellCertificateEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4769,7 +4769,7 @@ namespace Pw.Elements
     }
 
     [Order(123)]
-    public class TargetItemEssence : IElementsType
+    public class TargetItemEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4823,7 +4823,7 @@ namespace Pw.Elements
     }
 
     [Order(124)]
-    public class LookInfoEssence : IElementsType
+    public class LookInfoEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4858,7 +4858,7 @@ namespace Pw.Elements
     }
 
     [Order(125)]
-    public class UpgradeProductionConfig : IElementsType
+    public class UpgradeProductionConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4886,7 +4886,7 @@ namespace Pw.Elements
     }
 
     [Order(126)]
-    public class AccStorageBlacklistConfig : IElementsType
+    public class AccStorageBlacklistConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4902,7 +4902,7 @@ namespace Pw.Elements
     }
 
     [Order(127)]
-    public class FaceHairTextureMap : IElementsType
+    public class FaceHairTextureMap : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4918,7 +4918,7 @@ namespace Pw.Elements
     }
 
     [Order(128)]
-    public class MultiExpConfig : IElementsType
+    public class MultiExpConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4953,7 +4953,7 @@ namespace Pw.Elements
     }
 
     [Order(129)]
-    public class IncSkillAbilityEssence : IElementsType
+    public class IncSkillAbilityEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -4997,7 +4997,7 @@ namespace Pw.Elements
     }
 
     [Order(130)]
-    public class GodEvilConvertConfig : IElementsType
+    public class GodEvilConvertConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5013,7 +5013,7 @@ namespace Pw.Elements
     }
 
     [Order(131)]
-    public class WeddingConfig : IElementsType
+    public class WeddingConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5064,7 +5064,7 @@ namespace Pw.Elements
     }
 
     [Order(132)]
-    public class WeddingBookcardEssence : IElementsType
+    public class WeddingBookcardEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5108,7 +5108,7 @@ namespace Pw.Elements
     }
 
     [Order(133)]
-    public class WeddingInvitecardEssence : IElementsType
+    public class WeddingInvitecardEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5143,7 +5143,7 @@ namespace Pw.Elements
     }
 
     [Order(134)]
-    public class SharpenerEssence : IElementsType
+    public class SharpenerEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5194,7 +5194,7 @@ namespace Pw.Elements
     }
 
     [Order(135)]
-    public class FaceThirdeyeEssence : IElementsType
+    public class FaceThirdeyeEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5223,7 +5223,7 @@ namespace Pw.Elements
     }
 
     [Order(136)]
-    public class FactionFortressConfig : IElementsType
+    public class FactionFortressConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5262,7 +5262,7 @@ namespace Pw.Elements
     }
 
     [Order(137)]
-    public class FactionBuildingSubType : IElementsType
+    public class FactionBuildingSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5274,7 +5274,7 @@ namespace Pw.Elements
     }
 
     [Order(138)]
-    public class FactionBuildingEssence : IElementsType
+    public class FactionBuildingEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5322,7 +5322,7 @@ namespace Pw.Elements
     }
 
     [Order(139)]
-    public class FactionMaterialEssence : IElementsType
+    public class FactionMaterialEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5361,7 +5361,7 @@ namespace Pw.Elements
     }
 
     [Order(140)]
-    public class CongregateEssence : IElementsType
+    public class CongregateEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5399,7 +5399,7 @@ namespace Pw.Elements
     }
 
     [Order(141)]
-    public class EngraveMajorType : IElementsType
+    public class EngraveMajorType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5411,7 +5411,7 @@ namespace Pw.Elements
     }
 
     [Order(142)]
-    public class EngraveSubType : IElementsType
+    public class EngraveSubType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5423,7 +5423,7 @@ namespace Pw.Elements
     }
 
     [Order(143)]
-    public class EngraveEssence : IElementsType
+    public class EngraveEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5472,7 +5472,7 @@ namespace Pw.Elements
     }
 
     [Order(144)]
-    public class NpcEngraveService : IElementsType
+    public class NpcEngraveService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5488,7 +5488,7 @@ namespace Pw.Elements
     }
 
     [Order(145)]
-    public class NpcRandpropService : IElementsType
+    public class NpcRandpropService : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5516,7 +5516,7 @@ namespace Pw.Elements
     }
 
     [Order(146)]
-    public class RandpropType : IElementsType
+    public class RandpropType : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5528,7 +5528,7 @@ namespace Pw.Elements
     }
 
     [Order(147)]
-    public class RandpropEssence : IElementsType
+    public class RandpropEssence : IElement
     {
         [Order(0)]
         public uint Id { get; set; }
@@ -5563,7 +5563,7 @@ namespace Pw.Elements
     }
 
     [Order(148)]
-    public class WikiTabooConfig : IElementsType
+    public class WikiTabooConfig : IElement
     {
         [Order(0)]
         public uint Id { get; set; }

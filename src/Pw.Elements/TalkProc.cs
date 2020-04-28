@@ -2,7 +2,7 @@ using Pw.Serializer;
 
 namespace Pw.Elements
 {
-    public class TalkProc : IElementsType
+    public class TalkProc : IElement
     {
         [Order(0)]
         public uint IdTalk { get; set; }

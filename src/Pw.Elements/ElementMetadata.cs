@@ -2,7 +2,7 @@
 
 namespace Pw.Elements
 {
-    public class ElementsDataFileInfo
+    public class ElementMetadata
     {
         public byte Version { get; set; }
         public byte[] Header { get; set; }
