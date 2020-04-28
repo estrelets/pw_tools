@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -12,10 +9,9 @@ namespace Pw.RpcDatas
     [GeneratedCode("Pw.ProtocolImporter", "1")]
     public class DBDeleteRoleArg
     {
-        [Order(0)]
-        public int RoleId { get; set; }
+        [Order(0)] public int RoleId { get; set; }
+
         //whether need to response result to client 
-        [Order(1)]
-        public char CreateRollback { get; set; }
+        [Order(1)] public char CreateRollback { get; set; }
     }
 }

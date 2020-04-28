@@ -15,11 +15,11 @@ namespace Pw.Serializer.Writers
             {
                 switch (primitivePlanItem.TypeCode)
                 {
-                    case TypeCode.Byte: return new []{(byte)value};
-                    case TypeCode.Single: return BitConverter.GetBytes((float)value);
-                    case TypeCode.Int32: return BitConverter.GetBytes((int)value);
-                    case TypeCode.UInt32: return BitConverter.GetBytes((uint)value);
-                    case TypeCode.UInt64: return BitConverter.GetBytes((ulong)value);
+                    case TypeCode.Byte: return new[] {(byte) value};
+                    case TypeCode.Single: return BitConverter.GetBytes((float) value);
+                    case TypeCode.Int32: return BitConverter.GetBytes((int) value);
+                    case TypeCode.UInt32: return BitConverter.GetBytes((uint) value);
+                    case TypeCode.UInt64: return BitConverter.GetBytes((ulong) value);
                     default: throw new NotImplementedException();
                 }
             }

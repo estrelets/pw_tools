@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,13 +10,12 @@ namespace Pw.RpcDatas
     public class TradeStartRqstArg
     {
         //roleid who will receive the request
-        [Order(0)]
-        public int RoleId { get; set; }
+        [Order(0)] public int RoleId { get; set; }
+
         //roleid who will receive the request
-        [Order(1)]
-        public uint LocalsId { get; set; }
+        [Order(1)] public uint LocalsId { get; set; }
+
         //roleid who start the transaction
-        [Order(2)]
-        public int StartRoleId { get; set; }
+        [Order(2)] public int StartRoleId { get; set; }
     }
 }

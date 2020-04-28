@@ -11,8 +11,8 @@ namespace Pw.Tests.ElementsYamlConverter
     [TestClass]
     public class ConverterTests
     {
-        private Stream _elementsStream;
         private ElementsData _elementsData;
+        private Stream _elementsStream;
 
         [TestInitialize]
         public void TestInit()
@@ -22,7 +22,10 @@ namespace Pw.Tests.ElementsYamlConverter
         }
 
         [TestCleanup]
-        public void TestClean() => _elementsStream.Dispose();
+        public void TestClean()
+        {
+            _elementsStream.Dispose();
+        }
 
 
         [TestMethod]

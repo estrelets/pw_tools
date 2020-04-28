@@ -9,9 +9,6 @@ namespace Pw.Proxy.Server
         private readonly Godfather _godfather;
         private readonly TcpListener _listener;
 
-        public NetworkAddress ListenAddress { get; }
-        public NetworkAddress TargetAddress { get; }
-
         public ConnectionAcceptor(NetworkAddress listenAddress, NetworkAddress targetAddress, Godfather godfather)
         {
             ListenAddress = listenAddress;
@@ -19,6 +16,9 @@ namespace Pw.Proxy.Server
             _godfather = godfather;
             _listener = new TcpListener(listenAddress.ToIpEndPoint());
         }
+
+        public NetworkAddress ListenAddress { get; }
+        public NetworkAddress TargetAddress { get; }
 
         public async Task Start(CancellationToken cancellationToken)
         {

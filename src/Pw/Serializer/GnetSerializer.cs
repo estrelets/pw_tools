@@ -7,8 +7,8 @@ namespace Pw.Serializer
     {
         private static readonly IReader GnetReader = new GnetReader();
         private static readonly IWriter GnetWriter = new GnetWriter();
-        
-        public GnetSerializer() 
+
+        public GnetSerializer()
             : base(GnetReader, GnetWriter)
         {
         }

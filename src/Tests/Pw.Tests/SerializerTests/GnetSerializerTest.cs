@@ -13,7 +13,8 @@ namespace Pw.Tests.SerializerTests
         [TestMethod]
         public void DeSerializeAnnounceZoneId()
         {
-            var octetsString = "00 00 00 01   00 00 00 01   00    00 00 00 00    00 00 00 00    00 00 00 00    00 00 00 01    00 00 00 00";
+            var octetsString =
+                "00 00 00 01   00 00 00 01   00    00 00 00 00    00 00 00 00    00 00 00 00    00 00 00 01    00 00 00 00";
             var octets = OctetsStringToBytes(octetsString);
             using var ms = new MemoryStream(octets);
             var serializer = new GnetSerializer();
@@ -34,7 +35,8 @@ namespace Pw.Tests.SerializerTests
         [TestMethod]
         public void DeserializeAndSerializeDeSerializeAnnounceZoneIdShouldEquals()
         {
-            var octetsString = "00 00 00 01   00 00 00 01   00    00 00 00 00    00 00 00 00    00 00 00 00    00 00 00 01    00 00 00 00";
+            var octetsString =
+                "00 00 00 01   00 00 00 01   00    00 00 00 00    00 00 00 00    00 00 00 00    00 00 00 01    00 00 00 00";
             var sourceOctets = OctetsStringToBytes(octetsString);
             using var readStream = new MemoryStream(sourceOctets);
             using var writeStream = new MemoryStream();
@@ -46,7 +48,7 @@ namespace Pw.Tests.SerializerTests
 
             serializedOctets.Should().BeEquivalentTo(sourceOctets);
         }
-        
+
 
         private byte[] OctetsStringToBytes(string octets)
         {

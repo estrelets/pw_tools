@@ -24,7 +24,7 @@ namespace Pw.ProtocolImporter
         {
             var protocolNode = doc.DocumentElement;
 
-            var protocol = new Protocol()
+            var protocol = new Protocol
             {
                 Name = GetAttributeValue(protocolNode, nameof(Protocol.Name)),
                 Type = Int32.Parse(GetAttributeValue(protocolNode, nameof(Protocol.Type))),
@@ -40,7 +40,7 @@ namespace Pw.ProtocolImporter
         {
             var rpcDataNode = doc.DocumentElement;
 
-            var protocol = new RpcData()
+            var protocol = new RpcData
             {
                 Name = GetAttr(nameof(RpcData.Name)),
                 Attr = GetRpcDataAttr(nameof(RpcData.Attr)),
@@ -52,9 +52,20 @@ namespace Pw.ProtocolImporter
 
             return protocol;
 
-            string GetAttr(string name) => GetAttributeValue(rpcDataNode, name);
-            RpcDataAttr GetRpcDataAttr(string name) => Enum.Parse<RpcDataAttr>(GetAttr(name) ?? nameof(RpcDataAttr.None), true);
-            int? GetOptionalInt(string name) => GetAttr(name) == null ? default : Int32.Parse(GetAttr(name));
+            string GetAttr(string name)
+            {
+                return GetAttributeValue(rpcDataNode, name);
+            }
+
+            RpcDataAttr GetRpcDataAttr(string name)
+            {
+                return Enum.Parse<RpcDataAttr>(GetAttr(name) ?? nameof(RpcDataAttr.None), true);
+            }
+
+            int? GetOptionalInt(string name)
+            {
+                return GetAttr(name) == null ? default : Int32.Parse(GetAttr(name));
+            }
         }
 
 
@@ -69,10 +80,7 @@ namespace Pw.ProtocolImporter
                     var comment = commentNode.Value;
 
                     var lastVar = vars.LastOrDefault();
-                    if (lastVar != null)
-                    {
-                        lastVar.Comment = comment;
-                    }
+                    if (lastVar != null) lastVar.Comment = comment;
 
                     continue;
                 }
@@ -80,10 +88,7 @@ namespace Pw.ProtocolImporter
                 if (node.Name != "variable")
                     throw new NotImplementedException();
 
-                if (node is XmlElement element)
-                {
-                    vars.Add(ParseVariable(element));
-                }
+                if (node is XmlElement element) vars.Add(ParseVariable(element));
             }
 
             return vars.ToArray();
@@ -94,7 +99,7 @@ namespace Pw.ProtocolImporter
             var type = ParseType();
             var attr = ParseAttr();
 
-            var variable = new Variable()
+            var variable = new Variable
             {
                 Name = GetAttr(nameof(Variable.Name)),
                 Type = type,
@@ -104,19 +109,28 @@ namespace Pw.ProtocolImporter
 
             return variable;
 
-            BaseType ParseType() => _typeNameParsers.ParseType(GetAttr(nameof(Variable.Type)));
-            Attr ParseAttr() => Enum.Parse<Attr>(GetAttr(nameof(Variable.Attr)) ?? "None", true);
-            string GetAttr(string name) => GetAttributeValue(element, name);
+            BaseType ParseType()
+            {
+                return _typeNameParsers.ParseType(GetAttr(nameof(Variable.Type)));
+            }
+
+            Attr ParseAttr()
+            {
+                return Enum.Parse<Attr>(GetAttr(nameof(Variable.Attr)) ?? "None", true);
+            }
+
+            string GetAttr(string name)
+            {
+                return GetAttributeValue(element, name);
+            }
         }
 
 
         private string GetAttributeValue(XmlNode node, string key)
         {
             foreach (XmlAttribute attr in node.Attributes)
-            {
                 if (attr.Name.Equals(key, StringComparison.InvariantCultureIgnoreCase))
                     return attr.Value;
-            }
 
             return null;
         }

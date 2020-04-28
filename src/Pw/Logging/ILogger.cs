@@ -17,12 +17,12 @@ namespace Pw.Logging
 
     public class RawString
     {
-        public string Value { get; }
-
         private RawString(string str)
         {
             Value = str;
         }
+
+        public string Value { get; }
 
         public static implicit operator RawString(string str)
         {

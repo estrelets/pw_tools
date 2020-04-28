@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,16 +10,15 @@ namespace Pw.RpcDatas
     public class TimeInfo
     {
         // ¶¯×÷·¢ÆðÊ±¼äµã,msÎªµ¥Î» 
-        [Order(0)]
-        public long Actiontime { get; set; }
+        [Order(0)] public long Actiontime { get; set; }
+
         // ¹«Ê¾ÆÚÊ±³¤£mminÎªµ¥Î»
-        [Order(1)]
-        public int Showperiod { get; set; }
+        [Order(1)] public int Showperiod { get; set; }
+
         // ³öÊÛÊ±³¤£mminÎªµ¥Î» 
-        [Order(2)]
-        public int Sellperiod { get; set; }
+        [Order(2)] public int Sellperiod { get; set; }
+
         // ¼ÄÊÛÊ±³¤£mminÎªµ¥Î» 
-        [Order(3)]
-        public int Postperiod { get; set; }
+        [Order(3)] public int Postperiod { get; set; }
     }
 }

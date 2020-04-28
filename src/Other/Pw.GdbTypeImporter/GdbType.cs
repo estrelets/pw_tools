@@ -30,9 +30,9 @@ namespace Pw.GdbTypeImporter
                 return false;
 
             return Enumerable
-              .Range(0, Properties.Count)
-              .Select(i => new { Source = Properties[i], Other = other.Properties[i] })
-              .All(pair => pair.Source.Equals(pair.Other));
+                .Range(0, Properties.Count)
+                .Select(i => new {Source = Properties[i], Other = other.Properties[i]})
+                .All(pair => pair.Source.Equals(pair.Other));
         }
     }
 
@@ -49,12 +49,19 @@ namespace Pw.GdbTypeImporter
 
         public override bool Equals(object obj)
         {
-            if (obj is Property prop)
-            {
-                return prop.Name == Name && prop.Type == Type;
-            }
+            if (obj is Property prop) return prop.Name == Name && prop.Type == Type;
 
             return false;
+        }
+
+        protected bool Equals(Property other)
+        {
+            return Name == other.Name && Equals(Type, other.Type);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Type);
         }
 
         public override string ToString()
@@ -66,7 +73,7 @@ namespace Pw.GdbTypeImporter
     public class ArrayProperty : Property
     {
         public ArrayProperty(string name, IGdbType type, int count)
-          : base(name, type)
+            : base(name, type)
         {
             Count = count;
         }

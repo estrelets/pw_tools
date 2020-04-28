@@ -1,6 +1,5 @@
 using System;
 using System.Buffers;
-using System.Diagnostics;
 using System.IO.Pipelines;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,30 +8,15 @@ namespace Pw.Proxy.Server
 {
     public class PacketReader : IPacketReader
     {
-        private readonly PerformanceAnalyzer _analyzer;
-
-        public PacketReader(PerformanceAnalyzer analyzer = default)
-        {
-            _analyzer = analyzer;
-        }
-
         public async Task<Packet> Read(PipeReader reader, CancellationToken cancellationToken)
         {
             var packet = new Packet();
-            StartMeasure(packet);
 
             packet.OpCode = await ReadCuint(reader, cancellationToken);
             packet.Data = await ReadPayload(reader, cancellationToken);
 
-            EndMeasure(packet);
             return packet;
         }
-
-        [Conditional(ConditionalOptions.CollectStatistic)]
-        public void StartMeasure(Packet p) =>_analyzer?.StartRead(p);
-
-        [Conditional(ConditionalOptions.CollectStatistic)]
-        public void EndMeasure(Packet p) => _analyzer?.FinishRead(p);
 
         private async Task<byte[]> ReadPayload(PipeReader reader, CancellationToken cancellationToken)
         {
@@ -60,7 +44,7 @@ namespace Pw.Proxy.Server
 
         private int Copy(Memory<byte> memory, ReadOnlySequence<byte> buffer, int alreadyRed)
         {
-            var bytesToRead = (int)Math.Min(buffer.Length, memory.Length - alreadyRed);
+            var bytesToRead = (int) Math.Min(buffer.Length, memory.Length - alreadyRed);
 
             var memorySlice = memory.Span.Slice(alreadyRed, bytesToRead);
             var bufferSlice = buffer.Slice(0, bytesToRead);
@@ -101,10 +85,7 @@ namespace Pw.Proxy.Server
             var firstByte = buffer.Slice(0, 1).ToArray()[0];
             var needBytes = CompactUIntSerializer.GetBytesCountByHeader(firstByte);
 
-            if (buffer.Length < needBytes)
-            {
-                return null;
-            }
+            if (buffer.Length < needBytes) return null;
 
             if (needBytes == 1)
             {

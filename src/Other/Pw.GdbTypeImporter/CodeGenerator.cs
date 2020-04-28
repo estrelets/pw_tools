@@ -6,8 +6,8 @@ namespace Pw.GdbTypeImporter
     public class CodeGenerator
     {
         private readonly string _nameSpace;
-        private readonly TypesCollector _typesCollector;
         private readonly StringBuilder _output;
+        private readonly TypesCollector _typesCollector;
 
         private int _indent;
 
@@ -54,9 +54,10 @@ namespace Pw.GdbTypeImporter
         private void PrintTypes()
         {
             var types = _typesCollector.Types
-              .Where(t => t.GetType().Name == nameof(GdbClass))
-              .Cast<GdbClass>()
-              .Select((gdbClass, order) => new { Class = gdbClass, Order = order });
+                .Where(t => t.GetType().Name == nameof(GdbClass))
+                .Cast<GdbClass>()
+                .Select((gdbClass, order) => new {Class = gdbClass, Order = order})
+                .ToArray();
 
             foreach (var gdbClass in types)
             {

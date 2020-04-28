@@ -1,4 +1,4 @@
-﻿namespace Pw.Configuration        
+﻿namespace Pw.Configuration
 
 {
     public interface IConfigurationSection

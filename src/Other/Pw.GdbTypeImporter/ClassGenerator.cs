@@ -13,11 +13,11 @@ namespace Pw.GdbTypeImporter
         private static readonly string ProbabilityTypeName = "Probability";
 
         private readonly IGdbType _gClass;
-        private readonly TypesCollector _typesCollector;
-        private readonly StringBuilder _output;
         private readonly bool _isElementsType;
-        private readonly StringBuilder _nestedClassOutput;
         private readonly Dictionary<IGdbType, string> _nestedClasses;
+        private readonly StringBuilder _nestedClassOutput;
+        private readonly StringBuilder _output;
+        private readonly TypesCollector _typesCollector;
 
         private int _indent;
 
@@ -83,10 +83,7 @@ namespace Pw.GdbTypeImporter
         {
             PrintOrder(order);
 
-            if (property is ArrayProperty arrayProperty)
-            {
-                PrintSize(arrayProperty.Count);
-            }
+            if (property is ArrayProperty arrayProperty) PrintSize(arrayProperty.Count);
 
             if (_typesCollector.GetOrAdd(CppTerms.NameCharType) == property.Type)
                 AppendLine("[NameStringAttribute]");
@@ -94,13 +91,9 @@ namespace Pw.GdbTypeImporter
             var typeName = FixTypeName(property.Type);
 
             if (property is ArrayProperty && typeName != StringTypeName)
-            {
                 AppendLine($"public {typeName}[] {ToCamelCase(property.Name)} {{get; set;}}");
-            }
             else
-            {
                 AppendLine($"public {typeName} {ToCamelCase(property.Name)} {{get; set;}}");
-            }
         }
 
         private void PrintClassStart(string forceClassName)
@@ -206,7 +199,7 @@ namespace Pw.GdbTypeImporter
 
         private bool ToTuple(IGdbType type, out string name)
         {
-            if (!IsTuple(type))
+            if (!IsTuple())
             {
                 name = null;
                 return false;
@@ -220,20 +213,9 @@ namespace Pw.GdbTypeImporter
             return true;
         }
 
-        private bool IsTuple(IGdbType type)
+        private bool IsTuple()
         {
             return false;
-            if (type is PrimitiveType)
-                return false;
-
-            if (type.Properties.Count > 3)
-                return false;
-
-            var isPrimitives = type.Properties.All(p => p.Type is PrimitiveType && !(p is ArrayProperty));
-            if (!isPrimitives)
-                return false;
-
-            return true;
         }
 
         private bool SingleFieldStructureToProperty(IGdbType type, out string name)
@@ -274,7 +256,7 @@ namespace Pw.GdbTypeImporter
         {
             var propertiesWithNestedClassType = gClass.Properties
                 .Where(property => property.Type is AnonymousClass)
-                .Where(property => !IsTuple(property.Type))
+                .Where(property => !IsTuple())
                 .Where(property => !IsProbability(property.Type));
 
             foreach (var property in propertiesWithNestedClassType)
@@ -297,8 +279,19 @@ namespace Pw.GdbTypeImporter
             return name;
         }
 
-        private void PrintOrder(int order) => AppendLine($"[Order({order})]");
-        private void PrintSize(int count) => AppendLine($"[Size({count})]");
-        private void AppendLine(string str = null) => _output.AppendLine(new string(' ', _indent) + str);
+        private void PrintOrder(int order)
+        {
+            AppendLine($"[Order({order})]");
+        }
+
+        private void PrintSize(int count)
+        {
+            AppendLine($"[Size({count})]");
+        }
+
+        private void AppendLine(string str = null)
+        {
+            _output.AppendLine(new string(' ', _indent) + str);
+        }
     }
 }

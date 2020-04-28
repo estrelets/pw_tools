@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
-using Pw.Serializer;
+﻿using System.CodeDom.Compiler;
 using Pw.RpcDatas;
+using Pw.Serializer;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
 //ReSharper disable CommentTypo
 namespace Pw.Protocols
 {
-[OpCode(3118)]
-[GeneratedCode("Pw.ProtocolImporter", "1")]
-public class UniqueDataModifyBroadcast
-{
-[Order(0)]
-public int Handle {get; set; }
-[Order(1)]
-public GUniqueDataElemNode[] Values {get; set; }
-}
+    [OpCode(3118)]
+    [GeneratedCode("Pw.ProtocolImporter", "1")]
+    public class UniqueDataModifyBroadcast
+    {
+        [Order(0)] public int Handle { get; set; }
+
+        [Order(1)] public GUniqueDataElemNode[] Values { get; set; }
+    }
 }

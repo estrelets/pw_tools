@@ -2,7 +2,6 @@ using Autofac;
 using Pw.Configuration;
 using Pw.Logging;
 using Pw.Proxy.Configuration;
-using Pw.Proxy.Server;
 
 namespace Pw.Proxy
 {
@@ -29,13 +28,7 @@ namespace Pw.Proxy
             using (var scope = _container.BeginLifetimeScope())
             {
                 var config = scope.Resolve<ProxyConfiguration>();
-                config.Proxies = new[]
-                {
-                    new ProxyConfiguration.Item
-                    {
-                        Listen = listen, Target = target
-                    }
-                };
+                config.Proxies = new[] {new ProxyConfiguration.Item {Listen = listen, Target = target}};
 
                 config.PrintPackets = printPackets;
 
@@ -64,7 +57,6 @@ namespace Pw.Proxy
                 .RegisterType<ProxyConfiguration>()
                 .SingleInstance();
 
-            builder.RegisterType<PerformanceAnalyzer>().SingleInstance();
             builder.RegisterType<ConsoleLogger>().As<ILogger>();
             builder.RegisterType<Godfather>();
         }

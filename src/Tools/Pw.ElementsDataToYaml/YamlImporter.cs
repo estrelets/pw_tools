@@ -1,8 +1,157 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
+using Pw.Elements;
 using Pw.Elements.v155;
+using AccStorageBlacklistConfig = Pw.Elements.v155.AccStorageBlacklistConfig;
+using ArmorEssence = Pw.Elements.v155.ArmorEssence;
+using ArmorMajorType = Pw.Elements.v155.ArmorMajorType;
+using ArmorruneEssence = Pw.Elements.v155.ArmorruneEssence;
+using ArmorruneSubType = Pw.Elements.v155.ArmorruneSubType;
+using ArmorSubType = Pw.Elements.v155.ArmorSubType;
+using AutohpEssence = Pw.Elements.v155.AutohpEssence;
+using AutompEssence = Pw.Elements.v155.AutompEssence;
+using BibleEssence = Pw.Elements.v155.BibleEssence;
+using CharracterClassConfig = Pw.Elements.v155.CharracterClassConfig;
+using ColorpickerEssence = Pw.Elements.v155.ColorpickerEssence;
+using CongregateEssence = Pw.Elements.v155.CongregateEssence;
+using CustomizedataEssence = Pw.Elements.v155.CustomizedataEssence;
+using DamageruneEssence = Pw.Elements.v155.DamageruneEssence;
+using DamageruneSubType = Pw.Elements.v155.DamageruneSubType;
+using DecorationEssence = Pw.Elements.v155.DecorationEssence;
+using DecorationMajorType = Pw.Elements.v155.DecorationMajorType;
+using DecorationSubType = Pw.Elements.v155.DecorationSubType;
+using DestroyingEssence = Pw.Elements.v155.DestroyingEssence;
+using DoubleExpEssence = Pw.Elements.v155.DoubleExpEssence;
+using DyeTicketEssence = Pw.Elements.v155.DyeTicketEssence;
+using ElementEssence = Pw.Elements.v155.ElementEssence;
+using ElementsData = Pw.Elements.v155.ElementsData;
+using EnemyFactionConfig = Pw.Elements.v155.EnemyFactionConfig;
+using EngraveEssence = Pw.Elements.v155.EngraveEssence;
+using EngraveMajorType = Pw.Elements.v155.EngraveMajorType;
+using EngraveSubType = Pw.Elements.v155.EngraveSubType;
+using EquipmentAddon = Pw.Elements.v155.EquipmentAddon;
+using FaceEmotionType = Pw.Elements.v155.FaceEmotionType;
+using FaceExpressionEssence = Pw.Elements.v155.FaceExpressionEssence;
+using FaceFalingEssence = Pw.Elements.v155.FaceFalingEssence;
+using FaceHairEssence = Pw.Elements.v155.FaceHairEssence;
+using FaceHairTextureMap = Pw.Elements.v155.FaceHairTextureMap;
+using FaceMoustacheEssence = Pw.Elements.v155.FaceMoustacheEssence;
+using FacepillEssence = Pw.Elements.v155.FacepillEssence;
+using FacepillMajorType = Pw.Elements.v155.FacepillMajorType;
+using FacepillSubType = Pw.Elements.v155.FacepillSubType;
+using FaceShapeEssence = Pw.Elements.v155.FaceShapeEssence;
+using FaceTextureEssence = Pw.Elements.v155.FaceTextureEssence;
+using FaceThirdeyeEssence = Pw.Elements.v155.FaceThirdeyeEssence;
+using FaceticketEssence = Pw.Elements.v155.FaceticketEssence;
+using FaceticketMajorType = Pw.Elements.v155.FaceticketMajorType;
+using FaceticketSubType = Pw.Elements.v155.FaceticketSubType;
+using FactionBuildingEssence = Pw.Elements.v155.FactionBuildingEssence;
+using FactionBuildingSubType = Pw.Elements.v155.FactionBuildingSubType;
+using FactionFortressConfig = Pw.Elements.v155.FactionFortressConfig;
+using FactionMaterialEssence = Pw.Elements.v155.FactionMaterialEssence;
+using FashionEssence = Pw.Elements.v155.FashionEssence;
+using FashionMajorType = Pw.Elements.v155.FashionMajorType;
+using FashionSubType = Pw.Elements.v155.FashionSubType;
+using FireworksEssence = Pw.Elements.v155.FireworksEssence;
+using FlyswordEssence = Pw.Elements.v155.FlyswordEssence;
+using GmGeneratorEssence = Pw.Elements.v155.GmGeneratorEssence;
+using GmGeneratorType = Pw.Elements.v155.GmGeneratorType;
+using GoblinEquipEssence = Pw.Elements.v155.GoblinEquipEssence;
+using GoblinEquipType = Pw.Elements.v155.GoblinEquipType;
+using GoblinEssence = Pw.Elements.v155.GoblinEssence;
+using GoblinExppillEssence = Pw.Elements.v155.GoblinExppillEssence;
+using GodEvilConvertConfig = Pw.Elements.v155.GodEvilConvertConfig;
+using IncSkillAbilityEssence = Pw.Elements.v155.IncSkillAbilityEssence;
+using LookInfoEssence = Pw.Elements.v155.LookInfoEssence;
+using MaterialEssence = Pw.Elements.v155.MaterialEssence;
+using MaterialMajorType = Pw.Elements.v155.MaterialMajorType;
+using MaterialSubType = Pw.Elements.v155.MaterialSubType;
+using MedicineEssence = Pw.Elements.v155.MedicineEssence;
+using MedicineMajorType = Pw.Elements.v155.MedicineMajorType;
+using MedicineSubType = Pw.Elements.v155.MedicineSubType;
+using MineEssence = Pw.Elements.v155.MineEssence;
+using MineType = Pw.Elements.v155.MineType;
+using MonsterAddon = Pw.Elements.v155.MonsterAddon;
+using MonsterEssence = Pw.Elements.v155.MonsterEssence;
+using MonsterType = Pw.Elements.v155.MonsterType;
+using MultiExpConfig = Pw.Elements.v155.MultiExpConfig;
+using NpcBuyService = Pw.Elements.v155.NpcBuyService;
+using NpcDecomposeService = Pw.Elements.v155.NpcDecomposeService;
+using NpcEngraveService = Pw.Elements.v155.NpcEngraveService;
+using NpcEquipbindService = Pw.Elements.v155.NpcEquipbindService;
+using NpcEquipdestroyService = Pw.Elements.v155.NpcEquipdestroyService;
+using NpcEquipundestroyService = Pw.Elements.v155.NpcEquipundestroyService;
+using NpcEssence = Pw.Elements.v155.NpcEssence;
+using NpcHealService = Pw.Elements.v155.NpcHealService;
+using NpcIdentifyService = Pw.Elements.v155.NpcIdentifyService;
+using NpcInstallService = Pw.Elements.v155.NpcInstallService;
+using NpcMakeService = Pw.Elements.v155.NpcMakeService;
+using NpcPetforgetskillService = Pw.Elements.v155.NpcPetforgetskillService;
+using NpcPetlearnskillService = Pw.Elements.v155.NpcPetlearnskillService;
+using NpcPetnameService = Pw.Elements.v155.NpcPetnameService;
+using NpcProxyService = Pw.Elements.v155.NpcProxyService;
+using NpcRandpropService = Pw.Elements.v155.NpcRandpropService;
+using NpcRepairService = Pw.Elements.v155.NpcRepairService;
+using NpcResetpropService = Pw.Elements.v155.NpcResetpropService;
+using NpcSellService = Pw.Elements.v155.NpcSellService;
+using NpcSkillService = Pw.Elements.v155.NpcSkillService;
+using NpcStorageService = Pw.Elements.v155.NpcStorageService;
+using NpcTalkService = Pw.Elements.v155.NpcTalkService;
+using NpcTaskInService = Pw.Elements.v155.NpcTaskInService;
+using NpcTaskMatterService = Pw.Elements.v155.NpcTaskMatterService;
+using NpcTaskOutService = Pw.Elements.v155.NpcTaskOutService;
+using NpcTransmitService = Pw.Elements.v155.NpcTransmitService;
+using NpcTransportService = Pw.Elements.v155.NpcTransportService;
+using NpcType = Pw.Elements.v155.NpcType;
+using NpcUninstallService = Pw.Elements.v155.NpcUninstallService;
+using NpcWarTowerbuildService = Pw.Elements.v155.NpcWarTowerbuildService;
+using ParamAdjustConfig = Pw.Elements.v155.ParamAdjustConfig;
+using PetEggEssence = Pw.Elements.v155.PetEggEssence;
+using PetEssence = Pw.Elements.v155.PetEssence;
+using PetFaceticketEssence = Pw.Elements.v155.PetFaceticketEssence;
+using PetFoodEssence = Pw.Elements.v155.PetFoodEssence;
+using PetType = Pw.Elements.v155.PetType;
+using PlayerActionInfoConfig = Pw.Elements.v155.PlayerActionInfoConfig;
+using PlayerLevelexpConfig = Pw.Elements.v155.PlayerLevelexpConfig;
+using PlayerSecondlevelConfig = Pw.Elements.v155.PlayerSecondlevelConfig;
+using ProjectileEssence = Pw.Elements.v155.ProjectileEssence;
+using ProjectileType = Pw.Elements.v155.ProjectileType;
+using QuiverEssence = Pw.Elements.v155.QuiverEssence;
+using QuiverSubType = Pw.Elements.v155.QuiverSubType;
+using RandpropEssence = Pw.Elements.v155.RandpropEssence;
+using RandpropType = Pw.Elements.v155.RandpropType;
+using RecipeEssence = Pw.Elements.v155.RecipeEssence;
+using RecipeMajorType = Pw.Elements.v155.RecipeMajorType;
+using RecipeSubType = Pw.Elements.v155.RecipeSubType;
+using RefineTicketEssence = Pw.Elements.v155.RefineTicketEssence;
+using RevivescrollEssence = Pw.Elements.v155.RevivescrollEssence;
+using SellCertificateEssence = Pw.Elements.v155.SellCertificateEssence;
+using SharpenerEssence = Pw.Elements.v155.SharpenerEssence;
+using SkillmatterEssence = Pw.Elements.v155.SkillmatterEssence;
+using SkilltomeEssence = Pw.Elements.v155.SkilltomeEssence;
+using SkilltomeSubType = Pw.Elements.v155.SkilltomeSubType;
+using SpeakerEssence = Pw.Elements.v155.SpeakerEssence;
+using StoneEssence = Pw.Elements.v155.StoneEssence;
+using StoneSubType = Pw.Elements.v155.StoneSubType;
+using SuiteEssence = Pw.Elements.v155.SuiteEssence;
+using TargetItemEssence = Pw.Elements.v155.TargetItemEssence;
+using TaskdiceEssence = Pw.Elements.v155.TaskdiceEssence;
+using TaskmatterEssence = Pw.Elements.v155.TaskmatterEssence;
+using TasknormalmatterEssence = Pw.Elements.v155.TasknormalmatterEssence;
+using TossmatterEssence = Pw.Elements.v155.TossmatterEssence;
+using TownscrollEssence = Pw.Elements.v155.TownscrollEssence;
+using TransmitscrollEssence = Pw.Elements.v155.TransmitscrollEssence;
+using UnionscrollEssence = Pw.Elements.v155.UnionscrollEssence;
+using UpgradeProductionConfig = Pw.Elements.v155.UpgradeProductionConfig;
+using WarTankcallinEssence = Pw.Elements.v155.WarTankcallinEssence;
+using WeaponEssence = Pw.Elements.v155.WeaponEssence;
+using WeaponMajorType = Pw.Elements.v155.WeaponMajorType;
+using WeaponSubType = Pw.Elements.v155.WeaponSubType;
+using WeddingBookcardEssence = Pw.Elements.v155.WeddingBookcardEssence;
+using WeddingConfig = Pw.Elements.v155.WeddingConfig;
+using WeddingInvitecardEssence = Pw.Elements.v155.WeddingInvitecardEssence;
+using WikiTabooConfig = Pw.Elements.v155.WikiTabooConfig;
+using WingmanwingEssence = Pw.Elements.v155.WingmanwingEssence;
 
 namespace Pw.ElementsYamlConverter
 {
@@ -78,7 +227,7 @@ namespace Pw.ElementsYamlConverter
             elements.NpcDecomposeServices = ImportList<NpcDecomposeService>();
             elements.NpcTypes = ImportList<NpcType>();
             elements.NpcEssences = ImportList<NpcEssence>();
-            elements.TalkProcs = ImportList<Elements.TalkProc>();
+            elements.TalkProcs = ImportList<TalkProc>();
             elements.FaceTextureEssences = ImportList<FaceTextureEssence>();
             elements.FaceShapeEssences = ImportList<FaceShapeEssence>();
             elements.FaceEmotionTypes = ImportList<FaceEmotionType>();
@@ -255,18 +404,18 @@ namespace Pw.ElementsYamlConverter
 
             return elements;
 
-            T[] ImportList<T>() where T : Elements.IElementsType
+            T[] ImportList<T>() where T : IElementsType
             {
                 var path = TypeToPath<T>();
                 var list = Deserialize<T[]>(path);
-                elements.Lists.Add(typeof(T).Name, list.Cast<Elements.IElementsType>().ToArray());
+                elements.Lists.Add(typeof(T).Name, list.Cast<IElementsType>().ToArray());
                 return list;
             }
 
-            Elements.ElementsDataFileInfo ImportElementsDataFileInfo()
+            ElementsDataFileInfo ImportElementsDataFileInfo()
             {
-                var path = TypeToPath<Elements.ElementsDataFileInfo>();
-                return Deserialize<Elements.ElementsDataFileInfo>(path);
+                var path = TypeToPath<ElementsDataFileInfo>();
+                return Deserialize<ElementsDataFileInfo>(path);
             }
 
             T Deserialize<T>(string path)

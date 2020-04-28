@@ -15,7 +15,7 @@ namespace Pw.Tests.SerializerTests
         {
             var type = typeof(EquipmentAddon);
             var builder = new PlanBuilder();
-            var plan = (ComplexPlan)builder.Build(type);
+            var plan = (ComplexPlan) builder.Build(type);
 
 
             var idPlanItem = plan.Childs[0] as PrimitivePlanItem;
@@ -43,7 +43,7 @@ namespace Pw.Tests.SerializerTests
         {
             var type = typeof(WeaponEssence);
             var builder = new PlanBuilder();
-            var plan = (ComplexPlan)builder.Build(type);
+            var plan = (ComplexPlan) builder.Build(type);
 
             var uniquesPlan = plan.Childs
                 .Where(p => p is ArrayPlanItem)
@@ -60,9 +60,7 @@ namespace Pw.Tests.SerializerTests
         {
             var type = typeof(ArmorEssence);
             var builder = new PlanBuilder();
-            var plan = (ComplexPlan)builder.Build(type);
-
-            var planText = plan.ToString();
+            var plan = (ComplexPlan) builder.Build(type);
 
             Assert.IsNotNull(plan);
         }
@@ -72,12 +70,9 @@ namespace Pw.Tests.SerializerTests
         {
             var type = typeof(TalkProc);
             var builder = new PlanBuilder();
-            var plan = (ComplexPlan)builder.Build(type);
-
-            var planText = plan.ToString();
+            var plan = (ComplexPlan) builder.Build(type);
 
             Assert.IsNotNull(plan);
         }
-
     }
 }

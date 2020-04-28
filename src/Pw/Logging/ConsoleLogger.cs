@@ -9,13 +9,17 @@ namespace Pw.Logging
             Console.ForegroundColor = GetColor(type);
             Console.WriteLine(message);
         }
-        
-        private ConsoleColor GetColor(string type) => type switch
+
+        private ConsoleColor GetColor(string type)
         {
-            nameof(Debug) => ConsoleColor.Gray,
-            nameof(Info) => ConsoleColor.White,
-            nameof(Error) => ConsoleColor.DarkRed,
-            nameof(Critical) => ConsoleColor.Red,
-        };
+            return type switch
+            {
+                nameof(Debug) => ConsoleColor.Gray,
+                nameof(Info) => ConsoleColor.White,
+                nameof(Error) => ConsoleColor.DarkRed,
+                nameof(Critical) => ConsoleColor.Red,
+                _ => ConsoleColor.White,
+            };
+        }
     }
 }

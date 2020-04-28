@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,13 +10,12 @@ namespace Pw.RpcDatas
     public class QPDiscountInfo
     {
         // ÉÌ¼Òid 
-        [Order(0)]
-        public int Id { get; set; }
+        [Order(0)] public int Id { get; set; }
+
         // ÉÌ¼ÒÃû£¬UTF-16LE±àÂë 
-        [Order(1)]
-        public byte[] Name { get; set; }
+        [Order(1)] public byte[] Name { get; set; }
+
         // ·Ö×éµÄÕÛ¿Û 
-        [Order(2)]
-        public QPDiscountLevel[] Discount { get; set; }
+        [Order(2)] public QPDiscountLevel[] Discount { get; set; }
     }
 }

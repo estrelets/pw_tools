@@ -9,8 +9,6 @@ namespace Pw.GdbTypeImporter
         private static readonly Regex TypeDeclarationPattern = new Regex("struct (.+) {", RegexOptions.Compiled);
         private static readonly Regex PropertyNamePattern = new Regex(" (\\w+)(\\[(\\d+)\\])*;", RegexOptions.Compiled);
 
-        public TypesCollector TypesCollector { get; private set; } = new TypesCollector();
-
         private readonly StreamReader _streamReader;
         private string _lastString;
 
@@ -19,6 +17,8 @@ namespace Pw.GdbTypeImporter
             _streamReader = streamReader;
             NextLine();
         }
+
+        public TypesCollector TypesCollector { get; } = new TypesCollector();
 
         public void Parse()
         {
@@ -38,21 +38,18 @@ namespace Pw.GdbTypeImporter
 
             void SkipTrash()
             {
-                while (!TypeDeclarationPattern.IsMatch(_lastString))
-                {
-                    NextLine();
-                }
+                while (!TypeDeclarationPattern.IsMatch(_lastString)) NextLine();
             }
 
-            string ParseName() => TypeDeclarationPattern.Match(_lastString).Groups[1].Value;
+            string ParseName()
+            {
+                return TypeDeclarationPattern.Match(_lastString).Groups[1].Value;
+            }
         }
 
         private void ParseProperties(IGdbType gdbType)
         {
-            while (!IsEndOfScope(NextLine()))
-            {
-                gdbType.Properties.Add(ParseProperty());
-            }
+            while (!IsEndOfScope(NextLine())) gdbType.Properties.Add(ParseProperty());
         }
 
         private Property ParseProperty()
@@ -70,8 +67,8 @@ namespace Pw.GdbTypeImporter
             var type = TypesCollector.GetOrAdd(typeName);
 
             return count == null
-              ? new Property(name, type)
-              : new ArrayProperty(name, type, count.Value);
+                ? new Property(name, type)
+                : new ArrayProperty(name, type, count.Value);
         }
 
         private string ParsePropertyType(string line)
@@ -79,8 +76,8 @@ namespace Pw.GdbTypeImporter
             var words = Split(line);
 
             return words[0] == CppTerms.UnsignedPrefix
-              ? $"{words[0]} {words[1]}"
-              : words[0];
+                ? $"{words[0]} {words[1]}"
+                : words[0];
         }
 
         private (string Name, int? Count) ParsePropertyName(string line)
@@ -93,17 +90,25 @@ namespace Pw.GdbTypeImporter
             var name = match.Groups[1].Value;
             int? count = null;
 
-            if (int.TryParse(match.Groups[3].Value, out var parseResult))
-            {
-                count = parseResult;
-            }
+            if (Int32.TryParse(match.Groups[3].Value, out var parseResult)) count = parseResult;
 
             return (name, count);
         }
 
 
-        private bool IsEndOfScope(string line) => line.StartsWith("}");
-        private string NextLine() => _lastString = _streamReader.ReadLine()?.Trim();
-        private string[] Split(string line) => line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        private bool IsEndOfScope(string line)
+        {
+            return line.StartsWith("}");
+        }
+
+        private string NextLine()
+        {
+            return _lastString = _streamReader.ReadLine()?.Trim();
+        }
+
+        private string[] Split(string line)
+        {
+            return line.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }

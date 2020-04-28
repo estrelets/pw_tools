@@ -16,7 +16,7 @@ namespace Pw.Proxy.Tests
             var pipe = new Pipe();
             var reader = new PacketReader();
             var opCode = 1;
-            var payload = new byte[] { 1, 2 };
+            var payload = new byte[] {1, 2};
 
             await Write(CompactUIntSerializer.GetBytes(opCode));
             await Write(CompactUIntSerializer.GetBytes(payload.Length));

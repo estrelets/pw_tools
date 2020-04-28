@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,7 +10,6 @@ namespace Pw.RpcDatas
     public class MInt
     {
         // ÉÌ¼Òid 
-        [Order(0)]
-        public int Id { get; set; }
+        [Order(0)] public int Id { get; set; }
     }
 }

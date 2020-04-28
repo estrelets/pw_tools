@@ -19,13 +19,13 @@ namespace Pw.Proxy
         public static byte[] GetBytes(int value)
         {
             if (value < SingleByteMaxValue)
-                return new[] { (byte)value };
+                return new[] {(byte) value};
 
             if (value < DoubleByteMaxValue)
-                return BitConverter.GetBytes((ushort)(value | DoubleByteFactor)).Reverse().ToArray();
+                return BitConverter.GetBytes((ushort) (value | DoubleByteFactor)).Reverse().ToArray();
 
             if (value < SquadByteMaxValue)
-                return BitConverter.GetBytes((int)(value | SquadByteFactor)).Reverse().ToArray();
+                return BitConverter.GetBytes((int) (value | SquadByteFactor)).Reverse().ToArray();
 
             throw new NotImplementedException("Too big");
         }
@@ -34,31 +34,27 @@ namespace Pw.Proxy
         {
             if (value < SingleByteMaxValue)
             {
-                span[0] = (byte)value;
+                span[0] = (byte) value;
                 return;
             }
 
             if (value < DoubleByteMaxValue)
             {
-                var compressed = (ushort)(value | DoubleByteFactor);
+                var compressed = (ushort) (value | DoubleByteFactor);
                 BinaryPrimitives.WriteUInt16BigEndian(span, compressed);
                 return;
             }
 
             if (value < SquadByteMaxValue)
             {
-                var compressed = (uint)(value | SquadByteFactor);
+                var compressed = (uint) (value | SquadByteFactor);
                 BinaryPrimitives.WriteUInt32BigEndian(span, compressed);
-                return;
             }
         }
 
         public static int GetNumber(ReadOnlySpan<byte> data)
         {
-            if (data[0] < DoubleByteHeader)
-            {
-                return data[0];
-            }
+            if (data[0] < DoubleByteHeader) return data[0];
 
             if (data[0] < SquadByteHeader)
             {
@@ -68,7 +64,7 @@ namespace Pw.Proxy
 
             {
                 var dirtyValue = BinaryPrimitives.ReadUInt32BigEndian(data);
-                return (int)(dirtyValue - SquadByteFactor);
+                return (int) (dirtyValue - SquadByteFactor);
             }
         }
 
@@ -88,15 +84,9 @@ namespace Pw.Proxy
 
         public static int GetBytesCountByHeader(byte firstByte)
         {
-            if (firstByte < DoubleByteHeader)
-            {
-                return 1;
-            }
+            if (firstByte < DoubleByteHeader) return 1;
 
-            if (firstByte < SquadByteHeader)
-            {
-                return 2;
-            }
+            if (firstByte < SquadByteHeader) return 2;
 
             return 4;
         }

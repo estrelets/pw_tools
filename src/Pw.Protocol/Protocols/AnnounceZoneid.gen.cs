@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.RpcDatas;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
 //ReSharper disable CommentTypo
 namespace Pw.Protocols
 {
-[OpCode(505)]
-[GeneratedCode("Pw.ProtocolImporter", "1")]
-public class AnnounceZoneid
-{
+    [OpCode(505)]
+    [GeneratedCode("Pw.ProtocolImporter", "1")]
+    public class AnnounceZoneid
+    {
 //game zone id 
-[Order(0)]
-public char ZoneId {get; set; }
+        [Order(0)] public char ZoneId { get; set; }
+
 // accounting area id
-[Order(1)]
-public char AId {get; set; }
+        [Order(1)] public char AId { get; set; }
+
 // whether clear all online records of this zoneid
-[Order(2)]
-public char Blreset {get; set; }
-}
+        [Order(2)] public char Blreset { get; set; }
+    }
 }

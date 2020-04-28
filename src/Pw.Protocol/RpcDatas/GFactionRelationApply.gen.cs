@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,11 +10,10 @@ namespace Pw.RpcDatas
     public class GFactionRelationApply
     {
         //typeÔÚlocalmacro.h¶¨Òå
-        [Order(0)]
-        public int Type { get; set; }
-        [Order(1)]
-        public int FId { get; set; }
-        [Order(2)]
-        public int EndTime { get; set; }
+        [Order(0)] public int Type { get; set; }
+
+        [Order(1)] public int FId { get; set; }
+
+        [Order(2)] public int EndTime { get; set; }
     }
 }

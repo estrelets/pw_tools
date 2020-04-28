@@ -11,8 +11,8 @@ namespace Pw.Tests
         [TestMethod]
         public void ShouldDeserialize()
         {
-            var originalConfig = new SomeConfig1 { SomeValue = 123 };
-            var sections = new IConfigurationSection[] { originalConfig };
+            var originalConfig = new SomeConfig1 {SomeValue = 123};
+            var sections = new IConfigurationSection[] {originalConfig};
 
 
             var memoryStream = new MemoryStream();

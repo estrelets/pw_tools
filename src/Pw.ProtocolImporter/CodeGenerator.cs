@@ -4,12 +4,32 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Pw.Conventions;
 
 namespace Pw.ProtocolImporter
 {
     public class CodeGenerator
     {
         private readonly MetadataParser _metadataParser = new MetadataParser();
+
+        private readonly Dictionary<string, string> _replaceMap =
+            new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
+            {
+                ["int64_t"] = "long",
+                ["Octets"] = "byte[]",
+                ["OctetsVector"] = "List<byte[]>",
+                ["std::map"] = "Dictionary",
+                ["std::pair"] = "KeyValuePair",
+                ["unsigned int"] = "uint",
+                ["std::vector"] = "List",
+                ["std::set"] = "List",
+                ["unsigned short"] = "ushort",
+                ["unsigned char"] = "byte",
+                ["IntVector"] = "int[]",
+                ["std::string"] = "string",
+                ["size_t"] = "int",
+                ["time_t"] = "int"
+            };
 
         public void Generate(string path, string outputDirectory)
         {
@@ -43,14 +63,15 @@ namespace Pw.ProtocolImporter
                 _ => throw new NotImplementedException()
             };
 
-            File.WriteAllText(path, content, Conventions.Encodings.Default);
+            File.WriteAllText(path, content, Encodings.Default);
         }
 
         private string GenerateProtocol(Protocol protocol, string classNameFromPath)
         {
             var output = new StringBuilder();
 
-            WriteUsings(output, "System", "System.Collections.Generic", "System.CodeDom.Compiler", "Pw.Serializer", "Pw.RpcDatas");
+            WriteUsings(output, "System", "System.Collections.Generic", "System.CodeDom.Compiler", "Pw.Serializer",
+                "Pw.RpcDatas");
             WriteDisableCheckComments(output);
             WriteNamespace(output, "Pw.Protocols");
             WriteAttribute(output, "OpCode", protocol.Type.ToString());
@@ -67,7 +88,8 @@ namespace Pw.ProtocolImporter
         {
             var output = new StringBuilder();
 
-            WriteUsings(output, "System", "System.Collections.Generic", "System.CodeDom.Compiler","Pw.Serializer", "Pw.Protocols");
+            WriteUsings(output, "System", "System.Collections.Generic", "System.CodeDom.Compiler", "Pw.Serializer",
+                "Pw.Protocols");
             WriteDisableCheckComments(output);
             WriteNamespace(output, "Pw.RpcDatas");
             WriteAttribute(output, "GeneratedCode", "\"Pw.ProtocolImporter\"", "\"1\"");
@@ -88,10 +110,7 @@ namespace Pw.ProtocolImporter
 
         private void WriteUsings(StringBuilder sb, params string[] usings)
         {
-            foreach (var @using in usings)
-            {
-                sb.AppendLine($"using {@using};");
-            }
+            foreach (var @using in usings) sb.AppendLine($"using {@using};");
 
             sb.AppendLine();
         }
@@ -126,13 +145,9 @@ namespace Pw.ProtocolImporter
         private void WriteAttribute(StringBuilder sb, string attrName, params string[] parameters)
         {
             if (parameters.Length == 0)
-            {
                 sb.AppendLine($"[{attrName}]");
-            }
             else
-            {
                 sb.AppendLine($"[{attrName}({String.Join(", ", parameters)})]");
-            }
         }
 
         private void WriteComment(StringBuilder sb, string comment)
@@ -147,7 +162,7 @@ namespace Pw.ProtocolImporter
 
             foreach (var variable in descriptor.Variables)
             {
-                if(variable.Comment != null)
+                if (variable.Comment != null)
                     WriteComment(sb, variable.Comment);
 
                 var typeName = ReplaceType(variable.Type);
@@ -172,22 +187,16 @@ namespace Pw.ProtocolImporter
                 var parametersLine = String.Join(", ", parameters);
                 return $"{ReplaceType(genericType.Generic)}<{parametersLine}>";
             }
-            
+
             if (t is SimpleType simple)
             {
-                if (_replaceMap.ContainsKey(simple.Name))
-                {
-                    return _replaceMap[simple.Name];
-                }
+                if (_replaceMap.ContainsKey(simple.Name)) return _replaceMap[simple.Name];
 
-                if (simple.Name.EndsWith("Vector"))
-                {
-                    return simple.Name.Replace("Vector", "[]");
-                }
+                if (simple.Name.EndsWith("Vector")) return simple.Name.Replace("Vector", "[]");
 
                 return simple.Name;
             }
-            
+
             throw new NotImplementedException();
         }
 
@@ -197,24 +206,5 @@ namespace Pw.ProtocolImporter
                 ? "@base"
                 : v.Name;
         }
-
-        private readonly Dictionary<string, string> _replaceMap =
-            new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
-            {
-                ["int64_t"] = "long",
-                ["Octets"] = "byte[]",
-                ["OctetsVector"] = "List<byte[]>",
-                ["std::map"] = "Dictionary",
-                ["std::pair"] = "KeyValuePair",
-                ["unsigned int"] = "uint",
-                ["std::vector"] = "List",
-                ["std::set"] = "List",
-                ["unsigned short"] = "ushort",
-                ["unsigned char"] = "byte",
-                ["IntVector"] = "int[]",
-                ["std::string"] = "string",
-                ["size_t"] = "int",
-                ["time_t"] = "int",
-            };
     }
 }

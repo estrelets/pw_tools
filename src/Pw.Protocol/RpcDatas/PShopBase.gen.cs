@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -12,14 +9,13 @@ namespace Pw.RpcDatas
     [GeneratedCode("Pw.ProtocolImporter", "1")]
     public class PShopBase
     {
-        [Order(0)]
-        public int RoleId { get; set; }
+        [Order(0)] public int RoleId { get; set; }
+
         // ¹²8ÖÖ:0-7
-        [Order(1)]
-        public int Shoptype { get; set; }
-        [Order(2)]
-        public PShopItem[] Blist { get; set; }
-        [Order(3)]
-        public PShopItem[] Slist { get; set; }
+        [Order(1)] public int Shoptype { get; set; }
+
+        [Order(2)] public PShopItem[] Blist { get; set; }
+
+        [Order(3)] public PShopItem[] Slist { get; set; }
     }
 }

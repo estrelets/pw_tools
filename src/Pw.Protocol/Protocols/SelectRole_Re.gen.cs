@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.RpcDatas;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
 //ReSharper disable CommentTypo
 namespace Pw.Protocols
 {
-[OpCode(71)]
-[GeneratedCode("Pw.ProtocolImporter", "1")]
-public class SelectRole_Re
-{
-[Order(0)]
-public int Result {get; set; }
-[Order(1)]
-public Byte[] Auth {get; set; }
-}
+    [OpCode(71)]
+    [GeneratedCode("Pw.ProtocolImporter", "1")]
+    public class SelectRole_Re
+    {
+        [Order(0)] public int Result { get; set; }
+
+        [Order(1)] public byte[] Auth { get; set; }
+    }
 }

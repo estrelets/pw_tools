@@ -10,11 +10,6 @@ namespace Pw.Serializer.Plans
 {
     public class ArrayPlanItem : ICompositePlanItem
     {
-        public IValueAccessor Accessor { get; }
-        public Type ArrayType { get; }
-        public int Length { get; }
-        public IReadOnlyList<IPlanItem> Childs { get; }
-
         public ArrayPlanItem(IValueAccessor accessor, Type arrayType, IPlanItem[] childs)
         {
             if (!childs.All(c => c.Accessor is ArrayValueAccessor))
@@ -26,29 +21,25 @@ namespace Pw.Serializer.Plans
             Length = childs.Length;
         }
 
+        public Type ArrayType { get; }
+        public int Length { get; }
+        public IValueAccessor Accessor { get; }
+        public IReadOnlyList<IPlanItem> Childs { get; }
+
         public void Serialize(object obj, IWriter writer, Stream stream)
         {
             var array = Accessor.Get(obj);
 
-            foreach (var child in Childs)
-            {
-                child.Serialize(array, writer, stream);
-            }
+            foreach (var child in Childs) child.Serialize(array, writer, stream);
         }
 
         public object Deserialize(object obj, IReader reader, Stream stream)
         {
             var array = Activator.CreateInstance(ArrayType, Length);
 
-            foreach (var child in Childs)
-            {
-                child.Deserialize(array, reader, stream);
-            }
+            foreach (var child in Childs) child.Deserialize(array, reader, stream);
 
-            if (Accessor is IValueAssigner setter)
-            {
-                setter.Set(obj, array);
-            }
+            if (Accessor is IValueAssigner setter) setter.Set(obj, array);
 
             return array;
         }

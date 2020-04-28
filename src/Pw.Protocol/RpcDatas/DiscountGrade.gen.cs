@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,14 +10,13 @@ namespace Pw.RpcDatas
     public class DiscountGrade
     {
         // ±¾¼¶³äÖµ¶î¶ÈÏÂÏÞ 
-        [Order(0)]
-        public int AmountBegin { get; set; }
+        [Order(0)] public int AmountBegin { get; set; }
+
         // ÕÛ¿Û 
-        [Order(1)]
-        public int Discount { get; set; }
-        [Order(2)]
-        public int Reserved1 { get; set; }
-        [Order(3)]
-        public byte[] Reserved2 { get; set; }
+        [Order(1)] public int Discount { get; set; }
+
+        [Order(2)] public int Reserved1 { get; set; }
+
+        [Order(3)] public byte[] Reserved2 { get; set; }
     }
 }

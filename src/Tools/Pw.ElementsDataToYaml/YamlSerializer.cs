@@ -13,9 +13,9 @@ namespace Pw.ElementsYamlConverter
     public class YamlSerializer
     {
         private static readonly Encoding FileEncoding = Encoding.UTF8;
+        private readonly IDeserializer _yamlDeserializer;
 
         private readonly ISerializer _yamlSerializer;
-        private readonly IDeserializer _yamlDeserializer;
 
         public YamlSerializer()
         {
@@ -49,23 +49,19 @@ namespace Pw.ElementsYamlConverter
                 .Where(p => elementsInterface.IsAssignableFrom(p));
 
             foreach (var type in types)
-            {
-                foreach (var property in type.GetProperties().Where(p => p.PropertyType == typeof(string)))
-                {
-                    builder.WithAttributeOverride(type, property.Name,
-                        new YamlMemberAttribute() { ScalarStyle = ScalarStyle.DoubleQuoted });
-                }
-            }
+            foreach (var property in type.GetProperties().Where(p => p.PropertyType == typeof(string)))
+                builder.WithAttributeOverride(type, property.Name,
+                    new YamlMemberAttribute {ScalarStyle = ScalarStyle.DoubleQuoted});
 
             builder.WithAttributeOverride(
                 typeof(TalkProc.Window.Option),
                 nameof(TalkProc.Window.Option.Text),
-                new YamlMemberAttribute() {ScalarStyle = ScalarStyle.DoubleQuoted});
+                new YamlMemberAttribute {ScalarStyle = ScalarStyle.DoubleQuoted});
 
             builder.WithAttributeOverride(
                 typeof(SoloTowerChallengeScoreCostConfig.ScoreBuffListClass),
                 nameof(SoloTowerChallengeScoreCostConfig.ScoreBuffListClass.ParamComment),
-                new YamlMemberAttribute() {ScalarStyle = ScalarStyle.DoubleQuoted});
+                new YamlMemberAttribute {ScalarStyle = ScalarStyle.DoubleQuoted});
         }
     }
 }

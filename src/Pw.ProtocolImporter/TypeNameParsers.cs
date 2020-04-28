@@ -8,7 +8,9 @@ namespace Pw.ProtocolImporter
     {
         private Parser<IOption<char>> OptionalWhiteSpace => Parse.Char(Char.IsWhiteSpace, "").Optional();
         private Parser<IOption<string>> OptionalUnsignedPrefix => Parse.String("unsigned").Text().Optional();
-        private Parser<string> TypeNameParser => Parse.Char(c => Char.IsLetterOrDigit(c) || c == '_' || c == ':', "").AtLeastOnce().Text();
+
+        private Parser<string> TypeNameParser =>
+            Parse.Char(c => Char.IsLetterOrDigit(c) || c == '_' || c == ':', "").AtLeastOnce().Text();
 
         private Parser<BaseType> GenericOrSimpleTypeDeclaration => GenericTypeDeclaration.Or(SimpleTypeDeclaration);
 

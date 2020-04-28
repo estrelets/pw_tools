@@ -1,8 +1,6 @@
-﻿using System;
+﻿using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -12,11 +10,10 @@ namespace Pw.RpcDatas
     [GeneratedCode("Pw.ProtocolImporter", "1")]
     public class DBDeleteMailArg
     {
-        [Order(0)]
-        public int RoleId { get; set; }
-        [Order(1)]
-        public List<byte> MailId { get; set; }
-        [Order(2)]
-        public byte Reason { get; set; }
+        [Order(0)] public int RoleId { get; set; }
+
+        [Order(1)] public List<byte> MailId { get; set; }
+
+        [Order(2)] public byte Reason { get; set; }
     }
 }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -12,15 +9,14 @@ namespace Pw.RpcDatas
     [GeneratedCode("Pw.ProtocolImporter", "1")]
     public class DBFactionRemoveRelationApplyArg
     {
-        [Order(0)]
-        public int FId { get; set; }
-        [Order(1)]
-        public int DstFId { get; set; }
-        [Order(2)]
-        public char Force { get; set; }
-        [Order(3)]
-        public int EndTime { get; set; }
-        [Order(4)]
-        public int OpTime { get; set; }
+        [Order(0)] public int FId { get; set; }
+
+        [Order(1)] public int DstFId { get; set; }
+
+        [Order(2)] public char Force { get; set; }
+
+        [Order(3)] public int EndTime { get; set; }
+
+        [Order(4)] public int OpTime { get; set; }
     }
 }

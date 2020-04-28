@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
@@ -13,25 +12,23 @@ namespace Pw.Proxy
 {
     public class Godfather
     {
-        private readonly ProxyConfiguration _configuration;
-        private readonly PerformanceAnalyzer _performanceAnalyzer;
-        private readonly ILogger _logger;
         private readonly List<Bridge> _bridges;
+        private readonly ProxyConfiguration _configuration;
+        private readonly ILogger _logger;
         private readonly List<ConnectionAcceptor> _receivers;
 
-        public IReadOnlyCollection<Bridge> Bridges => _bridges;
-        public IReadOnlyCollection<ConnectionAcceptor> Receivers => _receivers;
-
-        public Godfather(ProxyConfiguration configuration, PerformanceAnalyzer performanceAnalyzer, ILogger logger)
+        public Godfather(ProxyConfiguration configuration, ILogger logger)
         {
             _configuration = configuration;
-            _performanceAnalyzer = performanceAnalyzer;
 
             _logger = logger;
 
             _bridges = new List<Bridge>();
             _receivers = new List<ConnectionAcceptor>();
         }
+
+        public IReadOnlyCollection<Bridge> Bridges => _bridges;
+        public IReadOnlyCollection<ConnectionAcceptor> Receivers => _receivers;
 
         public Task StartAll(CancellationToken cancellationToken = default)
         {
@@ -42,7 +39,8 @@ namespace Pw.Proxy
             return Task.WhenAll(tasks);
         }
 
-        public async Task StartReceive(NetworkAddress listenAddress, NetworkAddress targetAddress, CancellationToken cancellationToken = default)
+        public async Task StartReceive(NetworkAddress listenAddress, NetworkAddress targetAddress,
+            CancellationToken cancellationToken = default)
         {
             var receiver = new ConnectionAcceptor(listenAddress, targetAddress, this);
             _receivers.Add(receiver);
@@ -57,7 +55,7 @@ namespace Pw.Proxy
         public void CreateBridge(Socket source, Socket target)
         {
             var handler = CreateHandler();
-            var bridge = new Bridge(source, target, handler, _performanceAnalyzer);
+            var bridge = new Bridge(source, target, handler);
             _logger.Info($"New bridge={bridge}");
             _bridges.Add(bridge);
             bridge.Start();
@@ -66,7 +64,7 @@ namespace Pw.Proxy
         private IPacketHandler CreateHandler()
         {
             var handlers = new List<IPacketHandler>();
-            
+
             handlers.Add(new EchoHandler());
 
             if (_configuration.PrintPackets)
@@ -74,20 +72,7 @@ namespace Pw.Proxy
                 handlers.Add(new PacketsPrintHandler());
             }
 
-            AddPerformanceAnalyzeHandlers(handlers);
-
             return new ComplexHandler(handlers);
         }
-
-        [Conditional(ConditionalOptions.CollectStatistic)]
-        private void AddPerformanceAnalyzeHandlers(List<IPacketHandler> handlers)
-        {
-            if(_performanceAnalyzer == null)
-                return;
-
-            handlers.Insert(0, new StartHandlerMeasure(_performanceAnalyzer));
-            handlers.Add(new FinishHandlerMeasure(_performanceAnalyzer));
-        }
-
     }
 }

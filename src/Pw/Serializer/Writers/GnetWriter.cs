@@ -10,9 +10,9 @@ namespace Pw.Serializer.Writers
     {
         public void Write(PrimitivePlanItem primitivePlanItem, object value, Stream stream)
         {
-            bool needToReverse = primitivePlanItem.BigEndian
-                                 && primitivePlanItem.TypeCode != TypeCode.Byte
-                                 && primitivePlanItem.TypeCode != TypeCode.Single;
+            var needToReverse = primitivePlanItem.BigEndian
+                                && primitivePlanItem.TypeCode != TypeCode.Byte
+                                && primitivePlanItem.TypeCode != TypeCode.Single;
 
             if (!needToReverse)
             {
@@ -22,18 +22,18 @@ namespace Pw.Serializer.Writers
 
 
             var buffer = new byte[Marshal.SizeOf(value)];
-            
+
             switch (primitivePlanItem.TypeCode)
             {
-                case TypeCode.Int32: 
-                    WriteInt32BigEndian(buffer, (int)value);
+                case TypeCode.Int32:
+                    WriteInt32BigEndian(buffer, (int) value);
                     break;
-                case TypeCode.UInt32: 
-                    WriteUInt32BigEndian(buffer, (uint)value);
+                case TypeCode.UInt32:
+                    WriteUInt32BigEndian(buffer, (uint) value);
                     break;
                 default: throw new NotImplementedException();
             }
-            
+
             stream.Write(buffer, 0, buffer.Length);
         }
 

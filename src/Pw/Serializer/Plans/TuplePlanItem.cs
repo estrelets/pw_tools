@@ -1,6 +1,6 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Pw.Serializer.Readers;
 using Pw.Serializer.ValueAccessors;
@@ -10,10 +10,6 @@ namespace Pw.Serializer.Plans
 {
     public class TuplePlanItem : ICompositePlanItem
     {
-        public IValueAccessor Accessor { get; }
-        public Type TupleType { get; }
-        public IReadOnlyList<IPlanItem> Childs { get; }
-
         public TuplePlanItem(IValueAccessor accessor, Type tupleType, IPlanItem[] childs)
         {
             if (!childs.All(c => c.Accessor is TupleValueAccessor))
@@ -24,14 +20,15 @@ namespace Pw.Serializer.Plans
             Childs = childs;
         }
 
+        public Type TupleType { get; }
+        public IValueAccessor Accessor { get; }
+        public IReadOnlyList<IPlanItem> Childs { get; }
+
         public void Serialize(object obj, IWriter writer, Stream stream)
         {
             var tuple = Accessor.Get(obj);
 
-            foreach (var child in Childs)
-            {
-                child.Serialize(tuple, writer, stream);
-            }
+            foreach (var child in Childs) child.Serialize(tuple, writer, stream);
         }
 
         public object Deserialize(object obj, IReader reader, Stream stream)
@@ -39,10 +36,7 @@ namespace Pw.Serializer.Plans
             var values = Childs.Select(c => c.Deserialize(obj, reader, stream)).ToArray();
             var instance = Activator.CreateInstance(TupleType, values);
 
-            if (Accessor is IValueAssigner setter)
-            {
-                setter.Set(obj, instance);
-            }
+            if (Accessor is IValueAssigner setter) setter.Set(obj, instance);
 
             return instance;
         }

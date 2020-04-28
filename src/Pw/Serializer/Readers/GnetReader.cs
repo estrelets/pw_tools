@@ -11,9 +11,9 @@ namespace Pw.Serializer.Readers
     {
         public object Read(PrimitivePlanItem primitivePlanItem, Stream stream)
         {
-            bool needToReverse = primitivePlanItem.BigEndian
-                                 && primitivePlanItem.TypeCode != TypeCode.Byte
-                                 && primitivePlanItem.TypeCode != TypeCode.Single;
+            var needToReverse = primitivePlanItem.BigEndian
+                                && primitivePlanItem.TypeCode != TypeCode.Byte
+                                && primitivePlanItem.TypeCode != TypeCode.Single;
 
             if (!needToReverse)
                 return Shared.Read(primitivePlanItem, stream);

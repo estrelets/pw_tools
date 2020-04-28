@@ -17,17 +17,16 @@ namespace Pw.Serializer.Plans
                 return $"{CreateTab()}{compositePlan.Accessor} : {Environment.NewLine}" +
                        $"{String.Join(Environment.NewLine, childs)}";
             }
-            else if (planItem is StringPlanItem stringPlanItem && stringPlanItem.LengthPlan != null)
-            {
+
+            if (planItem is StringPlanItem stringPlanItem && stringPlanItem.LengthPlan != null)
                 return $"{CreateTab()}{stringPlanItem.LengthPlan}{Environment.NewLine}" +
                        $"{CreateTab()}{stringPlanItem}";
-            }
-            else
-            {
-                return $"{CreateTab()}{planItem}";
-            }
+            return $"{CreateTab()}{planItem}";
 
-            string CreateTab() => new string(' ', nesting * TabLength);
+            string CreateTab()
+            {
+                return new string(' ', nesting * TabLength);
+            }
         }
     }
 }

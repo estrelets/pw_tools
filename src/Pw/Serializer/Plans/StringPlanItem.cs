@@ -9,21 +9,15 @@ namespace Pw.Serializer.Plans
 {
     public class StringPlanItem : IPlanItem
     {
+        private static readonly Encoding ChinesEncoding;
+        private static readonly Encoding UnicodeEncoding;
+
         static StringPlanItem()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             ChinesEncoding = Encoding.GetEncoding("gb2312");
             UnicodeEncoding = Encoding.Unicode;
         }
-
-        private static Encoding ChinesEncoding;
-        private static Encoding UnicodeEncoding;
-
-        public int Length { get; }
-        public bool IsDynamic { get; }
-        public bool IsNameChar { get; }
-        public IValueAccessor Accessor { get; }
-        public IPlanItem LengthPlan { get; }
 
         public StringPlanItem(IValueAccessor accessor, bool isNameChar, int length)
         {
@@ -40,9 +34,15 @@ namespace Pw.Serializer.Plans
             LengthPlan = PlanBuilder.CreateReadLengthPlan();
         }
 
+        public int Length { get; }
+        public bool IsDynamic { get; }
+        public bool IsNameChar { get; }
+        public IPlanItem LengthPlan { get; }
+        public IValueAccessor Accessor { get; }
+
         public void Serialize(object obj, IWriter writer, Stream stream)
         {
-            var value = (string)Accessor.Get(obj);
+            var value = (string) Accessor.Get(obj);
             var length = Length;
 
             if (IsDynamic)
@@ -58,23 +58,24 @@ namespace Pw.Serializer.Plans
         {
             var length = Length;
 
-            if (IsDynamic)
-            {
-                length = (int)LengthPlan.Deserialize(null, reader, stream);
-            }
+            if (IsDynamic) length = (int) LengthPlan.Deserialize(null, reader, stream);
 
             var value = reader.Read(this, length, stream);
 
-            if (Accessor is IValueAssigner setter)
-            {
-                setter.Set(obj, value);
-            }
+            if (Accessor is IValueAssigner setter) setter.Set(obj, value);
 
             return value;
         }
 
-        public Encoding GetEncoding() => !IsNameChar ? ChinesEncoding : UnicodeEncoding;
-        public int CalculateBytesLength(int stringLength) => IsNameChar ? stringLength * 2 : stringLength;
+        public Encoding GetEncoding()
+        {
+            return !IsNameChar ? ChinesEncoding : UnicodeEncoding;
+        }
+
+        public int CalculateBytesLength(int stringLength)
+        {
+            return IsNameChar ? stringLength * 2 : stringLength;
+        }
 
         public override string ToString()
         {

@@ -14,8 +14,8 @@ namespace Pw.Serializer
             var dynamicSizeAttribute = propertyInfo.GetCustomAttribute<DynamicSizeAttribute>(false);
             var bigEndianAttribute = propertyInfo.GetCustomAttribute<BigEndianAttribute>(false)
                                      ?? propertyInfo.ReflectedType?.GetCustomAttribute<BigEndianAttribute>(false);
-            
-            
+
+
             Order = orderAttribute.Number;
             Size = sizeAttribute?.Size ?? default;
             IsDynamicSize = dynamicSizeAttribute != null;

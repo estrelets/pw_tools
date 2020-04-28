@@ -5,9 +5,9 @@ using Pw.Elements.v155;
 
 namespace Pw.ElementsYamlConverter
 {
-    class Program
+    internal class Program
     {
-        static int Main(string[] args)
+        private static int Main(string[] args)
         {
             return Parser.Default
                 .ParseArguments<YamlToElements, ElementsToYaml>(args)
@@ -15,7 +15,7 @@ namespace Pw.ElementsYamlConverter
                     (YamlToElements opts) => ExportElements(opts),
                     (ElementsToYaml opts) => ExportYaml(opts),
                     errs => 1
-                    );
+                );
         }
 
         private static int ExportYaml(IStartOption option)
@@ -54,6 +54,7 @@ namespace Pw.ElementsYamlConverter
             {
                 elements.Save(stream);
             }
+
             Console.WriteLine("ExportAll completed.");
 
             return 0;

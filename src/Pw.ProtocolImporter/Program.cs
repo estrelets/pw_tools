@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Xml;
+// ReSharper disable All
 
 namespace Pw.ProtocolImporter
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var cg = new CodeGenerator();
 
@@ -19,19 +19,11 @@ namespace Pw.ProtocolImporter
 
             void GenerateAllInDir(string dir, string outDir)
             {
-                foreach (var file in Directory.GetFiles(dir, "*.xml"))
-                {
-                    cg.Generate(file, outDir);
-                }
+                foreach (var file in Directory.GetFiles(dir, "*.xml")) cg.Generate(file, outDir);
             }
         }
 
-
         #region trash region
-
-
-
-
 
         //static void Main(string[] args)
         //{
@@ -40,7 +32,6 @@ namespace Pw.ProtocolImporter
         //    AnalyzeAllInDir(@"D:\pw\151Source\Service calls\rpcdata");
         //    //AnalyzeAllInDir(@"D:\pw\151Source\Service calls\rpc");
         //    //AnalyzeAllInDir(@"D:\pw\151Source\Service calls\protocol");
-
 
 
         //    Console.WriteLine("Protocol");
@@ -77,20 +68,22 @@ namespace Pw.ProtocolImporter
         //    }
         //}
 
-        private static Dictionary<string, List<string>> _variableAttributes = new Dictionary<string, List<string>>();
-        private static Dictionary<string, List<string>> _protocolAttributes = new Dictionary<string, List<string>>();
+        private static readonly Dictionary<string, List<string>> _variableAttributes =
+            new Dictionary<string, List<string>>();
 
-        static void Parse(XmlDocument xmlDoc)
+        private static readonly Dictionary<string, List<string>> _protocolAttributes =
+            new Dictionary<string, List<string>>();
+
+        private static void Parse(XmlDocument xmlDoc)
         {
             new MetadataParser().Parse(xmlDoc);
         }
 
-        static void Analyze(XmlDocument xmlDoc)
+        private static void Analyze(XmlDocument xmlDoc)
         {
             var root = xmlDoc.DocumentElement;
 
             GetUniqueAttrsForProtocol();
-
 
 
             foreach (XmlNode node in xmlDoc.DocumentElement.ChildNodes)
@@ -101,17 +94,21 @@ namespace Pw.ProtocolImporter
                 if (node.Name != "variable")
                     throw new NotImplementedException();
 
-                if (node is XmlElement element)
-                {
-                    GetUniqueAttrsForVariable(element);
-                }
+                if (node is XmlElement element) GetUniqueAttrsForVariable(element);
             }
 
-            void GetUniqueAttrsForProtocol() => GetUniqueAttributes(root.Attributes, _protocolAttributes);
-            void GetUniqueAttrsForVariable(XmlElement el) => GetUniqueAttributes(el.Attributes, _variableAttributes);
+            void GetUniqueAttrsForProtocol()
+            {
+                GetUniqueAttributes(root.Attributes, _protocolAttributes);
+            }
+
+            void GetUniqueAttrsForVariable(XmlElement el)
+            {
+                GetUniqueAttributes(el.Attributes, _variableAttributes);
+            }
         }
 
-        static void GetUniqueAttributes(XmlAttributeCollection attributes, Dictionary<string, List<string>> dic)
+        private static void GetUniqueAttributes(XmlAttributeCollection attributes, Dictionary<string, List<string>> dic)
         {
             foreach (XmlAttribute attr in attributes)
             {
@@ -127,4 +124,5 @@ namespace Pw.ProtocolImporter
         }
     }
 }
+
 #endregion

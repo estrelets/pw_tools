@@ -148,7 +148,7 @@ namespace Pw.ProtocolImporter.Tests
             var result = new TypeNameParsers().ParseType(genericTypeString) as GenericType;
             var intTimePair =
                 (GenericType)
-                    ((GenericType) ((GenericType) result?.Parameters[1])?.Parameters[0])?.Parameters[1];
+                ((GenericType) ((GenericType) result?.Parameters[1])?.Parameters[0])?.Parameters[1];
 
 
             Assert.IsNotNull(result);

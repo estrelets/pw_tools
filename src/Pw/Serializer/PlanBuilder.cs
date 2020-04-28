@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Pw.Serializer.Plans;
 using Pw.Serializer.ValueAccessors;
 
@@ -16,24 +16,14 @@ namespace Pw.Serializer
         private IPlanItem CreatePlan(PropertyDescriptor descriptor, IValueAccessor accessor)
         {
             if (PrimitivePlanItem.IsPrimitive(descriptor.PropertyType))
-            {
                 return CreatePrimitivePlan(descriptor, accessor);
-            }
 
-            if (StringPlanItem.IsString(descriptor.PropertyType))
-            {
-                return CreateStringPlan(descriptor, accessor);
-            }
+            if (StringPlanItem.IsString(descriptor.PropertyType)) return CreateStringPlan(descriptor, accessor);
 
             if (TuplePlanItem.IsTuple(descriptor.PropertyType))
-            {
                 return CreateTuplePlan(descriptor.PropertyType, accessor);
-            }
 
-            if (descriptor.IsArray)
-            {
-                return CreateArrayPlan(descriptor, accessor);
-            }
+            if (descriptor.IsArray) return CreateArrayPlan(descriptor, accessor);
 
             return CreateComplex(descriptor.PropertyType, accessor);
         }

@@ -7,7 +7,7 @@ namespace Pw.GdbTypeImporter.Tests
     [TestClass]
     public class ParserTests
     {
-        private string ResourceName = "Pw.GdbTypeImporter.Tests.TestData.GdbOutput1.txt";
+        private readonly string ResourceName = "Pw.GdbTypeImporter.Tests.TestData.GdbOutput1.txt";
 
         [TestMethod]
         public void TypeWithAnonymousStruct()

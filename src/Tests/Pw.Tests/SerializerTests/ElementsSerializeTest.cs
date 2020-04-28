@@ -60,7 +60,6 @@ namespace Pw.Tests.SerializerTests
         [TestMethod]
         public void SerializeSimpleType()
         {
-            var originalBytes = GetChunkFromSample(EquipmentAddonListOffset, EquipmentAddonLength);
             CompareOriginalAndSerializedBytes<EquipmentAddon>(EquipmentAddonListOffset, EquipmentAddonLength);
         }
 

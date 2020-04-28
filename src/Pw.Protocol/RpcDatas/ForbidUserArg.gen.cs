@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,17 +10,16 @@ namespace Pw.RpcDatas
     public class ForbidUserArg
     {
         //0 query, 1 forbid, 2 unforbid 
-        [Order(0)]
-        public char Operation { get; set; }
-        [Order(1)]
-        public int GmuserId { get; set; }
-        [Order(2)]
-        public int Source { get; set; }
-        [Order(3)]
-        public int UserId { get; set; }
-        [Order(4)]
-        public int Time { get; set; }
-        [Order(5)]
-        public byte[] Reason { get; set; }
+        [Order(0)] public char Operation { get; set; }
+
+        [Order(1)] public int GmuserId { get; set; }
+
+        [Order(2)] public int Source { get; set; }
+
+        [Order(3)] public int UserId { get; set; }
+
+        [Order(4)] public int Time { get; set; }
+
+        [Order(5)] public byte[] Reason { get; set; }
     }
 }

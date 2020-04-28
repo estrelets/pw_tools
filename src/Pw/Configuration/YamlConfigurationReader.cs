@@ -10,8 +10,8 @@ namespace Pw.Configuration
 {
     public class YamlConfigurationReader : IConfigurationReader
     {
-        private readonly Dictionary<string, IConfigurationSection> _sections;
         private readonly IDeserializer _deserializer;
+        private readonly Dictionary<string, IConfigurationSection> _sections;
 
         public YamlConfigurationReader(Stream source, Action<DeserializerBuilder> customize = default)
         {
@@ -23,16 +23,16 @@ namespace Pw.Configuration
             _sections = LoadSections(source);
         }
 
+        public TSection Read<TSection>(string name) where TSection : IConfigurationSection
+        {
+            return (TSection) _sections[name];
+        }
+
         public static YamlConfigurationReader FromFile(string configFilePath,
             Action<DeserializerBuilder> customize = default)
         {
             using var file = File.OpenRead(configFilePath);
             return new YamlConfigurationReader(file, customize);
-        }
-
-        public TSection Read<TSection>(string name) where TSection : IConfigurationSection
-        {
-            return (TSection)_sections[name];
         }
 
         private Dictionary<string, IConfigurationSection> LoadSections(Stream stream)
@@ -46,10 +46,7 @@ namespace Pw.Configuration
         public static void Save(IConfigurationSection[] sections, Stream stream)
         {
             var serializer = YamlSerialization.CreateSerializer(RegisterTags);
-            var config = new Config()
-            {
-                Sections = sections
-            };
+            var config = new Config {Sections = sections};
 
             using (var textWriter = new StreamWriter(stream, Encoding.UTF8, 1024, true))
             {
@@ -59,10 +56,7 @@ namespace Pw.Configuration
 
         private static void RegisterTags<T>(BuilderSkeleton<T> builder) where T : BuilderSkeleton<T>
         {
-            foreach (var (name, type) in FindAllTags())
-            {
-                builder.WithTagMapping("!" + name, type);
-            }
+            foreach (var (name, type) in FindAllTags()) builder.WithTagMapping("!" + name, type);
 
             builder.WithTagMapping("!Config", typeof(Config));
         }

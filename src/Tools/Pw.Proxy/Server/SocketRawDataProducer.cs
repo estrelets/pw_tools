@@ -19,7 +19,6 @@ namespace Pw.Proxy.Server
         public async Task Produce(PipeWriter writer, CancellationToken cancellationToken)
         {
             while (!cancellationToken.IsCancellationRequested)
-            {
                 try
                 {
                     var memory = writer.GetMemory(BufferSize);
@@ -33,7 +32,6 @@ namespace Pw.Proxy.Server
                     writer.Complete(ex);
                     throw;
                 }
-            }
         }
     }
 }

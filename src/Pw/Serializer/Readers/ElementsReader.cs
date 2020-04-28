@@ -9,7 +9,7 @@ namespace Pw.Serializer.Readers
         {
             return Shared.Read(primitivePlanItem, stream);
         }
-        
+
         public object Read(StringPlanItem plan, int length, Stream stream)
         {
             return Shared.Read(plan, length, stream);

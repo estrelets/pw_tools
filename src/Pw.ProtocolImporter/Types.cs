@@ -17,7 +17,7 @@ namespace Pw.ProtocolImporter
     {
         public GenericType(BaseType genericType, BaseType[] parameters)
         {
-            if(!parameters.Any())
+            if (!parameters.Any())
                 throw new NotSupportedException();
 
             Generic = genericType;

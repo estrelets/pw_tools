@@ -8,15 +8,15 @@ namespace Pw.Proxy.Server
 {
     public class Bridge
     {
-        private readonly Socket _sourceConnection;
-        private readonly Socket _targetConnection;
         private readonly IPacketHandler _packetHandler;
+        private readonly Socket _sourceConnection;
         private readonly PacketReceiver _sourceReceiver;
+        private readonly Socket _targetConnection;
         private readonly PacketReceiver _targetReceiver;
 
         private CancellationTokenSource _cancellationTokenSource;
 
-        public Bridge(Socket sourceConnection, Socket targetConnection, IPacketHandler packetHandler, PerformanceAnalyzer performanceAnalyzer)
+        public Bridge(Socket sourceConnection, Socket targetConnection, IPacketHandler packetHandler)
         {
             _packetHandler = packetHandler;
 
@@ -26,8 +26,10 @@ namespace Pw.Proxy.Server
             _sourceReceiver = CreateReceiver(sourceConnection);
             _targetReceiver = CreateReceiver(targetConnection);
 
-            PacketReceiver CreateReceiver(Socket s) =>
-                new PacketReceiver(new SocketRawDataProducer(s), new PacketReader(performanceAnalyzer));
+            PacketReceiver CreateReceiver(Socket s)
+            {
+                return new PacketReceiver(new SocketRawDataProducer(s), new PacketReader());
+            }
         }
 
         public Task Send(Direction direction, IEnumerable<Packet> packets)
@@ -46,8 +48,10 @@ namespace Pw.Proxy.Server
             Start(_sourceReceiver, Direction.Source);
             Start(_targetReceiver, Direction.Target);
 
-            Task Start(PacketReceiver reader, Direction direction)
-                => Task.Run(() => Receive(reader, direction, _cancellationTokenSource.Token));
+            void Start(PacketReceiver reader, Direction direction)
+            {
+                Task.Run(() => Receive(reader, direction, _cancellationTokenSource.Token));
+            }
         }
 
         public void Stop()

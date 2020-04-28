@@ -26,14 +26,15 @@ namespace Pw.ProtocolImporter
             {
                 return name;
             }
-            else
-            {
-                name = name.Substring(0, name.Length - postfix.Length);
-                name = ReplacePostfix(name);
-                return $"{name}_{postfix}";
-            }
 
-            string FindPostfix() => Words.FirstOrDefault(p => name.EndsWith(p, StringComparison.InvariantCultureIgnoreCase));
+            name = name.Substring(0, name.Length - postfix.Length);
+            name = ReplacePostfix(name);
+            return $"{name}_{postfix}";
+
+            string FindPostfix()
+            {
+                return Words.FirstOrDefault(p => name.EndsWith(p, StringComparison.InvariantCultureIgnoreCase));
+            }
         }
     }
 }

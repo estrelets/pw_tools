@@ -11,8 +11,8 @@ namespace Pw.Proxy.Tests
     [TestClass]
     public class PacketReceiverTest
     {
-        private PacketReader _reader;
         private TestDataProducer _producer;
+        private PacketReader _reader;
         private PacketReceiver _receiver;
 
         [TestInitialize]
@@ -27,14 +27,14 @@ namespace Pw.Proxy.Tests
         public async Task ShouldReadPacket()
         {
             var opCode = 1;
-            var payload = new byte[] { 1, 2 };
+            var payload = new byte[] {1, 2};
             var cts = new CancellationTokenSource();
-            
+
             _receiver.StartReceive(cts.Token);
             await _producer.Write(CompactUIntSerializer.GetBytes(opCode));
             await _producer.Write(CompactUIntSerializer.GetBytes(payload.Length));
             await _producer.Write(payload);
-            
+
             await foreach (var packet in _receiver.ReadPackets(cts.Token))
             {
                 packet.Should().NotBeNull();
@@ -49,12 +49,14 @@ namespace Pw.Proxy.Tests
         public async Task BadSocketConnection()
         {
             var opCode = 1;
-            var payload = new byte[] { 1, 2 };
+            var payload = new byte[] {1, 2};
             var cts = new CancellationTokenSource();
-            
+
             _receiver.StartReceive(cts.Token);
+#pragma warning disable 4014
             Task.Run(() => BadConnectionSimulation());
-            
+#pragma warning restore 4014
+
             await foreach (var packet in _receiver.ReadPackets(cts.Token))
             {
                 packet.Should().NotBeNull();
@@ -78,15 +80,15 @@ namespace Pw.Proxy.Tests
         {
             private PipeWriter _writer;
 
-            public async Task Write(byte[] buffer)
-            {
-                await _writer.WriteAsync(new ReadOnlyMemory<byte>(buffer));
-            }
-
             public Task Produce(PipeWriter writer, CancellationToken cancellationToken)
             {
                 _writer = writer;
                 return Task.FromResult(0);
+            }
+
+            public async Task Write(byte[] buffer)
+            {
+                await _writer.WriteAsync(new ReadOnlyMemory<byte>(buffer));
             }
         }
     }

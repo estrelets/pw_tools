@@ -13,17 +13,15 @@ namespace Pw.Configuration
     {
         public bool IsAdapterForIndividualComponents => false;
 
-        public IEnumerable<IComponentRegistration> RegistrationsFor(Service service, Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
+        public IEnumerable<IComponentRegistration> RegistrationsFor(Service service,
+            Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
         {
             var serviceWithType = service as IServiceWithType;
             if (serviceWithType == null)
                 return Empty();
 
             var isConfigSectionType = typeof(IConfigurationSection).IsAssignableFrom(serviceWithType.ServiceType);
-            if (!isConfigSectionType)
-            {
-                return Empty();
-            }
+            if (!isConfigSectionType) return Empty();
 
 
             var registration = new ComponentRegistration(
@@ -38,17 +36,20 @@ namespace Pw.Configuration
                         .GetMethod(nameof(IConfigurationReader.Read))
                         .MakeGenericMethod(sectionType);
 
-                    return method.Invoke(configReader, new[] { sectionType.Name });
+                    return method.Invoke(configReader, new object[] {sectionType.Name});
                 }),
                 new CurrentScopeLifetime(),
                 InstanceSharing.None,
                 InstanceOwnership.OwnedByLifetimeScope,
-                new[] { service },
+                new[] {service},
                 new Dictionary<string, object>());
 
-            return new IComponentRegistration[] { registration };
+            return new IComponentRegistration[] {registration};
 
-            IEnumerable<IComponentRegistration> Empty() => Enumerable.Empty<IComponentRegistration>();
+            IEnumerable<IComponentRegistration> Empty()
+            {
+                return Enumerable.Empty<IComponentRegistration>();
+            }
         }
     }
 }

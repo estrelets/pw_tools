@@ -5,7 +5,9 @@ namespace Pw.GdbTypeImporter
 {
     public class TypesCollector
     {
-        public IReadOnlyCollection<IGdbType> Types => _types.AsReadOnly();
+        private readonly List<IGdbType> _types;
+
+        private int _anonymousClassCounter;
 
         public TypesCollector()
         {
@@ -13,8 +15,7 @@ namespace Pw.GdbTypeImporter
             _types = new List<IGdbType>(CreatePrimitiveTypes());
         }
 
-        private int _anonymousClassCounter;
-        private readonly List<IGdbType> _types;
+        public IReadOnlyCollection<IGdbType> Types => _types.AsReadOnly();
 
         public IGdbType GetOrAdd(string name)
         {
@@ -23,7 +24,7 @@ namespace Pw.GdbTypeImporter
             if (existingItem != null)
                 return existingItem;
 
-            var type = new GdbClass() { Name = name };
+            var type = new GdbClass {Name = name};
             _types.Add(type);
 
             return type;
@@ -32,9 +33,9 @@ namespace Pw.GdbTypeImporter
         public string GetAnonymousTypeName(AnonymousClass anonymousClass)
         {
             var existingItem = _types
-              .Where(t => t is AnonymousClass)
-              .Cast<AnonymousClass>()
-              .FirstOrDefault(t => t.EqualsByProperties(anonymousClass));
+                .Where(t => t is AnonymousClass)
+                .Cast<AnonymousClass>()
+                .FirstOrDefault(t => t.EqualsByProperties(anonymousClass));
 
             if (existingItem != null)
                 return existingItem.Name;
@@ -46,9 +47,11 @@ namespace Pw.GdbTypeImporter
         }
 
 
-        private IGdbType[] CreatePrimitiveTypes()
+        private PrimitiveType[] CreatePrimitiveTypes()
         {
-            return CppTerms.DefaultTypes.Select(type => new PrimitiveType() { Name = type }).ToArray();
+            return CppTerms.DefaultTypes
+                .Select(type => new PrimitiveType {Name = type})
+                .ToArray();
         }
     }
 }

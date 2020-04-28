@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -12,13 +9,12 @@ namespace Pw.RpcDatas
     [GeneratedCode("Pw.ProtocolImporter", "1")]
     public class DBAuctionTimeoutRes
     {
-        [Order(0)]
-        public byte RetCode { get; set; }
-        [Order(1)]
-        public uint AuctionId { get; set; }
-        [Order(2)]
-        public GMailHeader InformSeller { get; set; }
-        [Order(3)]
-        public GMailHeader InformBidder { get; set; }
+        [Order(0)] public byte RetCode { get; set; }
+
+        [Order(1)] public uint AuctionId { get; set; }
+
+        [Order(2)] public GMailHeader InformSeller { get; set; }
+
+        [Order(3)] public GMailHeader InformBidder { get; set; }
     }
 }

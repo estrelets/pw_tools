@@ -4,14 +4,17 @@ namespace Pw.Serializer.ValueAccessors
 {
     public class TupleValueAccessor : IValueAccessor
     {
-        public FieldInfo FieldInfo { get; }
-
         public TupleValueAccessor(FieldInfo fieldInfo)
         {
             FieldInfo = fieldInfo;
         }
 
-        public object Get(object obj) => FieldInfo.GetValue(obj);
+        public FieldInfo FieldInfo { get; }
+
+        public object Get(object obj)
+        {
+            return FieldInfo.GetValue(obj);
+        }
 
         public override string ToString()
         {

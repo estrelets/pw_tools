@@ -1,12 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using Pw.Conventions;
 using Pw.Serializer;
-using YamlDotNet.Core;
-using YamlDotNet.Serialization;
 
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable CollectionNeverQueried.Global
@@ -511,7 +506,7 @@ namespace Pw.Elements.v155
 
             T[] ReadList<T>() where T : IElementsType
             {
-                int count = reader.ReadInt32();
+                var count = reader.ReadInt32();
 
                 var list = Enumerable
                     .Range(0, count)
@@ -773,10 +768,7 @@ namespace Pw.Elements.v155
             {
                 writer.Write(list.Length);
 
-                foreach (var item in list)
-                {
-                    serilizer.Serialize(item, writer.BaseStream);
-                }
+                foreach (var item in list) serilizer.Serialize(item, writer.BaseStream);
             }
         }
     }

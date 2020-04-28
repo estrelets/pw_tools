@@ -21,7 +21,7 @@ namespace Pw.Serializer
             plan.Serialize(obj, Writer, stream);
         }
 
-        public virtual  TObject DeSerialize<TObject>(Stream stream)
+        public virtual TObject DeSerialize<TObject>(Stream stream)
         {
             var plan = PlansCache.Instance.GetPlan<TObject>();
             return (TObject) plan.Deserialize(null, Reader, stream);

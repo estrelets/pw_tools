@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO.Pipelines;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,9 +9,9 @@ namespace Pw.Proxy.Server
 {
     public class PacketReceiver
     {
-        private readonly IRawDataProducer _rawDataProducer;
         private readonly IPacketReader _packetReader;
         private readonly Pipe _pipe;
+        private readonly IRawDataProducer _rawDataProducer;
 
         private readonly CancellationTokenSource _readCancellationTokenSource;
         private readonly CancellationTokenSource _writeCancellationTokenSource;
@@ -38,16 +39,16 @@ namespace Pw.Proxy.Server
             _writeCancellationTokenSource.Cancel(ex != null);
         }
 
-        public async IAsyncEnumerable<Packet> ReadPackets(CancellationToken cancellationToken)
+        public async IAsyncEnumerable<Packet> ReadPackets([EnumeratorCancellation] CancellationToken cancellationToken)
         {
-            
-            var combinedToken = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, _readCancellationTokenSource.Token).Token;
+            var combinedToken = CancellationTokenSource
+                .CreateLinkedTokenSource(cancellationToken, _readCancellationTokenSource.Token).Token;
 
             while (!combinedToken.IsCancellationRequested)
             {
                 var packet = await _packetReader.Read(_pipe.Reader, combinedToken);
 
-                if(packet == null)
+                if (packet == null)
                     break;
 
                 yield return packet;
@@ -56,7 +57,8 @@ namespace Pw.Proxy.Server
 
         public void StartReceive(CancellationToken cancellationToken)
         {
-            var combinedToken = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, _writeCancellationTokenSource.Token).Token;
+            var combinedToken = CancellationTokenSource
+                .CreateLinkedTokenSource(cancellationToken, _writeCancellationTokenSource.Token).Token;
             Task.Run(() => _rawDataProducer.Produce(_pipe.Writer, combinedToken), combinedToken);
         }
     }

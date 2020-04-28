@@ -6,17 +6,22 @@ using Pw.Proxy.Server;
 
 namespace Pw.Proxy.Handlers
 {
-    public class PacketsPrintHandler: IPacketHandler, IDisposable
+    public class PacketsPrintHandler : IPacketHandler, IDisposable
     {
-        private readonly Timer _savePackets;
         private readonly ConcurrentQueue<Packet> _packetsQueue;
+        private readonly Timer _savePackets;
 
         public PacketsPrintHandler()
         {
             _packetsQueue = new ConcurrentQueue<Packet>();
             _savePackets = new Timer(_ => PrintPackets(), null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
         }
-        
+
+        public void Dispose()
+        {
+            _savePackets?.Dispose();
+        }
+
         public void Handle(Packet packet, Bridge bridge)
         {
             _packetsQueue.Enqueue(packet);
@@ -26,14 +31,11 @@ namespace Pw.Proxy.Handlers
         {
             var output = new StringBuilder();
 
-            while (_packetsQueue.TryDequeue(out var packet))
-            {
-                Write(packet);
-            }
-            
-            if(output.Length == 0)
+            while (_packetsQueue.TryDequeue(out var packet)) Write(packet);
+
+            if (output.Length == 0)
                 return;
-            
+
             Console.WriteLine(output);
 
             void Write(Packet p)
@@ -41,11 +43,6 @@ namespace Pw.Proxy.Handlers
                 output.AppendLine($"{p.OpCode} {p.Direction}:");
                 output.AppendLine(BitConverter.ToString(p.Data).Replace('-', ' '));
             }
-        }
-
-        public void Dispose()
-        {
-            _savePackets?.Dispose();
         }
     }
 }

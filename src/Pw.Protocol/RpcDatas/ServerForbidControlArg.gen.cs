@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using Pw.Serializer;
-using Pw.Protocols;
 
 //ReSharper disable InconsistentNaming
 //ReSharper disable IdentifierTypo
@@ -13,9 +10,8 @@ namespace Pw.RpcDatas
     public class ServerForbidControlArg
     {
         // 0 ²éÑ¯ 1 ÉèÖÃ
-        [Order(0)]
-        public char Oper { get; set; }
-        [Order(1)]
-        public byte[] Param { get; set; }
+        [Order(0)] public char Oper { get; set; }
+
+        [Order(1)] public byte[] Param { get; set; }
     }
 }

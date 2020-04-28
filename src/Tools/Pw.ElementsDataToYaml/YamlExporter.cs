@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Pw.Elements;
+using ElementsData = Pw.Elements.v155.ElementsData;
 
 namespace Pw.ElementsYamlConverter
 {
@@ -10,7 +11,7 @@ namespace Pw.ElementsYamlConverter
         private readonly ThreadLocal<YamlSerializer> _serializer =
             new ThreadLocal<YamlSerializer>(() => new YamlSerializer());
 
-        public void ExportAll(Pw.Elements.v155.ElementsData data, string outputBin)
+        public void ExportAll(ElementsData data, string outputBin)
         {
             Parallel.ForEach(data.Lists, list =>
             {

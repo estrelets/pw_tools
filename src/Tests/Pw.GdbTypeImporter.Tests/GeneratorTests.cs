@@ -6,7 +6,7 @@ namespace Pw.GdbTypeImporter.Tests
     [TestClass]
     public class GeneratorTests
     {
-        private string ResourceName = "Pw.GdbTypeImporter.Tests.TestData.GdbOutput1.txt";
+        private readonly string ResourceName = "Pw.GdbTypeImporter.Tests.TestData.GdbOutput1.txt";
 
         [TestMethod]
         public void TypeWithAnonymousStruct()
@@ -16,7 +16,7 @@ namespace Pw.GdbTypeImporter.Tests
             parser.Parse();
             var generator = new CodeGenerator("Pw.Elements", parser.TypesCollector);
 
-            var output = generator.Generate();
+            generator.Generate();
         }
     }
 }
