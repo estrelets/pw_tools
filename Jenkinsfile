@@ -4,8 +4,8 @@ pipeline {
     stage('Build') {
       steps {
         sh '''cd src
-dotnet restore
-dotnetn build'''
+dotnet-sdk.dotnet restore
+dotnet-sdk.dotnet build'''
       }
     }
 
